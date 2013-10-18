@@ -51,6 +51,13 @@
 (setq-default user-full-name "Zak B. Elep"
               user-mail-address "zakame@zakame.net")
 
+;; Set my default colors
+(setq default-frame-alist
+      '((background-color . "Black")
+        (foreground-color . "Grey")
+        (cursor-color . "Green")
+        (user-position t)))
+
 (setq enable-local-eval t)              ; Tell Emacs to obey variables
                                         ; set by the files it reads
 (display-time)                          ; Display the time on modeline
@@ -60,6 +67,7 @@
 (set-language-environment "UTF-8")      ; Set my default language
                                         ; environment
 (scroll-bar-mode -1)                    ; Remove the tool bar ...
+(menu-bar-mode -1)                      ; ... menu bar ...
 (tool-bar-mode -1)                      ; ... and the scroll bar in X
 (icomplete-mode 1)                      ; Enable IComplete mode
 (iswitchb-mode 1)                       ; Enable ISwitchB mode
