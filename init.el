@@ -3,11 +3,11 @@
 
 ;;;_* Package description
 
-;; Author	:	Zak B. Elep ( zakame@zakame.net )
-;; Date Created	:	Thu Sep 29 12:29:42 UTC 2005
-;; Purpose	:	Set my personal customizations for the One True Editor.
-;; Keywords	:	environment, customization
-;; License	:	GNU General Public License (GPL), version 2
+;; Author       :       Zak B. Elep ( zakame@zakame.net )
+;; Date Created :       Thu Sep 29 12:29:42 UTC 2005
+;; Purpose      :       Set my personal customizations for the One True Editor.
+;; Keywords     :       environment, customization
+;; License      :       GNU General Public License (GPL), version 2
 
 ;; This file is NOT part of GNU Emacs.
 
