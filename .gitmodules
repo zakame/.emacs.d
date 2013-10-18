@@ -2,3 +2,7 @@
 	path = pde
 	url = git@github.com:zakame/emacs-pde.git
 	branch = perltidyrc_closest
+[submodule "magit"]
+	path = magit
+	url = git@github.com:magit/magit.git
+	branch = maint
