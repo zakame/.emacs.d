@@ -295,7 +295,7 @@
 (setq warning-minimum-level :error)
 
 ;; Emacs Code Browser
-(add-to-list 'load-path "~/src/ecb")
+(add-to-list 'load-path "~/.emacs.d/ecb")
 (require 'ecb)
 
 
