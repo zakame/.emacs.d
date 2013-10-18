@@ -1,4 +1,4 @@
-;;; zakame.emacs --- My Emacs customizations
+;;; init.el --- My Emacs customizations
 ;; Copyright (C) 2005-2013  Zak B. Elep
 
 ;;;_* Package description
@@ -28,20 +28,20 @@
 
 ;;;_* Commentary
 
-;; `zakame.emacs' contains the special customizations made by Zak
-;; B. Elep ( zakame@zakame.net ) for his own use.  It includes certain
-;; customizations for the X interface, font-locking, outlining support,
-;; printing, and programming conveniences.  It also starts the `gnuserv'
-;; or `server' Emacs editing server if it is available.
+;; `init.el' (formerly `zakame.emacs') contains the special
+;; customizations made by Zak B. Elep ( zakame@zakame.net ) for his own
+;; use.  It includes certain customizations for the X interface,
+;; font-locking, outlining support, printing, and programming
+;; conveniences.  It also starts the `gnuserv' or `server' Emacs editing
+;; server if it is available.
 ;;
 ;; This new version is tailored to be more portable (e.g. being able to
 ;; run on a Mac OS X, Debian, and OpenBSD.)
 
 ;;;_ + Usage
 
-;; Rename this file as .emacs , and put it inside your home directory.
-;; Emacs will then run it at startup by default, unless Emacs is invoked
-;; as `emacs -q'.
+;; Put this file inside your `user-emacs-directory'.  Emacs will then
+;; run it at startup by default, unless Emacs is invoked as `emacs -q'.
 
 ;;;_* Code
 
