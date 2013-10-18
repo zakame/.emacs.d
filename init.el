@@ -178,6 +178,11 @@
 (setq-default save-place t
               save-place-file (expand-file-name ".places" user-emacs-directory))
 
+;; Auto refresh buffers and dired, and be quiet about it
+(global-auto-revert-mode 1)
+(setq global-auto-revert-non-file-buffers t
+      auto-revert-verbose nil)
+
 
 ;;;_ + Programming
 
