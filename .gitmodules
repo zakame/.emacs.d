@@ -1,0 +1,4 @@
+[submodule "pde"]
+	path = pde
+	url = git@github.com:zakame/emacs-pde.git
+	branch = perltidyrc_closest
