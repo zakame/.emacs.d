@@ -15,3 +15,6 @@
 [submodule "ecb"]
 	path = ecb
 	url = git@github.com:alexott/ecb.git
+[submodule "markdown-mode"]
+	path = markdown-mode
+	url = git://jblevins.org/git/markdown-mode.git
