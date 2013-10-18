@@ -6,3 +6,6 @@
 	path = magit
 	url = git@github.com:magit/magit.git
 	branch = maint
+[submodule "nxhtml"]
+	path = nxhtml
+	url = git@github.com:emacsmirror/nxhtml.git
