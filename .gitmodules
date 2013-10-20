@@ -1,20 +1,20 @@
-[submodule "pde"]
-	path = pde
+[submodule "site-lisp/pde"]
+	path = site-lisp/pde
 	url = git@github.com:zakame/emacs-pde.git
 	branch = perltidyrc_closest
-[submodule "magit"]
-	path = magit
+[submodule "site-lisp/magit"]
+	path = site-lisp/magit
 	url = git@github.com:magit/magit.git
 	branch = maint
-[submodule "nxhtml"]
-	path = nxhtml
+[submodule "site-lisp/nxhtml"]
+	path = site-lisp/nxhtml
 	url = git@github.com:emacsmirror/nxhtml.git
-[submodule "html5-el"]
-	path = html5-el
+[submodule "site-lisp/html5-el"]
+	path = site-lisp/html5-el
 	url = git@github.com:zakame/html5-el.git
-[submodule "ecb"]
-	path = ecb
+[submodule "site-lisp/ecb"]
+	path = site-lisp/ecb
 	url = git@github.com:alexott/ecb.git
-[submodule "markdown-mode"]
-	path = markdown-mode
+[submodule "site-lisp/markdown-mode"]
+	path = site-lisp/markdown-mode
 	url = git://jblevins.org/git/markdown-mode.git

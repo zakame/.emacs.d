@@ -168,7 +168,7 @@
    (message "Could not load boxquote: %s" (cdr err))))
 
 ;; Use Markdown Mode
-(add-to-list 'load-path "~/.emacs.d/markdown-mode")
+(add-to-list 'load-path "~/.emacs.d/site-lisp/markdown-mode")
 (autoload 'markdown-mode "markdown-mode"
   "Major mode for editing Markdown files" t)
 (add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
@@ -234,7 +234,7 @@
                     (add-to-list 'exec-path perlbin)))))))))
 
 ;; Use Emacs::PDE for editing Perl
-(add-to-list 'load-path "~/.emacs.d/pde/lisp")
+(add-to-list 'load-path "~/.emacs.d/site-lisp/pde/lisp")
 (load "pde-load")
 
 ;; Associate PSGI files to Perl modes
@@ -287,8 +287,8 @@
    (message "Could not load git: %s" (cdr err))))
 
 ;; Magit
-(add-to-list 'load-path "~/.emacs.d/magit")
-(add-to-list 'load-path "~/.emacs.d/magit/contrib")
+(add-to-list 'load-path "~/.emacs.d/site-lisp/magit")
+(add-to-list 'load-path "~/.emacs.d/site-lisp/magit/contrib")
 (require 'magit)
 
 ; full screen magit
@@ -304,12 +304,13 @@
 (define-key magit-status-mode-map (kbd "q") 'magit-quit-session)
 
 ;; nXhtml
-(load "~/.emacs.d/nxhtml/autostart.el")
+(load "~/.emacs.d/site-lisp/nxhtml/autostart.el")
 
 ;; HTML5 support for nxml-mode
-(add-to-list 'load-path "~/.emacs.d/html5-el")
+(add-to-list 'load-path "~/.emacs.d/site-lisp/html5-el")
 (eval-after-load "rng-loc"
-  '(add-to-list 'rng-schema-locating-files "~/.emacs.d/html5-el/schemas.xml"))
+  '(add-to-list 'rng-schema-locating-files
+                "~/.emacs.d/site-lisp/html5-el/schemas.xml"))
 (require 'whattf-dt)
 
 ;; Add some modes for Template Toolkit support
@@ -320,7 +321,7 @@
 (setq warning-minimum-level :error)
 
 ;; Emacs Code Browser
-(add-to-list 'load-path "~/.emacs.d/ecb")
+(add-to-list 'load-path "~/.emacs.d/site-lisp/ecb")
 (require 'ecb)
 
 
