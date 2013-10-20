@@ -176,7 +176,8 @@
 ;; Save point position between editing sessions
 (require 'saveplace)
 (setq-default save-place t
-              save-place-file (expand-file-name ".places" user-emacs-directory))
+              save-place-file (expand-file-name ".places" 
+                                                user-emacs-directory))
 
 ;; Auto refresh buffers and dired, and be quiet about it
 (global-auto-revert-mode 1)
@@ -229,7 +230,8 @@
                    (key (buffer-substring 8 (decf idx))))
               (if (string-match "PERLBREW_PATH" key)
                   (dolist (perlbin (parse-colon-path val))
-                    (setq perlbin (substring perlbin 0 -1)) ; remove trailing /
+                    ; remove trailing /
+                    (setq perlbin (substring perlbin 0 -1))
                     (setenv "PATH" (concat perlbin ":" (getenv "PATH")))
                     (add-to-list 'exec-path perlbin)))))))))
 
