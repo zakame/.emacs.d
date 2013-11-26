@@ -172,6 +172,7 @@
 (autoload 'markdown-mode "markdown-mode"
   "Major mode for editing Markdown files" t)
 (add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
+(setq markdown-command "Markdown.pl")
 
 ;; Save point position between editing sessions
 (require 'saveplace)
