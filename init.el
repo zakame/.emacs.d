@@ -185,6 +185,11 @@
 (setq global-auto-revert-non-file-buffers t
       auto-revert-verbose nil)
 
+;; Powerline
+(add-to-list 'load-path "~/.emacs.d/site-lisp/powerline")
+(require 'powerline)
+(powerline-default-theme)
+
 
 ;;;_ + Programming
 
