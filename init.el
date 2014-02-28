@@ -190,6 +190,10 @@
 (require 'powerline)
 (powerline-default-theme)
 
+;; Helm
+(add-to-list 'load-path "~/.emacs.d/site-lisp/helm")
+(require 'helm-config)
+
 
 ;;;_ + Programming
 

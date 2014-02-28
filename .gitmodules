@@ -21,3 +21,6 @@
 [submodule "site-lisp/powerline"]
 	path = site-lisp/powerline
 	url = git@github.com:milkypostman/powerline.git
+[submodule "site-lisp/helm"]
+	path = site-lisp/helm
+	url = git@github.com:emacs-helm/helm.git
