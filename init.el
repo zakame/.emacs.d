@@ -315,22 +315,11 @@
   (jump-to-register :magit-fullscreen))
 (define-key magit-status-mode-map (kbd "q") 'magit-quit-session)
 
-;; nXhtml
-(load "~/.emacs.d/site-lisp/nxhtml/autostart.el")
-
-;; HTML5 support for nxml-mode
-(add-to-list 'load-path "~/.emacs.d/site-lisp/html5-el")
-(eval-after-load "rng-loc"
-  '(add-to-list 'rng-schema-locating-files
-                "~/.emacs.d/site-lisp/html5-el/schemas.xml"))
-(require 'whattf-dt)
-
-;; Add some modes for Template Toolkit support
-(require 'mumamo-fun)
-(setq auto-mode-alist (append '(("\\.tt$" . tt-html-mumamo)) auto-mode-alist))
-
-;; Less warnings for nxhtml
-(setq warning-minimum-level :error)
+;; web-mode
+(add-to-list 'load-path "~/.emacs.d/site-lisp/web-mode")
+(require 'web-mode)
+(add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.tt\\'" . web-mode))
 
 ;; Emacs Code Browser
 (add-to-list 'load-path "~/.emacs.d/site-lisp/ecb")
