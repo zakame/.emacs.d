@@ -27,3 +27,6 @@
 [submodule "site-lisp/web-mode"]
 	path = site-lisp/web-mode
 	url = git@github.com:fxbois/web-mode.git
+[submodule "site-lisp/js2-mode"]
+	path = site-lisp/js2-mode
+	url = git@github.com:mooz/js2-mode

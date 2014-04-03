@@ -325,6 +325,10 @@
 (add-to-list 'load-path "~/.emacs.d/site-lisp/ecb")
 (require 'ecb)
 
+;; JavaScript (js2-mode)
+(add-to-list 'load-path "~/.emacs.d/site-lisp/js2-mode")
+(add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
+
 
 ;;;_* Local emacs vars
 
