@@ -324,6 +324,11 @@
 (setq web-mode-engines-alist
       '(("mojolicious" . "\\.html\\.ep\\'")))
 
+;; kolon-mode
+(add-to-list 'load-path "~/.emacs.d/site-lisp/kolon-mode")
+(require 'kolon-mode)
+(add-to-list 'auto-mode-alist '("\\.tx\\'" . kolon-mode))
+
 ;; Emacs Code Browser
 (add-to-list 'load-path "~/.emacs.d/site-lisp/ecb")
 (require 'ecb)
