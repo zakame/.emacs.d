@@ -30,3 +30,6 @@
 [submodule "site-lisp/js2-mode"]
 	path = site-lisp/js2-mode
 	url = git@github.com:mooz/js2-mode
+[submodule "site-lisp/kolon-mode"]
+	path = site-lisp/kolon-mode
+	url = git@github.com:samvtran/kolon-mode
