@@ -343,6 +343,9 @@
 (require 'js2-mode)
 (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
 
+;; show current function/sub in mode-line
+(which-function-mode)
+
 
 ;;;_* Local emacs vars
 
