@@ -33,3 +33,6 @@
 [submodule "site-lisp/kolon-mode"]
 	path = site-lisp/kolon-mode
 	url = https://github.com/samvtran/kolon-mode
+[submodule "site-lisp/org-mode"]
+	path = site-lisp/org-mode
+	url = git://orgmode.org/org-mode.git

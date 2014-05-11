@@ -347,6 +347,15 @@
 ;; show current function/sub in mode-line
 (which-function-mode)
 
+;;;_ + Org-Mode
+(add-to-list 'load-path "~/.emacs.d/site-lisp/org-mode/lisp")
+(add-to-list 'auto-mode-alist
+             '("\\.\\(org\\|org_archive\\|txt\\)$" . org-mode))
+(require 'org)
+(global-set-key "\C-cl" 'org-store-link)
+(global-set-key "\C-ca" 'org-agenda)
+(global-set-key "\C-cb" 'org-iswitchb)
+
 
 ;;;_* Local emacs vars
 
