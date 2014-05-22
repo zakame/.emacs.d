@@ -199,6 +199,12 @@
 (add-to-list 'load-path "~/.emacs.d/site-lisp/helm")
 (require 'helm-config)
 
+;; Disable automatic scrolling
+(setq-default scroll-margin 1
+              scroll-conservatively 0
+              scroll-up-aggressively 0.01
+              scroll-down-aggressively 0.01)
+
 
 ;;;_ + Programming
 
