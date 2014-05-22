@@ -36,3 +36,6 @@
 [submodule "site-lisp/org-mode"]
 	path = site-lisp/org-mode
 	url = git://orgmode.org/org-mode.git
+[submodule "site-lisp/sublimity"]
+	path = site-lisp/sublimity
+	url = https://github.com/zk-phi/sublimity

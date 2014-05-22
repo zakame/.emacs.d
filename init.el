@@ -205,6 +205,14 @@
               scroll-up-aggressively 0.01
               scroll-down-aggressively 0.01)
 
+;; Sublimity
+(add-to-list 'load-path "~/.emacs.d/site-lisp/sublimity")
+(require 'sublimity)
+(require 'sublimity-scroll)
+;; (require 'sublimity-map)
+;; (require 'sublimity-attractive)
+(sublimity-mode 1)
+
 
 ;;;_ + Programming
 
