@@ -45,3 +45,6 @@
 [submodule "site-lisp/skewer-mode"]
 	path = site-lisp/skewer-mode
 	url = https://github.com/skeeto/skewer-mode.git
+[submodule "site-lisp/yaml-mode"]
+	path = site-lisp/yaml-mode
+	url = https://github.com/yoshiki/yaml-mode

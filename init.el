@@ -371,6 +371,11 @@
       browse-url-generic-program "google-chrome-stable"
       browse-url-generic-args '("--incognito " "chrome://newtab"))
 
+;; yaml-mode
+(add-to-list 'load-path "~/.emacs.d/site-lisp/yaml-mode")
+(require 'yaml-mode)
+(add-to-list 'auto-mode-alist '("\\.yml$" . yaml-mode))
+
 ;; show current function/sub in mode-line
 (which-function-mode)
 
