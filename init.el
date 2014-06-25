@@ -358,6 +358,19 @@
 (require 'js2-mode)
 (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
 
+;; skewer-mode
+(add-to-list 'load-path "~/.emacs.d/site-lisp/emacs-web-server")
+(add-to-list 'load-path "~/.emacs.d/site-lisp/skewer-mode")
+(require 'skewer-mode)
+(add-hook 'js2-mode-hook 'skewer-mode)
+(add-hook 'css-mode-hook 'skewer-css-mode)
+(add-hook 'html-mode-hook 'skewer-html-mode)
+
+;; use Google Chrome in incognito mode as our default browser
+(setq browse-url-browser-function 'browse-url-generic
+      browse-url-generic-program "google-chrome-stable"
+      browse-url-generic-args '("--incognito " "chrome://newtab"))
+
 ;; show current function/sub in mode-line
 (which-function-mode)
 

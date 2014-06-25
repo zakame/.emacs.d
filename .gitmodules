@@ -39,3 +39,9 @@
 [submodule "site-lisp/sublimity"]
 	path = site-lisp/sublimity
 	url = https://github.com/zk-phi/sublimity
+[submodule "site-lisp/emacs-web-server"]
+	path = site-lisp/emacs-web-server
+	url = https://github.com/skeeto/emacs-web-server.git
+[submodule "site-lisp/skewer-mode"]
+	path = site-lisp/skewer-mode
+	url = https://github.com/skeeto/skewer-mode.git
