@@ -5,4 +5,4 @@ elpa
 tramp
 *~
 *.elc
-
+.mc-*
