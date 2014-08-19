@@ -221,6 +221,11 @@
 (global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
 (global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
 
+;; Hungry delete
+(add-to-list 'load-path "~/.emacs.d/site-lisp/hungry-delete")
+(require 'hungry-delete)
+(global-hungry-delete-mode)
+
 
 ;;;_ + Programming
 

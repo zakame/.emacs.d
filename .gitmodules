@@ -51,3 +51,6 @@
 [submodule "site-lisp/multiple-cursors"]
 	path = site-lisp/multiple-cursors
 	url = https://github.com/magnars/multiple-cursors.el
+[submodule "site-lisp/hungry-delete"]
+	path = site-lisp/hungry-delete
+	url = https://github.com/nflath/hungry-delete.git
