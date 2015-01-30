@@ -392,6 +392,11 @@
 ;; show current function/sub in mode-line
 (which-function-mode)
 
+;; Go Mode
+(add-to-list 'load-path "~/.emacs.d/site-lisp/go-mode")
+(require 'go-mode-autoloads)
+
+
 ;;;_ + Org-Mode
 (add-to-list 'load-path "~/.emacs.d/site-lisp/org-mode/lisp")
 (add-to-list 'auto-mode-alist

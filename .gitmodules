@@ -54,3 +54,6 @@
 [submodule "site-lisp/hungry-delete"]
 	path = site-lisp/hungry-delete
 	url = https://github.com/nflath/hungry-delete.git
+[submodule "site-lisp/go-mode"]
+	path = site-lisp/go-mode
+	url = https://github.com/dominikh/go-mode.el.git
