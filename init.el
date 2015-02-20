@@ -195,6 +195,11 @@
 (require 'powerline)
 (powerline-default-theme)
 
+;; Async
+(add-to-list 'load-path "~/.emacs.d/site-lisp/emacs-async")
+(when (require 'dired-aux)
+  (require 'dired-async))
+
 ;; Helm
 (add-to-list 'load-path "~/.emacs.d/site-lisp/helm")
 (require 'helm-config)

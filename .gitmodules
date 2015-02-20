@@ -57,3 +57,6 @@
 [submodule "site-lisp/go-mode"]
 	path = site-lisp/go-mode
 	url = https://github.com/dominikh/go-mode.el.git
+[submodule "site-lisp/emacs-async"]
+	path = site-lisp/emacs-async
+	url = https://github.com/jwiegley/emacs-async.git
