@@ -204,6 +204,10 @@
 (add-to-list 'load-path "~/.emacs.d/site-lisp/helm")
 (require 'helm-config)
 
+;; Emamux
+(add-to-list 'load-path "~/.emacs.d/site-lisp/emacs-emamux")
+(require 'emamux)
+
 ;; Disable automatic scrolling
 (setq-default scroll-margin 1
               scroll-conservatively 0

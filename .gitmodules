@@ -60,3 +60,6 @@
 [submodule "site-lisp/emacs-async"]
 	path = site-lisp/emacs-async
 	url = https://github.com/jwiegley/emacs-async.git
+[submodule "site-lisp/emacs-emamux"]
+	path = site-lisp/emacs-emamux
+	url = https://github.com/syohex/emacs-emamux.git
