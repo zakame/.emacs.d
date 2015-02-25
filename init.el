@@ -293,6 +293,10 @@
 ;; Associate PSGI files to Perl modes
 (add-to-list 'auto-mode-alist '("\\.psgi\\'" . perl-mode))
 
+;; Use Perl testing support for Emamux
+(add-to-list 'load-path "~/.emacs.d/site-lisp/emamux-perl-test")
+(require 'emamux-perl-test)
+
 ;; This loads generic modes which support e.g batch files
 (require 'generic-x)
 
