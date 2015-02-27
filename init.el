@@ -409,6 +409,11 @@
 (add-to-list 'load-path "~/.emacs.d/site-lisp/go-mode")
 (require 'go-mode-autoloads)
 
+;; Haskell Mode
+(add-to-list 'load-path "~/.emacs.d/site-lisp/haskell-mode")
+(require 'haskell-mode-autoloads)
+(add-to-list 'Info-default-directory-list "~/.emacs.d/site-lisp/haskell-mode")
+
 
 ;;;_ + Org-Mode
 (add-to-list 'load-path "~/.emacs.d/site-lisp/org-mode/lisp")

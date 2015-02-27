@@ -66,3 +66,6 @@
 [submodule "site-lisp/emamux-perl-test"]
 	path = site-lisp/emamux-perl-test
 	url = https://github.com/syohex/emamux-perl-test.git
+[submodule "site-lisp/haskell-mode"]
+	path = site-lisp/haskell-mode
+	url = https://github.com/haskell/haskell-mode.git
