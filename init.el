@@ -235,6 +235,11 @@
 (require 'hungry-delete)
 (global-hungry-delete-mode)
 
+;; Dockerfile
+(add-to-list 'load-path "~/.emacs.d/site-lisp/dockerfile-mode")
+(require 'dockerfile-mode)
+(add-to-list 'auto-mode-alist '("Dockerfile\\'" . dockerfile-mode))
+
 
 ;;;_ + Programming
 
