@@ -419,6 +419,25 @@
 (require 'haskell-mode-autoloads)
 (add-to-list 'Info-default-directory-list "~/.emacs.d/site-lisp/haskell-mode")
 
+;; CEDET
+(global-ede-mode 1)
+(require 'semantic/ia)
+(require 'semantic/sb)
+(require 'semantic/bovine/gcc)
+(semantic-mode 1)
+(global-semantic-idle-scheduler-mode)
+(global-semantic-idle-completions-mode)
+(global-semantic-decoration-mode)
+(global-semantic-highlight-func-mode)
+(global-semantic-show-unmatched-syntax-mode)
+
+;; Autocomplete
+(add-to-list 'load-path "~/.emacs.d/site-lisp/auto-complete")
+(add-to-list 'load-path "~/.emacs.d/site-lisp/popup-el")
+(add-to-list 'load-path "~/.emacs.d/site-lisp/fuzzy-el")
+(require 'auto-complete-config)
+(ac-config-default)
+
 
 ;;;_ + Org-Mode
 (add-to-list 'load-path "~/.emacs.d/site-lisp/org-mode/lisp")
