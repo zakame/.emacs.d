@@ -106,6 +106,8 @@
 (show-paren-mode 1)                     ; Automatically makes the
                                         ; matching parenthesis stand out
                                         ; in color
+(setq show-paren-style 'expression)     ; Make the entire matched expression
+                                        ; stand out
 (mouse-avoidance-mode 'cat-and-mouse) ; This moves the mouse pointer out
                                       ; of my way when I type
 (temp-buffer-resize-mode 1)             ; Temporary windows should not
@@ -194,6 +196,13 @@
 (add-to-list 'load-path "~/.emacs.d/site-lisp/powerline")
 (require 'powerline)
 (powerline-default-theme)
+
+;; Moe-Theme
+(add-to-list 'custom-theme-load-path "~/.emacs.d/site-lisp/moe-theme")
+(add-to-list 'load-path "~/.emacs.d/site-lisp/moe-theme")
+(require 'moe-theme)
+(moe-theme-set-color 'purple)
+(powerline-moe-theme)
 
 ;; Async
 (add-to-list 'load-path "~/.emacs.d/site-lisp/emacs-async")

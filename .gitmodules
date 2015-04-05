@@ -81,3 +81,6 @@
 [submodule "site-lisp/fuzzy-el"]
 	path = site-lisp/fuzzy-el
 	url = https://github.com/auto-complete/fuzzy-el
+[submodule "site-lisp/moe-theme"]
+	path = site-lisp/moe-theme
+	url = https://github.com/kuanyui/moe-theme.el.git
