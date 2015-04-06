@@ -36,15 +36,6 @@
 [submodule "site-lisp/org-mode"]
 	path = site-lisp/org-mode
 	url = git://orgmode.org/org-mode.git
-[submodule "site-lisp/sublimity"]
-	path = site-lisp/sublimity
-	url = https://github.com/zk-phi/sublimity
-[submodule "site-lisp/emacs-web-server"]
-	path = site-lisp/emacs-web-server
-	url = https://github.com/skeeto/emacs-web-server.git
-[submodule "site-lisp/skewer-mode"]
-	path = site-lisp/skewer-mode
-	url = https://github.com/skeeto/skewer-mode.git
 [submodule "site-lisp/yaml-mode"]
 	path = site-lisp/yaml-mode
 	url = https://github.com/yoshiki/yaml-mode
