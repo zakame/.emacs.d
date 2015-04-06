@@ -75,3 +75,7 @@
 [submodule "site-lisp/moe-theme"]
 	path = site-lisp/moe-theme
 	url = https://github.com/kuanyui/moe-theme.el.git
+[submodule "site-lisp/git-modes"]
+	path = site-lisp/git-modes
+	url = https://github.com/magit/git-modes.git
+        branch = master

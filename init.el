@@ -351,8 +351,12 @@
    (message "Could not load git: %s" (cdr err))))
 
 ;; Magit
+(add-to-list 'load-path "~/.emacs.d/site-lisp/git-modes")
 (add-to-list 'load-path "~/.emacs.d/site-lisp/magit")
 (add-to-list 'load-path "~/.emacs.d/site-lisp/magit/contrib")
+(eval-after-load 'info
+  '(progn (info-initialize)
+          (add-to-list 'Info-directory-list "~/.emacs.d/site-lisp/magit")))
 (require 'magit)
 
 ; full screen magit
