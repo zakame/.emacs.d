@@ -70,7 +70,8 @@
 (menu-bar-mode -1)                      ; ... menu bar ...
 (tool-bar-mode -1)                      ; ... and the scroll bar in X
 (icomplete-mode 1)                      ; Enable IComplete mode
-(iswitchb-mode 1)                       ; Enable ISwitchB mode
+;(iswitchb-mode 1)                      ; Enable ISwitchB mode (obsolete since 24.4)
+(ido-mode 1)                            ; Enable Ido mode
 (windmove-default-keybindings)          ; Enable windmove
 (auto-image-file-mode 1)                ; Show images as images, not as
                                         ; semi-random bits
