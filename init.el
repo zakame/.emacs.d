@@ -242,6 +242,11 @@
 (require 'dockerfile-mode)
 (add-to-list 'auto-mode-alist '("Dockerfile\\'" . dockerfile-mode))
 
+;; Neater vertical separator in emacs -nw
+(let ((display-table (or standard-display-table (make-display-table))))
+  (set-display-table-slot display-table 'vertical-border (make-glyph-code ?┃))
+  (setq standard-display-table display-table))
+
 
 ;;;_ + Programming
 
