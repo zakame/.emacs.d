@@ -60,7 +60,6 @@
 
 (setq enable-local-eval t)              ; Tell Emacs to obey variables
                                         ; set by the files it reads
-(display-time)                          ; Display the time on modeline
 (setq visible-bell t)                   ; Blink the screen instead of
                                         ; beeping
 (mwheel-install)                        ; Enable wheel mouse support
