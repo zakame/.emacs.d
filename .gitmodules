@@ -6,9 +6,6 @@
 	path = site-lisp/magit
 	url = https://github.com/magit/magit.git
 	branch = maint
-[submodule "site-lisp/nxhtml"]
-	path = site-lisp/nxhtml
-	url = https://github.com/emacsmirror/nxhtml.git
 [submodule "site-lisp/html5-el"]
 	path = site-lisp/html5-el
 	url = https://github.com/zakame/html5-el.git
