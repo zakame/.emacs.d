@@ -53,10 +53,11 @@
 
 ;; Set my default colors
 (setq default-frame-alist
-      '((background-color . "Black")
-        (foreground-color . "Grey")
-        (cursor-color . "Green")
-        (user-position t)))
+;;       '((background-color . "Black")
+;;         (foreground-color . "Grey")
+;;         (cursor-color . "Green")
+      '(
+         (user-position t)))
 
 (setq enable-local-eval t)              ; Tell Emacs to obey variables
                                         ; set by the files it reads
