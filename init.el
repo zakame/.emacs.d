@@ -376,6 +376,10 @@
   (jump-to-register :magit-fullscreen))
 (define-key magit-status-mode-map (kbd "q") 'magit-quit-session)
 
+;; git-timemachine
+(add-to-list 'load-path "~/.emacs.d/site-lisp/git-timemachine")
+(require 'git-timemachine)
+
 ;; web-mode
 (add-to-list 'load-path "~/.emacs.d/site-lisp/web-mode")
 (require 'web-mode)

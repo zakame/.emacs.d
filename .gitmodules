@@ -76,3 +76,6 @@
 	path = site-lisp/git-modes
 	url = https://github.com/magit/git-modes.git
         branch = master
+[submodule "site-lisp/git-timemachine"]
+	path = site-lisp/git-timemachine
+	url = https://github.com/pidu/git-timemachine.git
