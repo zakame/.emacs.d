@@ -453,6 +453,11 @@
 (require 'auto-complete-config)
 (ac-config-default)
 
+;; Enable mouse support
+(unless window-system
+  (require 'mouse)
+  (xterm-mouse-mode 1))
+
 
 ;;;_ + Org-Mode
 (add-to-list 'load-path "~/.emacs.d/site-lisp/org-mode/lisp")
