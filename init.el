@@ -455,9 +455,8 @@
 (ac-config-default)
 
 ;; Enable mouse support
-(unless window-system
-  (require 'mouse)
-  (xterm-mouse-mode 1))
+(require 'mouse)
+(xterm-mouse-mode 1)
 
 
 ;;;_ + Org-Mode
