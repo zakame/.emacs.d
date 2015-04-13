@@ -214,6 +214,12 @@
 (add-to-list 'load-path "~/.emacs.d/site-lisp/helm")
 (require 'helm-config)
 
+;; Swiper
+(add-to-list 'load-path "~/.emacs.d/site-lisp/swiper")
+(add-to-list 'load-path "~/.emacs.d/site-lisp/swiper-helm")
+(require 'swiper)
+(require 'swiper-helm)
+
 ;; Emamux
 (add-to-list 'load-path "~/.emacs.d/site-lisp/emacs-emamux")
 (require 'emamux)

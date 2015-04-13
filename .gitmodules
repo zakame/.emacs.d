@@ -79,3 +79,9 @@
 [submodule "site-lisp/git-timemachine"]
 	path = site-lisp/git-timemachine
 	url = https://github.com/pidu/git-timemachine.git
+[submodule "site-lisp/swiper"]
+	path = site-lisp/swiper
+	url = https://github.com/abo-abo/swiper.git
+[submodule "site-lisp/swiper-helm"]
+	path = site-lisp/swiper-helm
+	url = https://github.com/abo-abo/swiper-helm.git
