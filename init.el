@@ -213,6 +213,8 @@
 ;; Helm
 (add-to-list 'load-path "~/.emacs.d/site-lisp/helm")
 (require 'helm-config)
+(global-set-key (kbd "M-x") 'helm-M-x)
+(helm-autoresize-mode 1)
 
 ;; Swiper
 (add-to-list 'load-path "~/.emacs.d/site-lisp/swiper")
