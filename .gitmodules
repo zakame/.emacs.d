@@ -85,3 +85,6 @@
 [submodule "site-lisp/swiper-helm"]
 	path = site-lisp/swiper-helm
 	url = https://github.com/abo-abo/swiper-helm.git
+[submodule "site-lisp/pretty-mode"]
+	path = site-lisp/pretty-mode
+	url = https://github.com/akatov/pretty-mode.git

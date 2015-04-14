@@ -205,6 +205,11 @@
 (moe-theme-set-color 'purple)
 (powerline-moe-theme)
 
+;; pretty-mode
+(add-to-list 'load-path "~/.emacs.d/site-lisp/pretty-mode")
+(require 'pretty-mode)
+(global-pretty-mode t)
+
 ;; Async
 (add-to-list 'load-path "~/.emacs.d/site-lisp/emacs-async")
 (when (require 'dired-aux)
