@@ -479,6 +479,7 @@
 (add-to-list 'load-path "~/.emacs.d/elpa/let-alist-1.0.3/")
 (require 'let-alist)
 (require 'sx-tab)
+(require 'sx-search)
 
 
 ;;;_* Local emacs vars
