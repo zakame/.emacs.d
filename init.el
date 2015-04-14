@@ -474,6 +474,13 @@
 (global-set-key "\C-cb" 'org-iswitchb)
 
 
+;;;_ + SX.el
+(add-to-list 'load-path "~/.emacs.d/site-lisp/sx.el")
+(add-to-list 'load-path "~/.emacs.d/elpa/let-alist-1.0.3/")
+(require 'let-alist)
+(require 'sx-tab)
+
+
 ;;;_* Local emacs vars
 
 ;; Local variables:

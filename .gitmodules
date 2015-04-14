@@ -88,3 +88,6 @@
 [submodule "site-lisp/pretty-mode"]
 	path = site-lisp/pretty-mode
 	url = https://github.com/akatov/pretty-mode.git
+[submodule "site-lisp/sx.el"]
+	path = site-lisp/sx.el
+	url = https://github.com/vermiculus/sx.el
