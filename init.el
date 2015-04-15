@@ -323,7 +323,7 @@
   :load-path "site-lisp/emamux-perl-test")
 
 ;; This loads generic modes which support e.g batch files
-(require 'generic-x)
+(use-package generic-x)
 
 ;; This turns on develock if it is available
 (use-package develock
@@ -434,9 +434,9 @@
 
 ;; CEDET
 (global-ede-mode 1)
-(require 'semantic/ia)
-(require 'semantic/sb)
-(require 'semantic/bovine/gcc)
+(use-package semantic/ia)
+(use-package semantic/sb)
+(use-package semantic/bovine/gcc)
 (semantic-mode 1)
 (global-semantic-idle-scheduler-mode)
 (global-semantic-idle-completions-mode)
