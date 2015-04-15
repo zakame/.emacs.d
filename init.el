@@ -372,6 +372,7 @@
   :load-path "site-lisp/git-modes"
   :load-path "site-lisp/magit"
   :load-path "site-lisp/magit-contrib"
+  :bind ("C-c g" . magit-status)
   :config
   (eval-after-load 'info
     '(progn (info-initialize)
