@@ -83,7 +83,9 @@
 (setq package-enable-at-startup nil)
 
 ;; use-package
-(add-to-list 'load-path "~/.emacs.d/site-lisp/use-package")
+(add-to-list 'load-path
+             (expand-file-name
+              (concat user-emacs-directory "site-lisp/use-package")))
 (eval-when-compile
   (require 'use-package))
 (require 'bind-key)
