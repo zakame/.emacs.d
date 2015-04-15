@@ -411,6 +411,7 @@
 
 ;; Emacs Code Browser
 (use-package ecb
+  :commands ecb-activate
   :load-path "site-lisp/ecb")
 
 ;; JavaScript (js2-mode)
