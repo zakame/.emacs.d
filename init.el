@@ -376,19 +376,18 @@
   :config
   (eval-after-load 'info
     '(progn (info-initialize)
-            (add-to-list 'Info-directory-list "~/.emacs.d/site-lisp/magit"))))
-
-; full screen magit
-(defadvice magit-status (around magit-fullscreen activate)
-  (window-configuration-to-register :magit-fullscreen)
-  ad-do-it
-  (delete-other-windows))
-(defun magit-quit-session ()
-  "Restores the previous window configuratoin and kills the magit buffer."
-  (interactive)
-  (kill-buffer)
-  (jump-to-register :magit-fullscreen))
-(define-key magit-status-mode-map (kbd "q") 'magit-quit-session)
+            (add-to-list 'Info-directory-list "~/.emacs.d/site-lisp/magit")))
+  ; full screen magit
+  (defadvice magit-status (around magit-fullscreen activate)
+    (window-configuration-to-register :magit-fullscreen)
+    ad-do-it
+    (delete-other-windows))
+  (defun magit-quit-session ()
+    "Restores the previous window configuratoin and kills the magit buffer."
+    (interactive)
+    (kill-buffer)
+    (jump-to-register :magit-fullscreen))
+  (define-key magit-status-mode-map (kbd "q") 'magit-quit-session))
 
 ;; git-timemachine
 (use-package git-timemachine
