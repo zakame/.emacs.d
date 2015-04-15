@@ -388,7 +388,9 @@
   :config
   (eval-after-load 'info
     '(progn (info-initialize)
-            (add-to-list 'Info-directory-list "~/.emacs.d/site-lisp/magit")))
+            (add-to-list 'Info-additional-directory-list
+                         (concat (expand-file-name user-emacs-directory)
+"site-lisp/magit"))))
   ; full screen magit
   (defadvice magit-status (around magit-fullscreen activate)
     (window-configuration-to-register :magit-fullscreen)
@@ -454,7 +456,9 @@
   :config
   (eval-after-load 'info
     '(progn (info-initialize)
-            (add-to-list 'Info-directory-list "~/.emacs.d/site-lisp/haskell-mode"))))
+            (add-to-list 'Info-additional-directory-list
+                         (concat (expand-file-name user-emacs-directory) 
+                                 "site-lisp/haskell-mode")))))
 
 ;; CEDET
 (global-ede-mode 1)
