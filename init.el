@@ -217,7 +217,12 @@
 ;; Helm
 (use-package helm-config
   :load-path "site-lisp/helm"
-  :bind ("M-x" . helm-M-x)
+  :bind (("M-x" . helm-M-x)
+         ("C-c f" . helm-recentf)
+         ("C-h r" . helm-info-emacs)
+         ("C-x b" . helm-mini)
+         ("C-x C-b" . helm-buffers-list)
+         ("C-x C-f" . helm-find-files))
   :config
   (helm-mode 1)
   (helm-autoresize-mode 1))
