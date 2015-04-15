@@ -390,7 +390,7 @@
     '(progn (info-initialize)
             (add-to-list 'Info-additional-directory-list
                          (concat (expand-file-name user-emacs-directory)
-"site-lisp/magit"))))
+                                 "site-lisp/magit"))))
   ; full screen magit
   (defadvice magit-status (around magit-fullscreen activate)
     (window-configuration-to-register :magit-fullscreen)
