@@ -32,8 +32,7 @@
 ;; customizations made by Zak B. Elep ( zakame@zakame.net ) for his own
 ;; use.  It includes certain customizations for the X interface,
 ;; font-locking, outlining support, printing, and programming
-;; conveniences.  It also starts the `gnuserv' or `server' Emacs editing
-;; server if it is available.
+;; conveniences.
 ;;
 ;; This new version is tailored to be more portable (e.g. being able to
 ;; run on a Mac OS X, Debian, and OpenBSD.)
@@ -81,6 +80,14 @@
 (if (>= emacs-major-version 22)
     (file-name-shadow-mode 1))
 
+;; use-package
+(add-to-list 'load-path "~/.emacs.d/site-lisp/use-package")
+(require 'use-package)
+
+;; package.el
+(require 'package)
+(package-initialize)
+
 
 ;;;_ + Editing
 
@@ -90,7 +97,7 @@
       vc-make-backup-files t)
 
 ;; I want global font-locking
-(setq font-lock-maximum-size (* 70 1024)) ; buffers should be at most
+;(setq font-lock-maximum-size (* 70 1024)) ; buffers should be at most
                                           ; 250K to be fontified
 (global-font-lock-mode 1)
 (setq font-lock-support-mode 'jit-lock-mode) ; Just In Time font-locking
@@ -134,54 +141,34 @@
 (put 'upcase-region 'disabled nil)
 
 ;; Use AllOut mode
-(require 'allout)
-(if (>= emacs-major-version 22)
-    (allout-init t)
-  (outline-init t))
+(use-package allout
+  :if (>= emacs-major-version 22)
+  :config
+  (setq allout-auto-activation 'ask))
 
 ;; Use Gnus as a mail-user-agent
 (setq mail-user-agent 'gnus-user-agent)
-
-;; Use `gnuserv' if it is available, and start it up.  Set `$EDITOR' to
-;; `gnuclient', and use Emacs at any instance where `$EDITOR' is needed.
-(condition-case err
-    (progn
-      (require 'gnuserv-compat)
-      (gnuserv-start))
-  (error
-   (message "Could not load gnuserv: %s" (cdr err))))
-
-;; Else, use Emacs 22's own server, and set `$EDITOR' to `emacsclient'.
-(condition-case err
-    (progn
-      (require 'server)
-      (server-start))
-  (error
-   (message "Could not load server: %s" (cdr err))))
 
 ;; Rebind `dabbrev-expand' to `hippie-expand' for adaptive auto-completion.
 (eval-after-load "dabbrev"
   '(defalias 'dabbrev-expand 'hippie-expand))
 
 ;; Use BoxQuote
-(condition-case err
-    (progn
-      (require 'boxquote))
-  (error
-   (message "Could not load boxquote: %s" (cdr err))))
+(use-package boxquote)
 
 ;; Use Markdown Mode
-(add-to-list 'load-path "~/.emacs.d/site-lisp/markdown-mode")
-(autoload 'markdown-mode "markdown-mode"
-  "Major mode for editing Markdown files" t)
-(add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
-(setq markdown-command "Markdown.pl")
+(use-package markdown-mode
+  :load-path "site-lisp/markdown-mode"
+  :mode "\\.md\\'"
+  :config
+  (setq markdown-command "Markdown.pl"))
 
 ;; Save point position between editing sessions
-(require 'saveplace)
-(setq-default save-place t
-              save-place-file (expand-file-name ".places" 
-                                                user-emacs-directory))
+(use-package saveplace
+  :config
+  (setq-default save-place t
+                save-place-file (expand-file-name ".places"
+                                                  user-emacs-directory)))
 
 ;; Auto refresh buffers and dired, and be quiet about it
 (global-auto-revert-mode 1)
@@ -194,43 +181,48 @@
             (load "dired-x")))
 
 ;; Powerline
-(add-to-list 'load-path "~/.emacs.d/site-lisp/powerline")
-(require 'powerline)
-(powerline-default-theme)
+(use-package powerline
+  :load-path "site-lisp/powerline"
+  :config
+  (powerline-default-theme))
 
 ;; Moe-Theme
-(add-to-list 'custom-theme-load-path "~/.emacs.d/site-lisp/moe-theme")
-(add-to-list 'load-path "~/.emacs.d/site-lisp/moe-theme")
-(require 'moe-theme)
-(moe-theme-set-color 'purple)
-(powerline-moe-theme)
+(use-package moe-theme
+  :load-path "site-lisp/moe-theme"
+  :init
+  (add-to-list 'custom-theme-load-path "~/.emacs.d/site-lisp/moe-theme")
+  :config
+  (moe-theme-set-color 'purple)
+  (powerline-moe-theme))
 
 ;; pretty-mode
-(add-to-list 'load-path "~/.emacs.d/site-lisp/pretty-mode")
-(require 'pretty-mode)
-(global-pretty-mode t)
+(use-package pretty-mode
+  :load-path "site-lisp/pretty-mode"
+  :config
+  (global-pretty-mode t))
 
 ;; Async
-(add-to-list 'load-path "~/.emacs.d/site-lisp/emacs-async")
 (when (require 'dired-aux)
-  (require 'dired-async))
+  (use-package dired-async
+    :load-path "site-lisp/emacs-async"))
 
 ;; Helm
-(add-to-list 'load-path "~/.emacs.d/site-lisp/helm")
-(require 'helm-config)
-(global-set-key (kbd "M-x") 'helm-M-x)
-(helm-mode 1)
-(helm-autoresize-mode 1)
+(use-package helm-config
+  :load-path "site-lisp/helm"
+  :bind ("M-x" . helm-M-x)
+  :config
+  (helm-mode 1)
+  (helm-autoresize-mode 1))
 
 ;; Swiper
-(add-to-list 'load-path "~/.emacs.d/site-lisp/swiper")
-(add-to-list 'load-path "~/.emacs.d/site-lisp/swiper-helm")
-(require 'swiper)
-(require 'swiper-helm)
+(use-package swiper
+  :load-path "site-lisp/swiper")
+(use-package swiper-helm
+  :load-path "site-lisp/swiper-helm")
 
 ;; Emamux
-(add-to-list 'load-path "~/.emacs.d/site-lisp/emacs-emamux")
-(require 'emamux)
+(use-package emamux
+  :load-path "site-lisp/emacs-emamux")
 
 ;; Disable automatic scrolling
 (setq-default scroll-margin 1
@@ -239,22 +231,23 @@
               scroll-down-aggressively 0.01)
 
 ;; Multiple Cursors
-(add-to-list 'load-path "~/.emacs.d/site-lisp/multiple-cursors")
-(require 'multiple-cursors)
-(global-set-key (kbd "C-S-c C-S-c") 'mc/edit-lines)
-(global-set-key (kbd "C->") 'mc/mark-next-like-this)
-(global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
-(global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
+(use-package multiple-cursors
+  :load-path "site-lisp/multiple-cursors"
+  :bind (("C-S-c C-S-c" . mc/edit-lines)
+         ("C->" . mc/mark-next-like-this)
+         ("C-<" . mc/mark-previous-like-this)
+         ("C-c C-<" . mc/mark-all-like-this)))
 
 ;; Hungry delete
-(add-to-list 'load-path "~/.emacs.d/site-lisp/hungry-delete")
-(require 'hungry-delete)
-(global-hungry-delete-mode)
+(use-package hungry-delete
+  :load-path "site-lisp/hungry-delete"
+  :config
+  (global-hungry-delete-mode))
 
 ;; Dockerfile
-(add-to-list 'load-path "~/.emacs.d/site-lisp/dockerfile-mode")
-(require 'dockerfile-mode)
-(add-to-list 'auto-mode-alist '("Dockerfile\\'" . dockerfile-mode))
+(use-package dockerfile-mode
+  :load-path "site-lisp/dockerfile-mode"
+  :mode "Dockerfile\\'")
 
 ;; Neater vertical separator in emacs -nw
 (let ((display-table (or standard-display-table (make-display-table))))
@@ -291,7 +284,7 @@
 
 ;; If perlbrew is used, get PERLBREW_PATH to be used in exec-path and PATH
 ;; Adapted from https://gist.github.com/960214
-(require 'cl)
+(use-package cl)
 (let ((perlbrew-init "~/.perlbrew/init"))
   (if (file-readable-p perlbrew-init)
       (dolist (line (with-temp-buffer
@@ -313,33 +306,27 @@
                     (add-to-list 'exec-path perlbin)))))))))
 
 ;; Use Emacs::PDE for editing Perl
-(add-to-list 'load-path "~/.emacs.d/site-lisp/pde/lisp")
-(load "pde-load")
-
-;; Associate PSGI files to Perl modes
-(add-to-list 'auto-mode-alist '("\\.psgi\\'" . perl-mode))
+(use-package pde-load
+  :load-path "site-lisp/pde/lisp"
+  :mode (("\\.psgi\\'" . perl-mode)))
 
 ;; Use Perl testing support for Emamux
-(add-to-list 'load-path "~/.emacs.d/site-lisp/emamux-perl-test")
-(require 'emamux-perl-test)
+(use-package emamux-perl-test
+  :load-path "site-lisp/emamux-perl-test")
 
 ;; This loads generic modes which support e.g batch files
 (require 'generic-x)
 
 ;; This turns on develock if it is available
-(condition-case err
-    (progn
-      (cond ((featurep 'xemacs)
-             (require 'develock)
-             ;; `turn-on-develock' is equivalent to `turn-on-font-lock',
-             ;;  except that it does not highlight the startup screen.
-             (add-hook 'lisp-interaction-mode-hook 'turn-on-develock)
-             (add-hook 'mail-setup-hook 'turn-on-font-lock))
-            ((>= emacs-major-version 20)
-             (require 'develock)
-             (global-font-lock-mode t))))
-  (error
-   (message "Could not load develock: %s " (cdr err))))
+(use-package develock
+  :if (featurep 'xemacs)
+  :init
+  (add-hook 'lisp-interaction-mode-hook 'turn-on-develock)
+  (add-hook 'mail-setup-hook 'turn-on-develock))
+(use-package develock
+  :if (>= emacs-major-version 20)
+  :config
+  (global-font-lock-mode t))
 
 ;; I want a better Scheme mode
 (autoload 'scheme-mode
@@ -349,34 +336,27 @@
 (setq scheme-program-name "mit-scheme")
 
 ;; Ruby mode
-(condition-case err
-    (progn
-      (require 'ruby-mode)
-      (setq auto-mode-alist (append (list (cons "\\.rb\\'" 'ruby-mode))
-                                    auto-mode-alist)))
-  (error
-   (message "Could not load ruby-mode: %s" (cdr err))))
+(use-package ruby-mode
+  :mode "\\.rb\\'")
 
 ;; VC-Git
-(condition-case err
-    (progn
-      (require 'vc-git)
-      (when (featurep 'vc-git)
-        (add-to-list 'vc-handled-backends 'git))
-      (require 'git)
-      (autoload 'git-blame-mode "git-blame"
-        "Minor mode for incremental blame for Git." t))
-  (error
-   (message "Could not load git: %s" (cdr err))))
+(use-package vc-git
+  :config
+  (add-to-list 'vc-handled-backends 'git))
+;; (use-package git
+;;   :config
+;;   (autoload git-blame-mode "git-blame"
+;;     "Minor mode for incremental blame for Git." t))
 
 ;; Magit
-(add-to-list 'load-path "~/.emacs.d/site-lisp/git-modes")
-(add-to-list 'load-path "~/.emacs.d/site-lisp/magit")
-(add-to-list 'load-path "~/.emacs.d/site-lisp/magit/contrib")
-(eval-after-load 'info
-  '(progn (info-initialize)
-          (add-to-list 'Info-directory-list "~/.emacs.d/site-lisp/magit")))
-(require 'magit)
+(use-package magit
+  :load-path "site-lisp/git-modes"
+  :load-path "site-lisp/magit"
+  :load-path "site-lisp/magit-contrib"
+  :config
+  (eval-after-load 'info
+    '(progn (info-initialize)
+            (add-to-list 'Info-directory-list "~/.emacs.d/site-lisp/magit"))))
 
 ; full screen magit
 (defadvice magit-status (around magit-fullscreen activate)
@@ -391,32 +371,33 @@
 (define-key magit-status-mode-map (kbd "q") 'magit-quit-session)
 
 ;; git-timemachine
-(add-to-list 'load-path "~/.emacs.d/site-lisp/git-timemachine")
-(require 'git-timemachine)
+(use-package git-timemachine
+  :load-path "site-lisp/git-timemachine")
 
 ;; web-mode
-(add-to-list 'load-path "~/.emacs.d/site-lisp/web-mode")
-(require 'web-mode)
-(add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
-(add-to-list 'auto-mode-alist '("\\.tt\\'" . web-mode))
-(add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
-(add-to-list 'auto-mode-alist '("\\.html\\.ep\\'" . web-mode))
-(setq web-mode-engines-alist
-      '(("mojolicious" . "\\.html\\.ep\\'")))
+(use-package web-mode
+  :load-path "site-lisp/web-mode"
+  :mode (("\\.html?\\'" . web-mode)
+         ("\\.tt\\'" . web-mode)
+         ("\\.erb\\'" . web-mode)
+         ("\\.html\\.ep\\'" . web-mode))
+  :config
+  (setq web-mode-engines-alist
+        '(("mojolicious" . "\\.html\\.ep\\'"))))
 
 ;; kolon-mode
-(add-to-list 'load-path "~/.emacs.d/site-lisp/kolon-mode")
-(require 'kolon-mode)
-(add-to-list 'auto-mode-alist '("\\.tx\\'" . kolon-mode))
+(use-package kolon-mode
+  :load-path "site-lisp/kolon-mode"
+  :mode "\\.tx\\'")
 
 ;; Emacs Code Browser
-(add-to-list 'load-path "~/.emacs.d/site-lisp/ecb")
-(require 'ecb)
+(use-package ecb
+  :load-path "site-lisp/ecb")
 
 ;; JavaScript (js2-mode)
-(add-to-list 'load-path "~/.emacs.d/site-lisp/js2-mode")
-(require 'js2-mode)
-(add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
+(use-package js2-mode
+  :load-path "site-lisp/js2-mode"
+  :mode "\\.js\\'")
 
 ;; use Google Chrome in incognito mode as our default browser
 (setq browse-url-browser-function 'browse-url-generic
@@ -424,21 +405,24 @@
       browse-url-generic-args '("--incognito " "chrome://newtab"))
 
 ;; yaml-mode
-(add-to-list 'load-path "~/.emacs.d/site-lisp/yaml-mode")
-(require 'yaml-mode)
-(add-to-list 'auto-mode-alist '("\\.yml$" . yaml-mode))
+(use-package yaml-mode
+  :load-path "site-lisp/yaml-mode"
+  :mode "\\.yml\\'")
 
 ;; show current function/sub in mode-line
 (which-function-mode)
 
 ;; Go Mode
-(add-to-list 'load-path "~/.emacs.d/site-lisp/go-mode")
-(require 'go-mode-autoloads)
+(use-package go-mode-autoloads
+  :load-path "site-lisp/go-mode")
 
 ;; Haskell Mode
-(add-to-list 'load-path "~/.emacs.d/site-lisp/haskell-mode")
-(require 'haskell-mode-autoloads)
-(add-to-list 'Info-default-directory-list "~/.emacs.d/site-lisp/haskell-mode")
+(use-package haskell-mode-autoloads
+  :load-path "site-lisp/haskell-mode"
+  :config
+  (eval-after-load 'info
+    '(progn (info-initialize)
+            (add-to-list 'Info-directory-list "~/.emacs.d/site-lisp/haskell-mode"))))
 
 ;; CEDET
 (global-ede-mode 1)
@@ -453,29 +437,32 @@
 (global-semantic-show-unmatched-syntax-mode)
 
 ;; Autocomplete
-(add-to-list 'load-path "~/.emacs.d/site-lisp/auto-complete")
-(add-to-list 'load-path "~/.emacs.d/site-lisp/popup-el")
-(add-to-list 'load-path "~/.emacs.d/site-lisp/fuzzy-el")
-(require 'auto-complete-config)
-(ac-config-default)
+(use-package auto-complete-config
+  :load-path "site-lisp/auto-complete"
+  :load-path "site-lisp/popup-el"
+  :load-path "site-lisp/fuzzy-el"
+  :config
+  (ac-config-default))
 
 
 ;;;_ + Org-Mode
-(add-to-list 'load-path "~/.emacs.d/site-lisp/org-mode/lisp")
-(add-to-list 'auto-mode-alist
-             '("\\.\\(org\\|org_archive\\|txt\\)$" . org-mode))
-(require 'org)
-(global-set-key "\C-cl" 'org-store-link)
-(global-set-key "\C-ca" 'org-agenda)
-(global-set-key "\C-cb" 'org-iswitchb)
+(use-package org
+  :load-path "site-lisp/org-mode/lisp"
+  :mode "\\.\\(org\\|org_archive\\|txt\\)$"
+  :bind (("\C-cl" . org-store-link)
+         ("\C-ca" . org-agenda)
+         ("\C-cb" . org-iswitchb)))
 
 
 ;;;_ + SX.el
-(add-to-list 'load-path "~/.emacs.d/site-lisp/sx.el")
-(add-to-list 'load-path "~/.emacs.d/elpa/let-alist-1.0.3/")
-(require 'let-alist)
-(require 'sx-tab)
-(require 'sx-search)
+(use-package let-alist
+  :ensure t)
+(use-package sx
+  :load-path "site-lisp/sx.el"
+  :config
+  (use-package sx-tab)
+  (use-package sx-search)
+  (use-package sx-switchto))
 
 
 ;;;_* Local emacs vars
