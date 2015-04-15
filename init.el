@@ -194,7 +194,14 @@
   :config
   (setq moe-theme-highlight-buffer-id t)
   (moe-theme-set-color 'purple)
-  (powerline-moe-theme))
+  (if (daemonp)
+      (add-hook 'after-make-frame-functions
+                (lambda (frame)
+                  (with-selected-frame frame
+                    (powerline-moe-theme))))
+    (powerline-moe-theme))
+  (if (string-equal (daemonp) "gnus")
+      (moe-theme-set-color 'green)))
 
 ;; pretty-mode
 (use-package pretty-mode
