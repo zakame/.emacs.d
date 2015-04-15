@@ -84,7 +84,9 @@
 
 ;; use-package
 (add-to-list 'load-path "~/.emacs.d/site-lisp/use-package")
-(require 'use-package)
+(eval-when-compile
+  (require 'use-package))
+(require 'bind-key)
 
 
 ;;;_ + Editing
