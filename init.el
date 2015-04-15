@@ -222,9 +222,15 @@
          ("C-h r" . helm-info-emacs)
          ("C-x b" . helm-mini)
          ("C-x C-b" . helm-buffers-list)
-         ("C-x C-f" . helm-find-files))
+         ("C-x C-f" . helm-find-files)
+         ("M-s o" . helm-occur))
   :config
+  (setq helm-yank-symbol-first t
+        helm-move-to-line-cycle-in-source t
+        helm-buffers-fuzzy-matching t
+        helm-ff-auto-update-initial-value t)
   (helm-mode 1)
+  (helm-adaptive-mode 1)
   (helm-autoresize-mode 1))
 
 ;; Swiper

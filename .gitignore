@@ -13,3 +13,4 @@ ede-projects.el
 .sx
 url/
 recentf
+helm-adaptive-history
