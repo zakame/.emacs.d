@@ -80,13 +80,13 @@
 (if (>= emacs-major-version 22)
     (file-name-shadow-mode 1))
 
+;; package.el
+(package-initialize)
+(setq package-enable-at-startup nil)
+
 ;; use-package
 (add-to-list 'load-path "~/.emacs.d/site-lisp/use-package")
 (require 'use-package)
-
-;; package.el
-(require 'package)
-(package-initialize)
 
 
 ;;;_ + Editing
@@ -144,7 +144,7 @@
 (use-package allout
   :if (>= emacs-major-version 22)
   :config
-  (setq allout-auto-activation 'ask))
+  (allout-init t))
 
 ;; Use Gnus as a mail-user-agent
 (setq mail-user-agent 'gnus-user-agent)
@@ -192,6 +192,7 @@
   :init
   (add-to-list 'custom-theme-load-path "~/.emacs.d/site-lisp/moe-theme")
   :config
+  (setq moe-theme-highlight-buffer-id t)
   (moe-theme-set-color 'purple)
   (powerline-moe-theme))
 
@@ -202,7 +203,7 @@
   (global-pretty-mode t))
 
 ;; Async
-(when (require 'dired-aux)
+(when (use-package dired-aux)
   (use-package dired-async
     :load-path "site-lisp/emacs-async"))
 
