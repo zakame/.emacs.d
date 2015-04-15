@@ -207,7 +207,7 @@
 (use-package pretty-mode
   :load-path "site-lisp/pretty-mode"
   :config
-  (global-pretty-mode t))
+  (add-hook 'emacs-lisp-mode-hook 'turn-on-pretty-mode))
 
 ;; Async
 (when (use-package dired-aux)
