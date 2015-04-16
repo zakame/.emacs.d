@@ -70,6 +70,7 @@
 (tool-bar-mode -1)                      ; ... and the scroll bar in X
 (icomplete-mode 1)                      ; Enable IComplete mode
 (windmove-default-keybindings)          ; Enable windmove
+(winner-mode 1)                         ; Enable winner-mode
 (auto-image-file-mode 1)                ; Show images as images, not as
                                         ; semi-random bits
 (setq inhibit-startup-message t)        ; No splash screen (well...)
