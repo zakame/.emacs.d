@@ -407,6 +407,10 @@
 (use-package git-timemachine
   :load-path "site-lisp/git-timemachine")
 
+;; emmet-mode
+(use-package emmet-mode
+  :load-path "site-lisp/emmet-mode")
+
 ;; web-mode
 (use-package web-mode
   :load-path "site-lisp/web-mode"

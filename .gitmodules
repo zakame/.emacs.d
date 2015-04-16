@@ -106,3 +106,6 @@
 [submodule "site-lisp/haml-mode"]
 	path = site-lisp/haml-mode
 	url = https://github.com/nex3/haml-mode.git
+[submodule "site-lisp/emmet-mode"]
+	path = site-lisp/emmet-mode
+	url = https://github.com/smihica/emmet-mode.git
