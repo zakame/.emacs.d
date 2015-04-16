@@ -464,6 +464,18 @@
 (use-package coffee-mode
   :load-path "site-lisp/coffee-mode")
 
+;; SCSS-mode
+(use-package scss-mode
+  :load-path "site-lisp/scss-mode")
+
+;; Sass-mode
+(use-package sass-mode
+  :load-path "site-lisp/sass-mode")
+
+;; Haml-mode
+(use-package haml-mode
+  :load-path "site-lisp/haml-mode")
+
 ;; CEDET
 (global-ede-mode 1)
 (use-package semantic/ia)
