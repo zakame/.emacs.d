@@ -286,6 +286,14 @@
   (set-display-table-slot display-table 'vertical-border (make-glyph-code ?┃))
   (setq standard-display-table display-table))
 
+;; Autocomplete
+(use-package auto-complete-config
+  :load-path "site-lisp/auto-complete"
+  :load-path "site-lisp/popup-el"
+  :load-path "site-lisp/fuzzy-el"
+  :config
+  (ac-config-default))
+
 
 ;;;_ + Programming
 
@@ -492,14 +500,6 @@
 (global-semantic-decoration-mode)
 (global-semantic-highlight-func-mode)
 (global-semantic-show-unmatched-syntax-mode)
-
-;; Autocomplete
-(use-package auto-complete-config
-  :load-path "site-lisp/auto-complete"
-  :load-path "site-lisp/popup-el"
-  :load-path "site-lisp/fuzzy-el"
-  :config
-  (ac-config-default))
 
 
 ;;;_ + Org-Mode
