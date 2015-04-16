@@ -156,9 +156,6 @@
 (eval-after-load "dabbrev"
   '(defalias 'dabbrev-expand 'hippie-expand))
 
-;; Use BoxQuote
-(use-package boxquote)
-
 ;; Use Markdown Mode
 (use-package markdown-mode
   :load-path "site-lisp/markdown-mode"
@@ -356,17 +353,6 @@
 
 ;; This loads generic modes which support e.g batch files
 (use-package generic-x)
-
-;; This turns on develock if it is available
-(use-package develock
-  :if (featurep 'xemacs)
-  :init
-  (add-hook 'lisp-interaction-mode-hook 'turn-on-develock)
-  (add-hook 'mail-setup-hook 'turn-on-develock))
-(use-package develock
-  :if (>= emacs-major-version 20)
-  :config
-  (global-font-lock-mode t))
 
 ;; I want a better Scheme mode
 (autoload 'scheme-mode
