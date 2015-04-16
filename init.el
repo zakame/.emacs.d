@@ -468,13 +468,13 @@
 (use-package scss-mode
   :load-path "site-lisp/scss-mode")
 
-;; Sass-mode
-(use-package sass-mode
-  :load-path "site-lisp/sass-mode")
-
 ;; Haml-mode
 (use-package haml-mode
   :load-path "site-lisp/haml-mode")
+
+;; Sass-mode
+(use-package sass-mode
+  :load-path "site-lisp/sass-mode")
 
 ;; CEDET
 (global-ede-mode 1)
