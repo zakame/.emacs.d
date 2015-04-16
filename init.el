@@ -460,6 +460,9 @@
                          (concat (expand-file-name user-emacs-directory) 
                                  "site-lisp/haskell-mode")))))
 
+(use-package coffee-mode
+  :load-path "site-lisp/coffee-mode")
+
 ;; CEDET
 (global-ede-mode 1)
 (use-package semantic/ia)
