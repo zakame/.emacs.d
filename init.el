@@ -460,6 +460,7 @@
                          (concat (expand-file-name user-emacs-directory) 
                                  "site-lisp/haskell-mode")))))
 
+;; Coffee Mode
 (use-package coffee-mode
   :load-path "site-lisp/coffee-mode")
 
