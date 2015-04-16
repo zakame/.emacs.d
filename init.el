@@ -404,7 +404,17 @@
 
 ;; emmet-mode
 (use-package emmet-mode
-  :load-path "site-lisp/emmet-mode")
+  :load-path "site-lisp/emmet-mode"
+  :config
+  (add-hook 'sgml-mode-hook 'emmet-mode)
+  (add-hook 'css-mode-hook 'emmet-mode))
+
+;; AutoComplete for emmet
+(use-package ac-emmet
+  :load-path "site-lisp/ac-emmet"
+  :config
+  (add-hook 'sgml-mode-hook 'ac-emmet-html-setup)
+  (add-hook 'css-mode-hook 'ac-emmet-css-setup))
 
 ;; web-mode
 (use-package web-mode
@@ -414,6 +424,22 @@
          ("\\.erb\\'" . web-mode)
          ("\\.html\\.ep\\'" . web-mode))
   :config
+  (setq web-mode-enable-auto-pairing t
+        web-mode-enable-auto-closing t
+        web-mode-enable-current-element-highlight t
+        web-mode-enable-current-column-highlight t
+        web-mode-ac-sources-alist
+        '(("css" . (ac-source-css-property ac-source-emmet-css-snippets))
+          ("html" . (ac-source-emmet-html-aliases ac-source-emmet-html-snippets))))
+  (add-hook 'web-mode-before-auto-complete-hooks
+            '(lambda ()
+               (let ((web-mode-cur-language
+                      (web-mode-language-at-pos)))
+                 (if (string= web-mode-cur-language "css")
+                     (setq emmet-use-css-transform t)
+                   (setq emmet-use-css-transform nil)))))
+  (add-hook 'web-mode-hook
+            '(lambda () (emmet-mode)))
   (setq web-mode-engines-alist
         '(("mojolicious" . "\\.html\\.ep\\'"))))
 
