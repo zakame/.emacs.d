@@ -252,10 +252,10 @@
 
 
 ;; Swiper
-;; (use-package swiper
-;;   :ensure t)
-;; (use-package swiper-helm
-;;   :ensure t)
+(use-package swiper
+  :ensure t)
+(use-package swiper-helm
+  :ensure t)
 
 ;; Emamux
 (use-package emamux
