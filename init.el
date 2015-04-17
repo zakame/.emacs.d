@@ -516,7 +516,7 @@
 ;;;_ + Org-Mode
 (use-package org
   :ensure t
-  :mode "\\.\\(org\\|org_archive\\|txt\\)$"
+  :mode ("\\.\\(org\\|org_archive\\|txt\\)$" . org-mode)
   :bind (("\C-cl" . org-store-link)
          ("\C-ca" . org-agenda)
          ("\C-cb" . org-iswitchb)))
