@@ -148,6 +148,10 @@
 (put 'downcase-region 'disabled nil)
 (put 'upcase-region 'disabled nil)
 
+;; Diminish auto-fill
+(eval-after-load "simple"
+  '(diminish 'auto-fill-function))
+
 ;; Use AllOut mode
 (use-package allout
   :diminish allout-mode
