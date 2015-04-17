@@ -80,15 +80,20 @@
     (file-name-shadow-mode 1))
 
 ;; package.el
+(require 'package)
+(add-to-list 'package-archives
+	     '("melpa" . "http://melpa.org/packages/") t)
 (package-initialize)
 (setq package-enable-at-startup nil)
 
 ;; use-package
-(add-to-list 'load-path
-             (expand-file-name
-              (concat user-emacs-directory "site-lisp/use-package")))
+(unless (package-installed-p 'use-package)
+  (progn
+    (package-refresh-contents)
+    (package-install 'use-package)))
 (eval-when-compile
   (require 'use-package))
+(require 'diminish)
 (require 'bind-key)
 
 
@@ -216,7 +221,7 @@
 
 ;; Helm
 (use-package helm-config
-  :load-path "site-lisp/helm"
+  :ensure helm
   :bind (("M-x" . helm-M-x)
          ("C-c f" . helm-recentf)
          ("C-h r" . helm-info-emacs)
@@ -376,9 +381,7 @@
 
 ;; Magit
 (use-package magit
-  :load-path "site-lisp/git-modes"
-  :load-path "site-lisp/magit"
-  :load-path "site-lisp/magit-contrib"
+  :ensure t
   :bind ("C-c g" . magit-status)
   :config
   (eval-after-load 'info
