@@ -150,6 +150,7 @@
 
 ;; Use AllOut mode
 (use-package allout
+  :diminish allout-mode
   :if (>= emacs-major-version 22)
   :config
   (allout-init t))
@@ -388,6 +389,7 @@
 
 ;; Magit
 (use-package magit
+  :diminish magit-auto-revert-mode
   :ensure t
   :bind ("C-c g" . magit-status)
   :init
