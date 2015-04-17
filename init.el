@@ -163,7 +163,7 @@
 
 ;; Use Markdown Mode
 (use-package markdown-mode
-  :load-path "site-lisp/markdown-mode"
+  :ensure t
   :mode "\\.md\\'"
   :config
   (setq markdown-command "Markdown.pl"))
@@ -187,13 +187,13 @@
 
 ;; Powerline
 (use-package powerline
-  :load-path "site-lisp/powerline"
+  :ensure t
   :config
   (powerline-default-theme))
 
 ;; Moe-Theme
 (use-package moe-theme
-  :load-path "site-lisp/moe-theme"
+  :ensure t
   :init
   (add-to-list 'custom-theme-load-path "~/.emacs.d/site-lisp/moe-theme")
   :config
@@ -210,14 +210,14 @@
 
 ;; pretty-mode
 (use-package pretty-mode
-  :load-path "site-lisp/pretty-mode"
+  :ensure t
   :config
   (add-hook 'emacs-lisp-mode-hook 'turn-on-pretty-mode))
 
 ;; Async
 (when (use-package dired-aux)
   (use-package dired-async
-    :load-path "site-lisp/emacs-async"))
+    :ensure asnyc))
 
 ;; Helm
 (use-package helm-config
@@ -247,14 +247,14 @@
   (helm-autoresize-mode 1))
 
 ;; Swiper
-(use-package swiper
-  :load-path "site-lisp/swiper")
-(use-package swiper-helm
-  :load-path "site-lisp/swiper-helm")
+;; (use-package swiper
+;;   :ensure t)
+;; (use-package swiper-helm
+;;   :ensure t)
 
 ;; Emamux
 (use-package emamux
-  :load-path "site-lisp/emacs-emamux"
+  :ensure t
   :init
   (setq emamux:completing-read-type 'helm))
 
@@ -266,7 +266,7 @@
 
 ;; Multiple Cursors
 (use-package multiple-cursors
-  :load-path "site-lisp/multiple-cursors"
+  :ensure t
   :bind (("C-S-c C-S-c" . mc/edit-lines)
          ("C->" . mc/mark-next-like-this)
          ("C-<" . mc/mark-previous-like-this)
@@ -274,13 +274,13 @@
 
 ;; Hungry delete
 (use-package hungry-delete
-  :load-path "site-lisp/hungry-delete"
+  :ensure t
   :config
   (global-hungry-delete-mode))
 
 ;; Dockerfile
 (use-package dockerfile-mode
-  :load-path "site-lisp/dockerfile-mode"
+  :ensure t
   :mode "Dockerfile\\'")
 
 ;; Neater vertical separator in emacs -nw
@@ -290,9 +290,7 @@
 
 ;; Autocomplete
 (use-package auto-complete-config
-  :load-path "site-lisp/auto-complete"
-  :load-path "site-lisp/popup-el"
-  :load-path "site-lisp/fuzzy-el"
+  :ensure auto-complete
   :config
   (ac-config-default))
 
@@ -403,25 +401,25 @@
 
 ;; git-timemachine
 (use-package git-timemachine
-  :load-path "site-lisp/git-timemachine")
+  :ensure t)
 
 ;; emmet-mode
 (use-package emmet-mode
-  :load-path "site-lisp/emmet-mode"
+  :ensure t
   :config
   (add-hook 'sgml-mode-hook 'emmet-mode)
   (add-hook 'css-mode-hook 'emmet-mode))
 
 ;; AutoComplete for emmet
 (use-package ac-emmet
-  :load-path "site-lisp/ac-emmet"
+  :ensure t
   :config
   (add-hook 'sgml-mode-hook 'ac-emmet-html-setup)
   (add-hook 'css-mode-hook 'ac-emmet-css-setup))
 
 ;; web-mode
 (use-package web-mode
-  :load-path "site-lisp/web-mode"
+  :ensure t
   :mode (("\\.html?\\'" . web-mode)
          ("\\.tt\\'" . web-mode)
          ("\\.erb\\'" . web-mode)
@@ -448,17 +446,17 @@
 
 ;; kolon-mode
 (use-package kolon-mode
-  :load-path "site-lisp/kolon-mode"
+  :ensure t
   :mode "\\.tx\\'")
 
 ;; Emacs Code Browser
 (use-package ecb
   :commands ecb-activate
-  :load-path "site-lisp/ecb")
+  :ensure t)
 
 ;; JavaScript (js2-mode)
 (use-package js2-mode
-  :load-path "site-lisp/js2-mode"
+  :ensure t
   :mode "\\.js\\'")
 
 ;; use Google Chrome in incognito mode as our default browser
@@ -468,7 +466,7 @@
 
 ;; yaml-mode
 (use-package yaml-mode
-  :load-path "site-lisp/yaml-mode"
+  :ensure t
   :mode "\\.yml\\'")
 
 ;; show current function/sub in mode-line
@@ -476,11 +474,11 @@
 
 ;; Go Mode
 (use-package go-mode-autoloads
-  :load-path "site-lisp/go-mode")
+  :ensure go-mode)
 
 ;; Haskell Mode
 (use-package haskell-mode-autoloads
-  :load-path "site-lisp/haskell-mode"
+  :ensure haskell-mode
   :config
   (eval-after-load 'info
     '(progn (info-initialize)
@@ -490,19 +488,15 @@
 
 ;; Coffee Mode
 (use-package coffee-mode
-  :load-path "site-lisp/coffee-mode")
+  :ensure t)
 
 ;; SCSS-mode
 (use-package scss-mode
-  :load-path "site-lisp/scss-mode")
+  :ensure t)
 
-;; Haml-mode
-(use-package haml-mode
-  :load-path "site-lisp/haml-mode")
-
-;; Sass-mode
+;; Sass-mode (and haml-mode)
 (use-package sass-mode
-  :load-path "site-lisp/sass-mode")
+  :ensure t)
 
 ;; CEDET
 (global-ede-mode 1)
@@ -519,7 +513,7 @@
 
 ;;;_ + Org-Mode
 (use-package org
-  :load-path "site-lisp/org-mode/lisp"
+  :ensure t
   :mode "\\.\\(org\\|org_archive\\|txt\\)$"
   :bind (("\C-cl" . org-store-link)
          ("\C-ca" . org-agenda)
@@ -530,7 +524,7 @@
 (use-package let-alist
   :ensure t)
 (use-package sx
-  :load-path "site-lisp/sx.el"
+  :ensure t
   :config
   (use-package sx-tab)
   (use-package sx-search)
