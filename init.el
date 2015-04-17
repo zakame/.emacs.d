@@ -156,8 +156,8 @@
 (use-package allout
   :diminish allout-mode
   :if (>= emacs-major-version 22)
-  :config
-  (allout-init t))
+  :init
+  (setq allout-auto-activation t))
 
 ;; Use Gnus as a mail-user-agent
 (setq mail-user-agent 'gnus-user-agent)
