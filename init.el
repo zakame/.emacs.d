@@ -490,7 +490,9 @@
 
 ;; Go Mode
 (use-package go-mode-autoloads
-  :ensure go-mode)
+  :ensure go-mode
+  :config
+  (add-hook 'before-save-hook #'gofmt-before-save))
 
 ;; Haskell Mode
 (use-package haskell-mode
