@@ -216,6 +216,7 @@
 
 ;; Helm
 (use-package helm
+  :diminish helm-mode
   :ensure t
   :bind (("M-x" . helm-M-x)
          ("C-c f" . helm-recentf)
@@ -293,6 +294,7 @@
 
 ;; Autocomplete
 (use-package auto-complete-config
+  :diminish auto-complete-mode
   :ensure auto-complete
   :config
   (ac-config-default))
@@ -311,6 +313,10 @@
 (add-hook 'emacs-lisp-mode-hook 'turn-on-eldoc-mode)
 (add-hook 'lisp-interaction-mode-hook 'turn-on-eldoc-mode)
 (add-hook 'ielm-mode-hook 'turn-on-eldoc-mode)
+
+;; Don't mention ElDoc mode in modeline
+(eval-after-load "eldoc"
+  '(diminish 'eldoc-mode))
 
 ;; Enable magic indents and newlines at C/C++ files
 (add-hook 'c-mode-common-hook
