@@ -361,6 +361,10 @@
   :init
   (setq pde-extra-setting nil))
 
+;; diminish abbrevs if loaded
+(eval-after-load "abbrev"
+  '(diminish 'abbrev-mode))
+
 ;; Use Perl testing support for Emamux
 (use-package emamux-perl-test
   :load-path "site-lisp/emamux-perl-test")
