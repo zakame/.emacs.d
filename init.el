@@ -195,7 +195,6 @@
 (use-package moe-theme
   :ensure t
   :init
-  (add-to-list 'custom-theme-load-path "~/.emacs.d/site-lisp/moe-theme")
   :config
   (setq moe-theme-highlight-buffer-id t)
   (moe-theme-set-color 'purple)
