@@ -381,12 +381,9 @@
 (use-package magit
   :ensure t
   :bind ("C-c g" . magit-status)
+  :init
+  (setq magit-last-seen-setup-instructions "1.4.0")
   :config
-  (eval-after-load 'info
-    '(progn (info-initialize)
-            (add-to-list 'Info-additional-directory-list
-                         (concat (expand-file-name user-emacs-directory)
-                                 "site-lisp/magit"))))
   ; full screen magit
   (defadvice magit-status (around magit-fullscreen activate)
     (window-configuration-to-register :magit-fullscreen)
@@ -478,13 +475,7 @@
 
 ;; Haskell Mode
 (use-package haskell-mode-autoloads
-  :ensure haskell-mode
-  :config
-  (eval-after-load 'info
-    '(progn (info-initialize)
-            (add-to-list 'Info-additional-directory-list
-                         (concat (expand-file-name user-emacs-directory) 
-                                 "site-lisp/haskell-mode")))))
+  :ensure haskell-mode)
 
 ;; Coffee Mode
 (use-package coffee-mode
