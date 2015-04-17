@@ -214,11 +214,6 @@
   :config
   (add-hook 'emacs-lisp-mode-hook 'turn-on-pretty-mode))
 
-;; Async
-(when (use-package dired-aux)
-  (use-package dired-async
-    :ensure asnyc))
-
 ;; Helm
 (use-package helm-config
   :ensure helm
@@ -245,6 +240,11 @@
   (helm-mode 1)
   (helm-adaptive-mode 1)
   (helm-autoresize-mode 1))
+
+;; Async
+(when (use-package dired-aux)
+  (use-package dired-async))
+
 
 ;; Swiper
 ;; (use-package swiper
