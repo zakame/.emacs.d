@@ -220,7 +220,7 @@
   :diminish helm-mode
   :ensure t
   :bind (("M-x" . helm-M-x)
-         ("C-c F" . helm-recentf)
+         ("C-c f" . helm-recentf)
          ("C-h r" . helm-info-emacs)
          ("C-x b" . helm-mini)
          ("C-x C-b" . helm-buffers-list)
@@ -356,13 +356,10 @@
                     (add-to-list 'exec-path perlbin)))))))))
 
 ;; Use Emacs::PDE for editing Perl
-(use-package pde
+(use-package pde-load
   :load-path "site-lisp/pde/lisp"
   :init
-  (load "pde-load")
-  :mode (("\\.psgi\\'" . cperl-mode)
-         ("\\.pl\\'" . cperl-mode)
-         ("\\.pm\\'" . cperl-mode)))
+  (setq pde-extra-setting nil))
 
 ;; Use Perl testing support for Emamux
 (use-package emamux-perl-test
