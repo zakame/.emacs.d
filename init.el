@@ -205,7 +205,8 @@
                     (powerline-moe-theme))))
     (powerline-moe-theme))
   (if (string-equal (daemonp) "gnus")
-      (moe-theme-set-color 'green)))
+      (moe-theme-set-color 'green))
+  (moe-dark))
 
 ;; pretty-mode
 (use-package pretty-mode
