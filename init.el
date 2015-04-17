@@ -477,7 +477,7 @@
   :ensure go-mode)
 
 ;; Haskell Mode
-(use-package haskell-mode-autoloads
+(use-package haskell-mode
   :ensure haskell-mode)
 
 ;; Coffee Mode
