@@ -534,6 +534,11 @@
   (use-package sx-switchto))
 
 
+;;;_ + tmux xterm-keys support (for windmove, etc. to work)
+(use-package tmux-xterm-keys
+  :load-path "site-lisp/tmux-xterm-keys")
+
+
 ;;;_* Local emacs vars
 
 ;; Local variables:
