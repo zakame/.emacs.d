@@ -250,7 +250,6 @@
 (when (use-package dired-aux)
   (use-package dired-async))
 
-
 ;; Swiper
 (use-package swiper
   :ensure t)
