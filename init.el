@@ -215,8 +215,8 @@
   (add-hook 'emacs-lisp-mode-hook 'turn-on-pretty-mode))
 
 ;; Helm
-(use-package helm-config
-  :ensure helm
+(use-package helm
+  :ensure t
   :bind (("M-x" . helm-M-x)
          ("C-c f" . helm-recentf)
          ("C-h r" . helm-info-emacs)
@@ -224,6 +224,8 @@
          ("C-x C-b" . helm-buffers-list)
          ("C-x C-f" . helm-find-files)
          ("M-s o" . helm-occur))
+  :init
+  (require 'helm-config)
   :config
   (bind-key "<tab>" 'helm-execute-persistent-action helm-map)
   (bind-key "C-i" 'helm-execute-persistent-action helm-map)
@@ -239,7 +241,8 @@
         helm-ff-auto-update-initial-value t)
   (helm-mode 1)
   (helm-adaptive-mode 1)
-  (helm-autoresize-mode 1))
+  (helm-autoresize-mode 1)
+  (ido-mode -1))
 
 ;; Async
 (when (use-package dired-aux)
