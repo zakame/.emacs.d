@@ -1,7 +1,7 @@
 [submodule "site-lisp/pde"]
 	path = site-lisp/pde
 	url = https://github.com/zakame/emacs-pde.git
+        branch = perltidyrc_closest
 [submodule "site-lisp/emamux-perl-test"]
 	path = site-lisp/emamux-perl-test
 	url = https://github.com/syohex/emamux-perl-test.git
-        branch = perltidyrc_closest
