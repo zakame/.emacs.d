@@ -421,7 +421,7 @@
 
 ;; emmet-mode
 (use-package emmet-mode
-x  :diminish emmet-mode
+  :diminish emmet-mode
   :ensure t
   :config
   (add-hook 'sgml-mode-hook 'emmet-mode)
