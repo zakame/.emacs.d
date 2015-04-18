@@ -523,6 +523,13 @@
 (global-semantic-highlight-func-mode)
 (global-semantic-show-unmatched-syntax-mode)
 
+;; yasnippet
+(use-package yasnippet
+  :diminish yas-minor-mode
+  :ensure t
+  :config
+  (yas-global-mode 1))
+
 
 ;;;_ + Org-Mode
 (use-package org
