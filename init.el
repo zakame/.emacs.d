@@ -372,6 +372,16 @@
 (use-package emamux-perl-test
   :load-path "site-lisp/emamux-perl-test")
 
+;; If helm is present, enable helm-perldoc as well
+(if (fboundp 'helm)
+    (use-package helm-perldoc
+      :bind (("C-x c P" . helm-perldoc))
+      :ensure t
+      :config
+      (eval-after-load "cperl-mode"
+        '(progn
+           (helm-perldoc:setup)))))
+
 ;; This loads generic modes which support e.g batch files
 (use-package generic-x)
 
