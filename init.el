@@ -236,7 +236,8 @@
   (bind-key "<tab>" 'helm-execute-persistent-action helm-map)
   (bind-key "C-i" 'helm-execute-persistent-action helm-map)
   (bind-key "C-z" 'helm-select-action helm-map)
-  (setq helm-yank-symbol-first t
+  (setq enable-recursive-minibuffers t
+        helm-yank-symbol-first t
         helm-move-to-line-cycle-in-source t
         helm-buffers-fuzzy-matching t
         helm-recentf-fuzzy-match t
