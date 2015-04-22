@@ -253,6 +253,20 @@
   (helm-autoresize-mode 1)
   (ido-mode -1))
 
+;; Projectile
+(use-package projectile
+  :diminish projectile-mode
+  :ensure t
+  :config
+  (projectile-global-mode))
+
+;; if Helm is available, use it for projectile completion
+(use-package helm-projectile
+  :ensure t
+  :config
+  (setq projectile-completion-system 'helm)
+  (helm-projectile-on))
+
 ;; Async
 (when (use-package dired-aux)
   (use-package dired-async))
