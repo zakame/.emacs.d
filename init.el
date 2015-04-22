@@ -101,7 +101,7 @@
 
 ;; I want backups in their own directory, and even backup while in VC
 (setq backup-directory-alist
-      `(("." . ,(expand-file-name (concat user-emacs-directory "backups"))))
+      `(("." . ,(expand-file-name "backups" user-emacs-directory)))
       vc-make-backup-files t)
 
 ;; I want global font-locking
