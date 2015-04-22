@@ -225,21 +225,23 @@
   :ensure t
   :bind (("M-x" . helm-M-x)
          ("C-c f" . helm-recentf)
+         ("C-h a" . helm-apropos)
          ("C-h r" . helm-info-emacs)
          ("C-x b" . helm-mini)
          ("C-x C-b" . helm-buffers-list)
          ("C-x C-f" . helm-find-files)
          ("M-s o" . helm-occur))
-  :init
-  (require 'helm-config)
   :config
+  (require 'helm-config)
   (bind-key "<tab>" 'helm-execute-persistent-action helm-map)
   (bind-key "C-i" 'helm-execute-persistent-action helm-map)
   (bind-key "C-z" 'helm-select-action helm-map)
   (setq enable-recursive-minibuffers t
+        helm-split-window-in-side-p t
         helm-yank-symbol-first t
         helm-move-to-line-cycle-in-source t
         helm-buffers-fuzzy-matching t
+        helm-apropos-fuzzy-match t
         helm-recentf-fuzzy-match t
         helm-semantic-fuzzy-match t
         helm-locate-fuzzy-match t
