@@ -253,6 +253,11 @@
   (helm-autoresize-mode 1)
   (ido-mode -1))
 
+;; Use helm to describe bindings
+(use-package helm-descbinds
+  :ensure t
+  :bind (("C-h b" . helm-descbinds)))
+
 ;; Projectile
 (use-package projectile
   :diminish projectile-mode
