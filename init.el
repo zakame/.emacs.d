@@ -440,7 +440,7 @@
     ad-do-it
     (delete-other-windows))
   (defun magit-quit-session ()
-    "Restores the previous window configuratoin and kills the magit buffer."
+    "Restores the previous window configuration and kills the magit buffer."
     (interactive)
     (kill-buffer)
     (jump-to-register :magit-fullscreen))
