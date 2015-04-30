@@ -148,6 +148,11 @@
                                         ; compiles
       compilation-ask-about-save nil)
 
+;; I want more descriptive unique buffer names when on Emacs <= 24.3
+(when (version<= emacs-version "24.3.1")
+    (require 'uniquify)
+    (setq uniquify-buffer-name-style 'post-forward-angle-brackets))
+
 ;; Enable some commands I need.
 (put 'narrow-to-region 'disabled nil)   ; Restrict editing to narrowed
                                         ; region
