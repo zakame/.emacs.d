@@ -58,6 +58,12 @@
       '(
          (user-position t)))
 
+;; Autoload some toggles below (needed on Debian)
+(when (string-match "Debian" (emacs-version))
+  (autoload 'mwheel-install "mwheel")
+  (autoload 'scroll-bar-mode "scroll-bar")
+  (autoload 'tool-bar-mode "tool-bar"))
+
 (setq enable-local-eval t)              ; Tell Emacs to obey variables
                                         ; set by the files it reads
 (setq visible-bell t)                   ; Blink the screen instead of
