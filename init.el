@@ -461,6 +461,12 @@
 (use-package git-timemachine
   :ensure t)
 
+;; git-gutter
+(use-package git-gutter
+  :ensure t
+  :config
+  (global-git-gutter-mode +1))
+
 ;; emmet-mode
 (use-package emmet-mode
   :diminish emmet-mode
