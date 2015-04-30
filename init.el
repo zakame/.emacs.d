@@ -466,7 +466,8 @@
   :diminish git-gutter-mode
   :ensure t
   :config
-  (global-git-gutter-mode +1))
+  (global-git-gutter-mode +1)
+  (setq git-gutter:hide-gutter t))
 
 ;; emmet-mode
 (use-package emmet-mode
