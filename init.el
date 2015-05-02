@@ -423,6 +423,12 @@
 (use-package ruby-mode
   :mode "\\.rb\\'")
 
+;; enable projectile mode for rails projects
+(use-package projectile-rails
+  :ensure t
+  :init
+  (add-hook 'projectile-mode-hook 'projectile-rails-on))
+
 ;; VC-Git
 (use-package vc-git
   :config
