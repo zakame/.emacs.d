@@ -268,6 +268,10 @@
   :ensure t
   :bind (("C-h b" . helm-descbinds)))
 
+;; Helm-swoop
+(use-package helm-swoop
+  :ensure t)
+
 ;; Projectile
 (use-package projectile
   :diminish projectile-mode
