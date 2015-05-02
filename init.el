@@ -350,7 +350,7 @@
 
 ;; Enable magic indents and newlines at C/C++ files
 (add-hook 'c-mode-common-hook
-          '(lambda () (c-toggle-auto-state 1)))
+          '(lambda () (c-toggle-auto-newline 1)))
 
 ;; Set my C indentation mode to cc-mode
 (setq c-default-style
