@@ -339,13 +339,6 @@
 
 ;;;_ + Programming
 
-;; Automatic online help for library functions
-(autoload 'find-tag-tag "etags")
-(autoload 'Info-find-node "info")
-(defun libc-help (arg)
-  (interactive (list (find-tag-tag "C library topic: ")))
-  (Info-find-node "libc" arg))
-
 ;; Enable ElDoc for automatic documentation of elisp functions
 (add-hook 'emacs-lisp-mode-hook 'turn-on-eldoc-mode)
 (add-hook 'lisp-interaction-mode-hook 'turn-on-eldoc-mode)
