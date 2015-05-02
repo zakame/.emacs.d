@@ -243,9 +243,6 @@
          ("M-s o" . helm-occur))
   :config
   (require 'helm-config)
-  (bind-key "<tab>" 'helm-execute-persistent-action helm-map)
-  (bind-key "C-i" 'helm-execute-persistent-action helm-map)
-  (bind-key "C-z" 'helm-select-action helm-map)
   (setq enable-recursive-minibuffers t
         helm-split-window-in-side-p t
         helm-yank-symbol-first t
