@@ -80,6 +80,10 @@
                                         ; semi-random bits
 (setq inhibit-startup-message t)        ; No splash screen (well...)
 
+;; Temporarily show the menu bar when activated
+(advice-add 'menu-bar-open :before '(lambda () (menu-bar-mode 1)))
+(advice-add 'menu-bar-open :after '(lambda () (menu-bar-mode -1)))
+
 ;; Enable File-Name Shadows (currently only available in Emacs 22
 (if (>= emacs-major-version 22)
     (file-name-shadow-mode 1))
