@@ -339,6 +339,14 @@
   :config
   (ac-config-default))
 
+;; Smartparens
+(use-package smartparens
+  :diminish smartparens-mode
+  :ensure t
+  :config
+  (require 'smartparens-config)
+  (smartparens-global-mode 1))
+
 ;; xclip-mode
 (use-package xclip
   :ensure t
