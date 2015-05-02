@@ -210,7 +210,6 @@
 ;; Moe-Theme
 (use-package moe-theme
   :ensure t
-  :init
   :config
   (setq moe-theme-highlight-buffer-id t)
   (moe-theme-set-color 'purple)
