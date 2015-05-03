@@ -79,6 +79,7 @@
 (auto-image-file-mode 1)                ; Show images as images, not as
                                         ; semi-random bits
 (setq inhibit-startup-message t)        ; No splash screen (well...)
+(fringe-mode 0)                         ; No fringes, please!
 
 ;; Temporarily show the menu bar when activated
 (advice-add 'menu-bar-open :before '(lambda () (menu-bar-mode 1)))
