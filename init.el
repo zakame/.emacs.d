@@ -349,6 +349,7 @@
 
 ;; xclip-mode
 (use-package xclip
+  :if (file-executable-p (executable-find "xclip"))
   :ensure t
   :config
   (turn-on-xclip))
