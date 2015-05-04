@@ -234,6 +234,13 @@
   :config
   (add-hook 'emacs-lisp-mode-hook 'turn-on-pretty-mode))
 
+;; Projectile
+(use-package projectile
+  :diminish projectile-mode
+  :ensure t
+  :config
+  (projectile-global-mode))
+
 ;; Helm
 (use-package helm
   :diminish helm-mode
@@ -273,13 +280,6 @@
 ;; Helm-swoop
 (use-package helm-swoop
   :ensure t)
-
-;; Projectile
-(use-package projectile
-  :diminish projectile-mode
-  :ensure t
-  :config
-  (projectile-global-mode))
 
 ;; if Helm is available, use it for projectile completion
 (use-package helm-projectile
