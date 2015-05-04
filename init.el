@@ -242,9 +242,9 @@
   (projectile-global-mode))
 
 ;; Helm
-(use-package helm
+(use-package helm-config
   :diminish helm-mode
-  :ensure t
+  :ensure helm
   :bind (("M-x" . helm-M-x)
          ("C-c f" . helm-recentf)
          ("C-h a" . helm-apropos)
@@ -254,7 +254,6 @@
          ("C-x C-f" . helm-find-files)
          ("M-s o" . helm-occur))
   :config
-  (require 'helm-config)
   (setq enable-recursive-minibuffers t
         helm-split-window-in-side-p t
         helm-yank-symbol-first t
@@ -338,11 +337,10 @@
   (ac-config-default))
 
 ;; Smartparens
-(use-package smartparens
+(use-package smartparens-config
   :diminish smartparens-mode
-  :ensure t
+  :ensure smartparens
   :config
-  (require 'smartparens-config)
   (smartparens-global-mode 1))
 
 ;; xclip-mode
