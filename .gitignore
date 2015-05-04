@@ -17,3 +17,4 @@ helm-adaptive-history
 abbrev_defs
 eshell/
 projectile-bookmarks.eld
+custom.el

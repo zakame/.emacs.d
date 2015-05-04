@@ -625,6 +625,11 @@
   :load-path "site-lisp/tmux-xterm-keys")
 
 
+;;;_ + Local customizations
+(setq custom-file (expand-file-name "custom.el" user-emacs-directory))
+(load custom-file)
+
+
 ;;;_* Local emacs vars
 
 ;; Local variables:
