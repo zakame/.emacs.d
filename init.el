@@ -242,9 +242,9 @@
   (projectile-global-mode))
 
 ;; Helm
-(use-package helm-config
+(use-package helm
   :diminish helm-mode
-  :ensure helm
+  :ensure t
   :bind (("M-x" . helm-M-x)
          ("C-c f" . helm-recentf)
          ("C-h a" . helm-apropos)
@@ -254,6 +254,7 @@
          ("C-x C-f" . helm-find-files)
          ("M-s o" . helm-occur))
   :config
+  (require 'helm-config)
   (setq enable-recursive-minibuffers t
         helm-split-window-in-side-p t
         helm-yank-symbol-first t
