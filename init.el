@@ -82,8 +82,9 @@
 (fringe-mode 0)                         ; No fringes, please!
 
 ;; Temporarily show the menu bar when activated
-(advice-add 'menu-bar-open :before '(lambda () (menu-bar-mode 1)))
-(advice-add 'menu-bar-open :after '(lambda () (menu-bar-mode -1)))
+(when (fboundp 'advice-add)
+  (advice-add 'menu-bar-open :before '(lambda () (menu-bar-mode 1)))
+  (advice-add 'menu-bar-open :after '(lambda () (menu-bar-mode -1))))
 
 ;; Enable File-Name Shadows (currently only available in Emacs 22
 (if (>= emacs-major-version 22)
