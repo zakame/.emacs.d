@@ -408,7 +408,11 @@
 (use-package pde-load
   :load-path "site-lisp/pde/lisp"
   :init
-  (setq pde-extra-setting nil))
+  (setq pde-extra-setting nil)
+  :config
+  (use-package pde-patch)
+  (setq cperl-invalid-face nil
+        cperl-lazy-help-time 2))
 
 ;; diminish abbrevs if loaded
 (eval-after-load "abbrev"
