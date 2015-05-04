@@ -279,11 +279,13 @@
 
 ;; Helm-swoop
 (use-package helm-swoop
-  :ensure t)
+  :ensure t
+  :bind (("M-s p" . helm-swoop)))
 
 ;; if Helm is available, use it for projectile completion
 (use-package helm-projectile
   :ensure t
+  :bind (("C-c p h" . helm-projectile))
   :config
   (setq projectile-completion-system 'helm)
   (helm-projectile-on))
