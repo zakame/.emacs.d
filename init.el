@@ -292,12 +292,6 @@
 (when (use-package dired-aux)
   (use-package dired-async))
 
-;; Swiper
-(use-package swiper
-  :ensure t)
-(use-package swiper-helm
-  :ensure t)
-
 ;; Emamux
 (use-package emamux
   :ensure t
