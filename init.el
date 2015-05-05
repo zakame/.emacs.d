@@ -243,6 +243,7 @@
 
 ;; Helm
 (use-package helm
+  :defer 2
   :diminish helm-mode
   :ensure t
   :bind (("M-x" . helm-M-x)
