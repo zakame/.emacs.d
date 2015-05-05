@@ -266,6 +266,7 @@
         helm-locate-fuzzy-match t
         helm-apropos-fuzzy-match t
         helm-ff-file-name-history-use-recentf t
+        helm-su-or-sudo "su"
         helm-ff-auto-update-initial-value t)
   (helm-mode 1)
   (helm-adaptive-mode 1)
