@@ -115,9 +115,6 @@
       `(("." . ,(expand-file-name "backups" user-emacs-directory)))
       vc-make-backup-files t)
 
-;; I want global font-locking
-;(setq font-lock-maximum-size (* 70 1024)) ; buffers should be at most
-                                          ; 250K to be fontified
 (global-font-lock-mode 1)
 (setq font-lock-support-mode 'jit-lock-mode) ; Just In Time font-locking
 (setq font-lock-maximum-decoration t)
@@ -447,15 +444,6 @@
   :ensure t
   :init
   (add-hook 'projectile-mode-hook 'projectile-rails-on))
-
-;; VC-Git
-(use-package vc-git
-  :config
-  (add-to-list 'vc-handled-backends 'git))
-;; (use-package git
-;;   :config
-;;   (autoload git-blame-mode "git-blame"
-;;     "Minor mode for incremental blame for Git." t))
 
 ;; Magit
 (use-package magit
