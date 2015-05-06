@@ -467,6 +467,7 @@
 
 ;; git-timemachine
 (use-package git-timemachine
+  :bind (("M-g t" . git-timemachine))
   :ensure t)
 
 ;; git-gutter
