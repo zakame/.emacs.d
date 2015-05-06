@@ -52,11 +52,11 @@
 
 ;; Set my default colors
 (setq default-frame-alist
-;;       '((background-color . "Black")
-;;         (foreground-color . "Grey")
-;;         (cursor-color . "Green")
+      ;; '((background-color . "Black")
+      ;;   (foreground-color . "Grey")
+      ;;   (cursor-color . "Green")
       '(
-         (user-position t)))
+        (user-position t)))
 
 ;; Enable mouse wheel support
 (if (fboundp 'mwheel-install) (mwheel-install))
@@ -117,9 +117,10 @@
 (setq font-lock-support-mode 'jit-lock-mode) ; Just In Time font-locking
 (setq font-lock-maximum-decoration t)
 
-(add-hook 'text-mode-hook 'turn-on-auto-fill) ; Turn on auto-fill on all
-                                              ; major modes
-(setq-default fill-column 72)                 ; Set default fill-column
+;; Turn on auto-fill on all major modes
+(add-hook 'text-mode-hook 'turn-on-auto-fill)
+
+(setq-default fill-column 72)           ; Set default fill-column
 (transient-mark-mode 1)                 ; Show highlight when selecting
                                         ; regions
 (line-number-mode 1)                    ; Show line number ...
@@ -130,12 +131,12 @@
                                         ; in color
 (setq show-paren-style 'expression)     ; Make the entire matched expression
                                         ; stand out
-(mouse-avoidance-mode 'cat-and-mouse) ; This moves the mouse pointer out
-                                      ; of my way when I type
+(mouse-avoidance-mode 'cat-and-mouse)   ; Move the mouse pointer out
+                                        ; of my way when I type
 (temp-buffer-resize-mode 1)             ; Temporary windows should not
                                         ; get into our way
 (auto-compression-mode 1)               ; Load Auto-(De)Compression Mode
-(setq next-line-add-newlines nil)       ; This disables down-arrow and
+(setq next-line-add-newlines nil)         ; This disables down-arrow and
                                         ; C-n at the end of a buffer
                                         ; from adding a new line to that
                                         ; buffer
@@ -150,11 +151,11 @@
 
 ;; I want more descriptive unique buffer names when on Emacs <= 24.3
 (when (version<= emacs-version "24.3.1")
-    (require 'uniquify)
-    (setq uniquify-buffer-name-style 'post-forward-angle-brackets))
+  (require 'uniquify)
+  (setq uniquify-buffer-name-style 'post-forward-angle-brackets))
 
 ;; Enable some commands I need.
-(put 'narrow-to-region 'disabled nil)   ; Restrict editing to narrowed
+(put 'narrow-to-region 'disabled nil)     ; Restrict editing to narrowed
                                         ; region
 (put 'downcase-region 'disabled nil)
 (put 'upcase-region 'disabled nil)
@@ -393,7 +394,7 @@
                    (key (buffer-substring 8 (decf idx))))
               (if (string-match "PERLBREW_PATH" key)
                   (dolist (perlbin (parse-colon-path val))
-                    ; remove trailing /
+                                        ; remove trailing /
                     (setq perlbin (substring perlbin 0 -1))
                     (setenv "PATH" (concat perlbin ":" (getenv "PATH")))
                     (add-to-list 'exec-path perlbin)))))))))
@@ -453,7 +454,6 @@
   :init
   (setq magit-last-seen-setup-instructions "1.4.0")
   :config
-  ; full screen magit
   (defadvice magit-status (around magit-fullscreen activate)
     (window-configuration-to-register :magit-fullscreen)
     ad-do-it
