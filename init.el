@@ -58,12 +58,6 @@
       '(
          (user-position t)))
 
-;; Autoload some toggles below (needed on Debian)
-(when (string-match "Debian" (emacs-version))
-  (autoload 'mwheel-install "mwheel")
-  (autoload 'scroll-bar-mode "scroll-bar")
-  (autoload 'tool-bar-mode "tool-bar"))
-
 ;; Enable mouse wheel support
 (if (fboundp 'mwheel-install) (mwheel-install))
 
