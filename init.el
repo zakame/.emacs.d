@@ -284,9 +284,11 @@
 ;; if Helm is available, use it for projectile completion
 (use-package helm-projectile
   :ensure t
-  :bind (("C-c p h" . helm-projectile))
-  :config
+  :bind (("C-c p h" . helm-projectile)
+         ("C-c p p" . helm-projectile-switch-project))
+  :init
   (setq projectile-completion-system 'helm)
+  :config
   (helm-projectile-on))
 
 ;; Async
