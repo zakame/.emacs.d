@@ -419,12 +419,10 @@
 
 ;; If Helm is present, enable helm-perldoc as well
 (use-package helm-perldoc
-  :bind (("C-x c h P" . helm-perldoc))
+  :bind* (("C-x c h p" . helm-perldoc))
   :ensure t
   :config
-  (eval-after-load "cperl-mode"
-    '(progn
-       (helm-perldoc:setup))))
+  (helm-perldoc:setup))
 
 ;; This loads generic modes which support e.g batch files
 (use-package generic-x)
