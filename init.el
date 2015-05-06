@@ -419,7 +419,7 @@
 
 ;; If Helm is present, enable helm-perldoc as well
 (use-package helm-perldoc
-  :bind (("C-x c P" . helm-perldoc))
+  :bind (("C-x c h P" . helm-perldoc))
   :ensure t
   :config
   (eval-after-load "cperl-mode"
