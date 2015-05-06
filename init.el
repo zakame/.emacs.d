@@ -64,16 +64,20 @@
   (autoload 'scroll-bar-mode "scroll-bar")
   (autoload 'tool-bar-mode "tool-bar"))
 
+;; Enable mouse wheel support
+(if (fboundp 'mwheel-install) (mwheel-install))
+
+;; Disable menu, tool, and scroll bars
+(if (fboundp 'menu-bar-mode) (menu-bar-mode -1))
+(if (fboundp 'tool-bar-mode) (tool-bar-mode -1))
+(if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
+
 (setq enable-local-eval t)              ; Tell Emacs to obey variables
                                         ; set by the files it reads
 (setq visible-bell t)                   ; Blink the screen instead of
                                         ; beeping
-(mwheel-install)                        ; Enable wheel mouse support
 (set-language-environment "UTF-8")      ; Set my default language
                                         ; environment
-(scroll-bar-mode -1)                    ; Remove the tool bar ...
-(menu-bar-mode -1)                      ; ... menu bar ...
-(tool-bar-mode -1)                      ; ... and the scroll bar in X
 (windmove-default-keybindings)          ; Enable windmove
 (winner-mode 1)                         ; Enable winner-mode
 (auto-image-file-mode 1)                ; Show images as images, not as
