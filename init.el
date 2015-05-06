@@ -351,6 +351,10 @@
   :config
   (turn-on-xclip))
 
+;; Enable tail mode for logs
+(use-package autorevert
+  :mode (("\\.log\\'" . auto-revert-tail-mode)))
+
 
 ;;;_ + Programming
 
