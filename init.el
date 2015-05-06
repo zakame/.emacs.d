@@ -355,6 +355,11 @@
 (use-package autorevert
   :mode (("\\.log\\'" . auto-revert-tail-mode)))
 
+;; Ace Jump mode
+(use-package ace-jump-mode
+  :ensure t
+  :bind (("C-c SPC" . ace-jump-mode)))
+
 
 ;;;_ + Programming
 
