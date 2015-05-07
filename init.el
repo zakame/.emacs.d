@@ -540,6 +540,7 @@
 ;; JavaScript (js2-mode)
 (use-package js2-mode
   :ensure t
+  :interpreter (("node" . js2-mode))
   :mode "\\.js\\'")
 
 ;; use Google Chrome in incognito mode as our default browser
