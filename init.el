@@ -408,14 +408,6 @@
                     (setenv "PATH" (concat perlbin ":" (getenv "PATH")))
                     (add-to-list 'exec-path perlbin)))))))))
 
-;; Try to get latest cperl-mode
-(use-package cperl-mode
-  :defer t
-  :ensure t
-  :pin melpa
-  :init
-  (defalias 'perl-mode 'cperl-mode))
-
 ;; Use Emacs::PDE for editing Perl
 (use-package pde-load
   :load-path "site-lisp/pde/lisp"
