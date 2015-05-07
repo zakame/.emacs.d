@@ -543,6 +543,15 @@
   :interpreter (("node" . js2-mode))
   :mode "\\.js\\'")
 
+;; Skewer
+(use-package skewer-mode
+  :defer t
+  :ensure t
+  :init
+  (add-hook 'js2-mode-hook 'skewer-mode)
+  (add-hook 'css-mode-hook 'skewer-css-mode)
+  (add-hook 'html-mode-hook 'skewer-html-mode))
+
 ;; use Google Chrome in incognito mode as our default browser
 (setq browse-url-browser-function 'browse-url-generic
       browse-url-generic-program "google-chrome-stable"
