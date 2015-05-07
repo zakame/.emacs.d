@@ -540,7 +540,9 @@
 (use-package js2-mode
   :ensure t
   :interpreter (("node" . js2-mode))
-  :mode "\\.js\\'")
+  :mode "\\.js\\'"
+  :config
+  (setq js2-highlight-level 3))
 
 ;; AutoComplete for JavaScript
 (use-package ac-js2
