@@ -543,6 +543,14 @@
   :interpreter (("node" . js2-mode))
   :mode "\\.js\\'")
 
+;; AutoComplete for JavaScript
+(use-package ac-js2
+  :defer t
+  :ensure t
+  :init
+  (add-hook 'js2-mode-hook 'ac-js2-mode)
+  (setq ac-js2-evaluate-calls t))
+
 ;; Skewer
 (use-package skewer-mode
   :defer t
