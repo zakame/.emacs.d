@@ -554,6 +554,7 @@
 ;; Skewer
 (use-package skewer-mode
   :defer t
+  :diminish skewer-mode
   :ensure t
   :init
   (add-hook 'js2-mode-hook 'skewer-mode)
