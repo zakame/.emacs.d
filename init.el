@@ -544,6 +544,15 @@
   :config
   (setq js2-highlight-level 3))
 
+;; JavaScript refactoring
+(use-package js2-refactor
+  :diminish js2-refactor-mode
+  :ensure t
+  :init
+  (add-hook 'js2-mode-hook #'js2-refactor-mode)
+  :config
+  (js2r-add-keybindings-with-prefix "C-c C-m"))
+
 ;; AutoComplete for JavaScript
 (use-package ac-js2
   :defer t
