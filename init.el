@@ -503,8 +503,7 @@
 ;; web-mode
 (use-package web-mode
   :ensure t
-  :mode (("\\.html?\\'" . web-mode)
-         ("\\.tt\\'" . web-mode)
+  :mode (("\\.tt\\'" . web-mode)
          ("\\.erb\\'" . web-mode)
          ("\\.html\\.ep\\'" . web-mode))
   :config
