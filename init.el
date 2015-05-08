@@ -449,6 +449,7 @@
 
 ;; enable projectile mode for rails projects
 (use-package projectile-rails
+  :defer t
   :ensure t
   :init
   (add-hook 'projectile-mode-hook 'projectile-rails-on))
@@ -546,6 +547,8 @@
 
 ;; JavaScript refactoring
 (use-package js2-refactor
+  :defer t
+  :commands js2-refactor-mode
   :diminish js2-refactor-mode
   :ensure t
   :init
@@ -612,19 +615,23 @@
   :ensure t)
 
 ;; CEDET
-(global-ede-mode 1)
-(use-package semantic/ia)
-(use-package semantic/sb)
-(use-package semantic/bovine/gcc)
-(semantic-mode 1)
-(global-semantic-idle-scheduler-mode)
-(global-semantic-idle-completions-mode)
-(global-semantic-decoration-mode)
-(global-semantic-highlight-func-mode)
-(global-semantic-show-unmatched-syntax-mode)
+(use-package semantic
+  :defer 10
+  :config
+  (use-package semantic/ia)
+  (use-package semantic/sb)
+  (use-package semantic/bovine/gcc)
+  (global-ede-mode 1)
+  (semantic-mode 1)
+  (global-semantic-idle-scheduler-mode)
+  (global-semantic-idle-completions-mode)
+  (global-semantic-decoration-mode)
+  (global-semantic-highlight-func-mode)
+  (global-semantic-show-unmatched-syntax-mode))
 
 ;; yasnippet
 (use-package yasnippet
+  :defer 5
   :diminish yas-minor-mode
   :ensure t
   :config
