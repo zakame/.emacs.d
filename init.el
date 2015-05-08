@@ -226,8 +226,9 @@
 
 ;; pretty-mode
 (use-package pretty-mode
+  :defer t
   :ensure t
-  :config
+  :init
   (add-hook 'emacs-lisp-mode-hook 'turn-on-pretty-mode))
 
 ;; Projectile
@@ -296,6 +297,7 @@
 
 ;; Emamux
 (use-package emamux
+  :defer t
   :ensure t
   :init
   (setq emamux:completing-read-type 'helm))
@@ -331,17 +333,19 @@
   (setq standard-display-table display-table))
 
 ;; Autocomplete
-(use-package auto-complete-config
+(use-package auto-complete
   :diminish auto-complete-mode
-  :ensure auto-complete
+  :ensure t
   :config
+  (use-package auto-complete-config)
   (ac-config-default))
 
 ;; Smartparens
-(use-package smartparens-config
+(use-package smartparens
   :diminish smartparens-mode
-  :ensure smartparens
+  :ensure t
   :config
+  (use-package smartparens-config)
   (smartparens-global-mode 1))
 
 ;; xclip-mode
@@ -443,10 +447,6 @@
   "cmuscheme" "Switch to interactive Scheme buffer." t)
 (setq scheme-program-name "mit-scheme")
 
-;; Ruby mode
-(use-package ruby-mode
-  :mode "\\.rb\\'")
-
 ;; enable projectile mode for rails projects
 (use-package projectile-rails
   :ensure t
@@ -489,14 +489,14 @@
 (use-package emmet-mode
   :diminish emmet-mode
   :ensure t
-  :config
+  :init
   (add-hook 'sgml-mode-hook 'emmet-mode)
   (add-hook 'css-mode-hook 'emmet-mode))
 
 ;; AutoComplete for emmet
 (use-package ac-emmet
   :ensure t
-  :config
+  :init
   (add-hook 'sgml-mode-hook 'ac-emmet-html-setup)
   (add-hook 'css-mode-hook 'ac-emmet-css-setup))
 
@@ -533,7 +533,7 @@
 
 ;; Emacs Code Browser
 (use-package ecb
-  :commands ecb-activate
+  :defer t
   :ensure t)
 
 ;; JavaScript (js2-mode)
@@ -585,25 +585,30 @@
 (which-function-mode)
 
 ;; Go Mode
-(use-package go-mode-autoloads
-  :ensure go-mode
-  :config
+(use-package go-mode
+  :defer t
+  :ensure t
+  :init
   (add-hook 'before-save-hook #'gofmt-before-save))
 
 ;; Haskell Mode
 (use-package haskell-mode
-  :ensure haskell-mode)
+  :defer t
+  :ensure t)
 
 ;; Coffee Mode
 (use-package coffee-mode
+  :defer t
   :ensure t)
 
 ;; SCSS-mode
 (use-package scss-mode
+  :defer t
   :ensure t)
 
 ;; Sass-mode (and haml-mode)
 (use-package sass-mode
+  :defer t
   :ensure t)
 
 ;; CEDET
@@ -636,9 +641,8 @@
 
 
 ;;;_ + SX.el
-(use-package let-alist
-  :ensure t)
 (use-package sx
+  :defer t
   :ensure t
   :config
   (use-package sx-tab)
