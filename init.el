@@ -643,6 +643,7 @@
   :ensure t
   :mode ("\\.\\(org\\|org_archive\\|txt\\)$" . org-mode)
   :bind (("\C-cl" . org-store-link)
+         ("\C-cc" . org-capture)
          ("\C-ca" . org-agenda)
          ("\C-cb" . org-iswitchb)))
 
