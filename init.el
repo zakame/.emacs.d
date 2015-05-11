@@ -362,7 +362,8 @@
 ;; Ace Jump mode
 (use-package ace-jump-mode
   :ensure t
-  :bind (("C-c SPC" . ace-jump-mode)))
+  :bind (("C-c SPC" . ace-jump-mode)
+         ("C-c C-0" . ace-jump-mode)))
 
 
 ;;;_ + Programming
