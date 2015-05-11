@@ -642,7 +642,11 @@
 ;;;_ + Org-Mode
 (use-package org
   :ensure t
-  :mode ("\\.\\(org\\|org_archive\\|txt\\)$" . org-mode)
+  :mode ("\\.\\(org\\|org_archive\\)$" . org-mode)
+  :diminish orgstruct-mode
+  :init
+  (add-hook 'text-mode-hook 'turn-on-orgstruct)
+  (add-hook 'message-mode-hook 'turn-on-orgstruct)
   :bind (("\C-cl" . org-store-link)
          ("\C-cc" . org-capture)
          ("\C-ca" . org-agenda)
