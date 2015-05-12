@@ -369,9 +369,8 @@
 ;;;_ + Programming
 
 ;; Enable ElDoc for automatic documentation of elisp functions
-(add-hook 'emacs-lisp-mode-hook 'turn-on-eldoc-mode)
-(add-hook 'lisp-interaction-mode-hook 'turn-on-eldoc-mode)
-(add-hook 'ielm-mode-hook 'turn-on-eldoc-mode)
+(dolist (hook '(emacs-lisp-mode-hook lisp-interaction-mode-hook ielm-mode-hook))
+  (add-hook hook #'turn-on-eldoc-mode))
 
 ;; Don't mention ElDoc mode in modeline
 (eval-after-load "eldoc"
@@ -492,8 +491,8 @@
   :diminish emmet-mode
   :ensure t
   :init
-  (add-hook 'sgml-mode-hook 'emmet-mode)
-  (add-hook 'css-mode-hook 'emmet-mode))
+  (dolist (hook '(sgml-mode-hook css-mode-hook))
+    (add-hook hook 'emmet-mode)))
 
 ;; AutoComplete for emmet
 (use-package ac-emmet
@@ -645,8 +644,8 @@
   :mode ("\\.\\(org\\|org_archive\\)$" . org-mode)
   :diminish orgstruct-mode
   :init
-  (add-hook 'text-mode-hook 'turn-on-orgstruct)
-  (add-hook 'message-mode-hook 'turn-on-orgstruct)
+  (dolist (hook '(text-mode-hook message-mode-hook))
+          (add-hook hook #'turn-on-orgstruct))
   :bind (("\C-cl" . org-store-link)
          ("\C-cc" . org-capture)
          ("\C-ca" . org-agenda)
