@@ -649,7 +649,9 @@
   :bind (("\C-cl" . org-store-link)
          ("\C-cc" . org-capture)
          ("\C-ca" . org-agenda)
-         ("\C-cb" . org-iswitchb)))
+         ("\C-cb" . org-iswitchb))
+  :config
+  (setq org-log-done 'time))
 
 
 ;;;_ + SX.el
