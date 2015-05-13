@@ -503,7 +503,7 @@
   :diminish emmet-mode
   :ensure t
   :init
-  (dolist (hook '(sgml-mode-hook css-mode-hook))
+  (dolist (hook '(sgml-mode-hook css-mode-hook kolon-mode-hook))
     (add-hook hook 'emmet-mode)))
 
 ;; AutoComplete for emmet
