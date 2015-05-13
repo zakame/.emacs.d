@@ -474,6 +474,20 @@
                          "url"))
              (magit-get-current-branch))))
   (define-key magit-mode-map (kbd "V") #'endless/visit-pull-request-url)
+  (defun endless/add-PR-fetch ()
+    "If refs/pull is not defined on a GH repo, define it."
+    (let ((fetch-address
+           "+refs/pull/*/head:refs/pull/origin/*")
+          (magit-remotes
+           (magit-get-all "remote" "origin" "fetch")))
+      (unless (or (not magit-remotes)
+                 (member fetch-address magit-remotes))
+        (when (string-match
+               "github" (magit-get "remote" "origin" "url"))
+          (magit-git-string
+           "config" "--add" "remote.origin.fetch"
+           fetch-address)))))
+  (add-hook 'magit-mode-hook #'endless/add-PR-fetch)
   (defadvice magit-status (around magit-fullscreen activate)
     (window-configuration-to-register :magit-fullscreen)
     ad-do-it
