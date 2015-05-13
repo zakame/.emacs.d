@@ -81,8 +81,14 @@
 
 ;; Temporarily show the menu bar when activated
 (when (fboundp 'advice-add)
-  (advice-add 'menu-bar-open :before '(lambda () (menu-bar-mode 1)))
-  (advice-add 'menu-bar-open :after '(lambda () (menu-bar-mode -1))))
+  (advice-add 'menu-bar-open
+              :before '(lambda ()
+                         (unless (display-graphic-p)
+                           (menu-bar-mode 1))))
+  (advice-add 'menu-bar-open
+              :after '(lambda ()
+                        (unless (display-graphic-p)
+                          (menu-bar-mode -1)))))
 
 ;; Enable File-Name Shadows (currently only available in Emacs 22
 (if (>= emacs-major-version 22)
