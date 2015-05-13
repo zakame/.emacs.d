@@ -462,6 +462,18 @@
   :init
   (setq magit-last-seen-setup-instructions "1.4.0")
   :config
+  (defun endless/visit-pull-request-url ()
+    "Visit the current branch's PR on Github."
+    (interactive)
+    (browse-url
+     (format "https://github.com/%s/compare/%s"
+             (replace-regexp-in-string
+              "\\`.+github\\.com:\\(.+\\)\\.git\\'" "\\1"
+              (magit-get "remote"
+                         (magit-get-current-remote)
+                         "url"))
+             (magit-get-current-branch))))
+  (define-key magit-mode-map (kbd "V") #'endless/visit-pull-request-url)
   (defadvice magit-status (around magit-fullscreen activate)
     (window-configuration-to-register :magit-fullscreen)
     ad-do-it
