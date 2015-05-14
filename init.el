@@ -52,11 +52,7 @@
 
 ;; Set my default colors
 (setq default-frame-alist
-      ;; '((background-color . "Black")
-      ;;   (foreground-color . "Grey")
-      ;;   (cursor-color . "Green")
-      '(
-        (user-position t)))
+      '((user-position t)))
 
 ;; Enable mouse wheel support
 (if (fboundp 'mwheel-install) (mwheel-install))
