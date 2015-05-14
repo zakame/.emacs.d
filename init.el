@@ -73,7 +73,7 @@
 (auto-image-file-mode 1)                ; Show images as images, not as
                                         ; semi-random bits
 (setq inhibit-startup-message t)        ; No splash screen (well...)
-(if (fboundp 'fringe-mode) (fringe-mode 0)) ; no fringed too, please!
+(if (fboundp 'fringe-mode) (fringe-mode 0)) ; no fringes too, please!
 
 ;; Temporarily show the menu bar when activated
 (when (fboundp 'advice-add)
