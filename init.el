@@ -457,6 +457,11 @@
   :init
   (add-hook 'projectile-mode-hook 'projectile-rails-on))
 
+;; VC-Git
+(use-package vc-git
+  :config
+  (add-to-list 'vc-handled-backends 'Git))
+
 ;; Magit
 (use-package magit
   :diminish magit-auto-revert-mode
