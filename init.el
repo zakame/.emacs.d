@@ -667,6 +667,8 @@
   :defer 5
   :diminish yas-minor-mode
   :ensure t
+  :init
+  (setq yas-verbosity 3)
   :config
   (yas-global-mode 1))
 
