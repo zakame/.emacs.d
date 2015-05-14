@@ -62,9 +62,9 @@
 (if (fboundp 'mwheel-install) (mwheel-install))
 
 ;; Disable menu, tool, and scroll bars
-(if (fboundp 'menu-bar-mode) (menu-bar-mode -1))
-(if (fboundp 'tool-bar-mode) (tool-bar-mode -1))
-(if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
+(mapc (lambda (mode)
+        (when (fboundp mode) (funcall mode -1)))
+      '(menu-bar-mode tool-bar-mode scroll-bar-mode))
 
 (setq enable-local-eval t)              ; Tell Emacs to obey variables
                                         ; set by the files it reads
