@@ -254,7 +254,7 @@
          ("C-x C-f" . helm-find-files)
          ("M-s o" . helm-occur))
   :config
-  (require 'helm-config)
+  (use-package helm-config)
   (setq enable-recursive-minibuffers t
         helm-split-window-in-side-p t
         helm-yank-symbol-first t
