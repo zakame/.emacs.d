@@ -423,6 +423,7 @@
   :init
   (setq pde-extra-setting nil)
   (add-to-list 'auto-mode-alist '("cpanfile\\'" . cperl-mode))
+  (add-to-list 'auto-mode-alist '("\\.t\\'" . perl-mode))
   :config
   (use-package pde-patch)
   (setq cperl-invalid-face nil
