@@ -332,7 +332,8 @@
 
 ;; Neater vertical separator in emacs -nw
 (let ((display-table (or standard-display-table (make-display-table))))
-  (set-display-table-slot display-table 'vertical-border (make-glyph-code ?┃))
+  (set-display-table-slot display-table 
+                          'vertical-border (make-glyph-code ?┃))
   (setq standard-display-table display-table))
 
 ;; Autocomplete
@@ -372,7 +373,8 @@
 ;;;_ + Programming
 
 ;; Enable ElDoc for automatic documentation of elisp functions
-(dolist (hook '(emacs-lisp-mode-hook lisp-interaction-mode-hook ielm-mode-hook))
+(dolist (hook 
+         '(emacs-lisp-mode-hook lisp-interaction-mode-hook ielm-mode-hook))
   (add-hook hook #'turn-on-eldoc-mode))
 
 ;; Don't mention ElDoc mode in modeline
@@ -549,7 +551,8 @@
         web-mode-enable-current-column-highlight t
         web-mode-ac-sources-alist
         '(("css" . (ac-source-css-property ac-source-emmet-css-snippets))
-          ("html" . (ac-source-emmet-html-aliases ac-source-emmet-html-snippets))))
+          ("html" . (ac-source-emmet-html-aliases 
+                     ac-source-emmet-html-snippets))))
   (add-hook 'web-mode-before-auto-complete-hooks
             '(lambda ()
                (let ((web-mode-cur-language
