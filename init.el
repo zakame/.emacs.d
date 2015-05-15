@@ -235,6 +235,7 @@
 
 ;; Projectile
 (use-package projectile
+  :defer t
   :diminish projectile-mode
   :ensure t
   :config
