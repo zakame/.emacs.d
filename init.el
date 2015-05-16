@@ -621,7 +621,7 @@
 ;; yaml-mode
 (use-package yaml-mode
   :ensure t
-  :mode "\\.yml\\'")
+  :mode "\\.yml$")
 
 ;; show current function/sub in mode-line
 (which-function-mode)
