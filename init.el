@@ -375,10 +375,12 @@
          ("C-c C-0" . ace-jump-mode)))
 
 ;; Enable editing files as root (via sudo) on remote hosts
-(add-to-list 'tramp-default-proxies-alist
-             '(nil "\\`root\\'" "/ssh:%h:"))
-(add-to-list 'tramp-default-proxies-alist
-             '((regexp-quote (system-name)) nil nil))
+(use-package tramp
+  :config
+  (add-to-list 'tramp-default-proxies-alist
+	       '(nil "\\`root\\'" "/ssh:%h:"))
+  (add-to-list 'tramp-default-proxies-alist
+	       '((regexp-quote (system-name)) nil nil)))
 
 
 ;;;_ + Programming
