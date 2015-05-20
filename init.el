@@ -115,6 +115,10 @@
       `(("." . ,(expand-file-name "backups" user-emacs-directory)))
       vc-make-backup-files t)
 
+;; Disable backups for TRAMP files, though
+(add-to-list 'backup-directory-alist
+             (cons tramp-file-name-regexp nil))
+
 (global-font-lock-mode 1)
 (setq font-lock-support-mode 'jit-lock-mode) ; Just In Time font-locking
 (setq font-lock-maximum-decoration t)
@@ -369,6 +373,12 @@
   :ensure t
   :bind (("C-c SPC" . ace-jump-mode)
          ("C-c C-0" . ace-jump-mode)))
+
+;; Enable editing files as root (via sudo) on remote hosts
+(add-to-list 'tramp-default-proxies-alist
+             '(nil "\\`root\\'" "/ssh:%h:"))
+(add-to-list 'tramp-default-proxies-alist
+             '((regexp-quote (system-name)) nil nil))
 
 
 ;;;_ + Programming
