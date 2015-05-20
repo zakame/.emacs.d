@@ -383,6 +383,11 @@
   (add-to-list 'tramp-default-proxies-alist
 	       '((regexp-quote (system-name)) nil nil)))
 
+;; Turn on flyspell on all text buffers
+(add-to-list 'text-mode-hook 'flyspell-mode)
+(eval-after-load "simple"
+  '(diminish 'flyspell-mode))
+
 
 ;;;_ + Programming
 
