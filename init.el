@@ -385,7 +385,7 @@
 
 ;; Turn on flyspell on all text buffers
 (add-to-list 'text-mode-hook 'flyspell-mode)
-(eval-after-load "simple"
+(eval-after-load "flyspell"
   '(diminish 'flyspell-mode))
 
 
