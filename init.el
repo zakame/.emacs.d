@@ -374,8 +374,9 @@
   :bind (("C-c SPC" . ace-jump-mode)
          ("C-c C-0" . ace-jump-mode)))
 
-;; Enable editing files as root (via sudo) on remote hosts
+;; Enable TRAMP and editing files as root (via sudo) on remote hosts
 (use-package tramp
+  :defer t
   :config
   (add-to-list 'tramp-default-proxies-alist
 	       '(nil "\\`root\\'" "/ssh:%h:"))
