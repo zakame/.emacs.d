@@ -408,7 +408,7 @@
 (setq c-default-style
       '((java-mode . "java")
         (c++-mode . "stroustrup")
-        (other . "gnu")))
+        (other . "linux")))
 
 ;; Always indent using spaces, no tabs
 (setq-default indent-tabs-mode nil)
