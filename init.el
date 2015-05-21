@@ -300,8 +300,9 @@
   (helm-projectile-on))
 
 ;; Async
-(when (use-package dired-aux)
-  (use-package dired-async))
+(use-package dired-async
+  :config
+  (dired-async-mode 1))
 
 ;; Emamux
 (use-package emamux
