@@ -155,6 +155,13 @@
                                         ; compiles
       compilation-ask-about-save nil)
 
+;; Use imenu to browse use-package blocks
+(defun zakame/imenu-use-package ()
+  (add-to-list 'imenu-generic-expression
+               '("Used Packages"
+                 "\\(^\\s-*(use-package +\\)\\(\\_<.+\\_>\\)" 2)))
+(add-hook 'emacs-lisp-mode-hook #'zakame/imenu-use-package)
+
 ;; I want more descriptive unique buffer names when on Emacs <= 24.3
 (when (version<= emacs-version "24.3.1")
   (use-package uniquify
