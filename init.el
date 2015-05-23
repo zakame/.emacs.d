@@ -383,15 +383,16 @@
          ("C-c C-0" . ace-jump-mode)))
 
 ;; Enable TRAMP and editing files as root (via sudo) on remote hosts
-(use-package tramp
-  :config
-  (add-to-list 'tramp-default-proxies-alist
-	       '(nil "\\`root\\'" "/ssh:%h:"))
-  (add-to-list 'tramp-default-proxies-alist
-	       '((regexp-quote (system-name)) nil nil)))
+(eval-after-load "tramp"
+  '(progn
+     (add-to-list 'tramp-default-proxies-alist
+                  '(nil "\\`root\\'" "/ssh:%h:"))
+     (add-to-list 'tramp-default-proxies-alist
+                  '((regexp-quote (system-name)) nil nil))))
 
 ;; use tramp for connecting to Docker containers
 (use-package docker-tramp
+  :defer 5
   :ensure t)
 
 ;; Turn on flyspell on all text buffers
