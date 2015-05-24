@@ -76,15 +76,18 @@
 (if (fboundp 'fringe-mode) (fringe-mode 0)) ; no fringes too, please!
 
 ;; Temporarily show the menu bar when activated
+(defun zakame/toggle-menu-bar (int)
+  (unless (display-graphic-p)
+    (menu-bar-mode int)))
 (when (fboundp 'advice-add)
   (advice-add 'menu-bar-open
               :before '(lambda ()
-                         (unless (display-graphic-p)
-                           (menu-bar-mode 1))))
+                         "Toggle the menu bar on."
+                         (zakame/toggle-menu-bar 1)))
   (advice-add 'menu-bar-open
               :after '(lambda ()
-                        (unless (display-graphic-p)
-                          (menu-bar-mode -1)))))
+                        "Toggle the menu bar off."
+                        (zakame/toggle-menu-bar -1))))
 
 ;; Enable File-Name Shadows (currently only available in Emacs 22
 (if (>= emacs-major-version 22)
