@@ -687,6 +687,11 @@
   :defer t
   :ensure t)
 
+;; Rust
+(use-package rust-mode
+  :defer t
+  :ensure t)
+
 ;; CEDET
 (use-package semantic
   :defer 10
