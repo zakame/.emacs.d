@@ -403,6 +403,14 @@
 (eval-after-load "flyspell"
   '(diminish 'flyspell-mode))
 
+;; adaptive wrap for long lines
+(use-package adaptive-wrap
+  :diminish visual-line-mode
+  :ensure t
+  :config
+  (add-hook 'text-mode-hook #'visual-line-mode)
+  (add-hook 'text-mode-hook #'adaptive-wrap-prefix-mode))
+
 
 ;;;_ + Programming
 
