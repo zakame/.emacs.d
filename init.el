@@ -717,10 +717,7 @@
 (use-package org
   :ensure t
   :mode ("\\.\\(org\\|org_archive\\)$" . org-mode)
-  :diminish orgstruct-mode
   :init
-  (dolist (hook '(text-mode-hook message-mode-hook))
-          (add-hook hook #'turn-on-orgstruct))
   :bind (("\C-cl" . org-store-link)
          ("\C-cc" . org-capture)
          ("\C-ca" . org-agenda)
