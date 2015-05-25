@@ -62,6 +62,7 @@
         (when (fboundp mode) (funcall mode -1)))
       '(menu-bar-mode tool-bar-mode scroll-bar-mode))
 
+(setq load-prefer-newer t)              ; Always load newer elisp
 (setq enable-local-eval t)              ; Tell Emacs to obey variables
                                         ; set by the files it reads
 (setq visible-bell t)                   ; Blink the screen instead of
@@ -192,8 +193,7 @@
 (setq mail-user-agent 'gnus-user-agent)
 
 ;; Rebind `dabbrev-expand' to `hippie-expand' for adaptive auto-completion.
-(eval-after-load "dabbrev"
-  '(defalias 'dabbrev-expand 'hippie-expand))
+(global-set-key (kbd "M-/") 'hippie-expand)
 
 ;; Use Markdown Mode
 (use-package markdown-mode
