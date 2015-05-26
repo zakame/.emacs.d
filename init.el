@@ -700,6 +700,16 @@
   :defer t
   :ensure t)
 
+;; Clojure
+(use-package clojure-mode
+  :defer t
+  :ensure t)
+
+;; Cider
+(use-package cider
+  :defer t
+  :ensure t)
+
 ;; CEDET
 (use-package semantic
   :defer 10
