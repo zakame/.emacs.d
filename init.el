@@ -708,7 +708,10 @@
 ;; Cider
 (use-package cider
   :defer t
-  :ensure t)
+  :ensure t
+  :config
+  (add-hook 'cider-mode-hook #'eldoc-mode)
+  (setq nrepl-log-messages t))
 
 ;; CEDET
 (use-package semantic
