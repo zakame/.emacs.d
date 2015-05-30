@@ -418,7 +418,7 @@
 ;; Enable ElDoc for automatic documentation of elisp functions
 (dolist (hook 
          '(emacs-lisp-mode-hook lisp-interaction-mode-hook ielm-mode-hook))
-  (add-hook hook #'turn-on-eldoc-mode))
+  (add-hook hook #'eldoc-mode))
 
 ;; Don't mention ElDoc mode in modeline
 (eval-after-load "eldoc"
