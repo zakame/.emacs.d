@@ -96,8 +96,9 @@
 
 ;; package.el
 (require 'package)
-(add-to-list 'package-archives
-             '("melpa" . "http://melpa.org/packages/") t)
+(nconc package-archives
+       '(("melpa" . "http://melpa.org/packages/")
+         ("org" . "http://orgmode.org/elpa/")))
 (package-initialize)
 (setq package-enable-at-startup nil)
 
@@ -741,7 +742,7 @@
 
 ;;;_ + Org-Mode
 (use-package org
-  :ensure t
+  :ensure org-plus-contrib
   :mode ("\\.\\(org\\|org_archive\\)$" . org-mode)
   :init
   :bind (("\C-cl" . org-store-link)
