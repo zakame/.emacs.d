@@ -26,7 +26,7 @@
 ;; Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
 
-;;;_* Commentary
+;;; Commentary:
 
 ;; `init.el' (formerly `zakame.emacs') contains the special
 ;; customizations made by Zak B. Elep ( zakame@zakame.net ) for his own
@@ -42,7 +42,7 @@
 ;; Put this file inside your `user-emacs-directory'.  Emacs will then
 ;; run it at startup by default, unless Emacs is invoked as `emacs -q'.
 
-;;;_* Code
+;;; Code:
 
 ;;;_ + General setup
 
@@ -778,4 +778,6 @@
 (when (file-exists-p custom-file)
   (load custom-file))
 
-;;; zakame.emacs ends here
+(provide 'init)
+
+;;; init.el ends here
