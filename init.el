@@ -183,13 +183,6 @@
 (eval-after-load "simple"
   '(diminish 'auto-fill-function))
 
-;; Use AllOut mode
-(use-package allout
-  :diminish allout-mode
-  :if (>= emacs-major-version 22)
-  :init
-  (setq allout-auto-activation t))
-
 ;; Use Gnus as a mail-user-agent
 (setq mail-user-agent 'gnus-user-agent)
 
@@ -777,13 +770,5 @@
 (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
 (when (file-exists-p custom-file)
   (load custom-file))
-
-
-;;;_* Local emacs vars
-
-;; Local variables:
-;; mode: emacs-lisp
-;; allout-layout: (* 0 : )
-;; End:
 
 ;;; zakame.emacs ends here
