@@ -301,7 +301,8 @@
   :init
   (setq projectile-completion-system 'helm)
   :config
-  (helm-projectile-on))
+  (helm-projectile-on)
+  (setq projectile-switch-project-action 'helm-projectile))
 
 ;; Async
 (use-package dired-async
