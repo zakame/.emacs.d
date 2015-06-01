@@ -405,6 +405,12 @@
   (add-hook 'text-mode-hook #'visual-line-mode)
   (add-hook 'text-mode-hook #'adaptive-wrap-prefix-mode))
 
+;; Flycheck
+(use-package flycheck
+  :ensure t
+  :init
+  (add-hook 'after-init-hook #'global-flycheck-mode))
+
 
 ;;;_ + Programming
 
