@@ -407,6 +407,7 @@
 
 ;; Flycheck
 (use-package flycheck
+  :diminish flycheck-mode
   :ensure t
   :init
   (add-hook 'after-init-hook #'global-flycheck-mode))
