@@ -438,29 +438,6 @@
 ;; Always indent using spaces, no tabs
 (setq-default indent-tabs-mode nil)
 
-;; If perlbrew is used, get PERLBREW_PATH to be used in exec-path and PATH
-;; Adapted from https://gist.github.com/960214
-(use-package cl)
-(let ((perlbrew-init "~/.perlbrew/init"))
-  (if (file-readable-p perlbrew-init)
-      (dolist (line (with-temp-buffer
-                      (insert-file-contents perlbrew-init)
-                      (split-string (buffer-string) "\n" t)))
-        (with-temp-buffer
-          (insert line)
-          (goto-char (point-min))
-          (search-forward "export " nil t)
-          (when (= (point) 8)
-            (let* ((idx (search-forward "="))
-                   (val (buffer-substring idx (progn (end-of-line) (point))))
-                   (key (buffer-substring 8 (decf idx))))
-              (if (string-match "PERLBREW_PATH" key)
-                  (dolist (perlbin (parse-colon-path val))
-                                        ; remove trailing /
-                    (setq perlbin (substring perlbin 0 -1))
-                    (setenv "PATH" (concat perlbin ":" (getenv "PATH")))
-                    (add-to-list 'exec-path perlbin)))))))))
-
 ;; Use Emacs::PDE for editing Perl
 (use-package pde-load
   :load-path "site-lisp/pde/lisp"
