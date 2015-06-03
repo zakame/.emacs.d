@@ -78,6 +78,7 @@
 
 ;; Temporarily show the menu bar when activated
 (defun zakame/toggle-menu-bar (int)
+  "Toggle the menu bar, given INT as a switch."
   (unless (display-graphic-p)
     (menu-bar-mode int)))
 (when (fboundp 'advice-add)
@@ -162,6 +163,7 @@
 
 ;; Use imenu to browse use-package blocks
 (defun zakame/imenu-use-package ()
+  "Extract use-package lines to be used as anchors in imenu."
   (add-to-list 'imenu-generic-expression
                '("Used Packages"
                  "\\(^\\s-*(use-package +\\)\\(\\_<.+\\_>\\)" 2)))
