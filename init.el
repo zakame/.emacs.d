@@ -345,7 +345,7 @@
 
 ;; Neater vertical separator in emacs -nw
 (let ((display-table (or standard-display-table (make-display-table))))
-  (set-display-table-slot display-table 
+  (set-display-table-slot display-table
                           'vertical-border (make-glyph-code ?┃))
   (setq standard-display-table display-table))
 
@@ -419,7 +419,7 @@
 ;;;_ + Programming
 
 ;; Enable ElDoc for automatic documentation of elisp functions
-(dolist (hook 
+(dolist (hook
          '(emacs-lisp-mode-hook lisp-interaction-mode-hook ielm-mode-hook))
   (add-hook hook #'eldoc-mode))
 
@@ -575,7 +575,7 @@
         web-mode-enable-current-column-highlight t
         web-mode-ac-sources-alist
         '(("css" . (ac-source-css-property ac-source-emmet-css-snippets))
-          ("html" . (ac-source-emmet-html-aliases 
+          ("html" . (ac-source-emmet-html-aliases
                      ac-source-emmet-html-snippets))))
   (add-hook 'web-mode-before-auto-complete-hooks
             '(lambda ()
