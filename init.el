@@ -385,6 +385,7 @@
 ;; Enable TRAMP and editing files as root (via sudo) on remote hosts
 (eval-after-load "tramp"
   '(progn
+     (setq tramp-default-method "ssh")
      (add-to-list 'tramp-default-proxies-alist
                   '(nil "\\`root\\'" "/ssh:%h:"))
      (add-to-list 'tramp-default-proxies-alist
