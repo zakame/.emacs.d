@@ -741,7 +741,9 @@
    'org-babel-load-languages
    '((perl . t)
      (ruby . t)
-     (sh . t)))
+     (sh . t)
+     (sql . t)
+     (sqlite . t)))
   (setq org-log-done 'time
         org-src-fontify-natively t
         org-src-preserve-indentation t))
