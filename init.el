@@ -746,6 +746,11 @@
         org-src-fontify-natively t
         org-src-preserve-indentation t))
 
+;;;_ + htmlize
+(use-package htmlize
+  :defer t
+  :ensure t)
+
 
 ;;;_ + SX.el
 (use-package sx
