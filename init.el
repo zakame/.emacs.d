@@ -750,6 +750,7 @@
    'org-babel-load-languages
    '((perl . t)
      (ruby . t)
+     (clojure . t)
      (sh . t)
      (sql . t)
      (sqlite . t)))
