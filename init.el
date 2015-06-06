@@ -721,6 +721,15 @@
   (yas-global-mode 1))
 
 
+;;;_ + SLIME
+(use-package slime
+  :defer t
+  :ensure t
+  :init
+  (setq inferior-lisp-program "sbcl"
+        slime-contribs '(slime-fancy)))
+
+
 ;;;_ + Org-Mode
 (use-package org
   :ensure org-plus-contrib
