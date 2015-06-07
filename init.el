@@ -720,6 +720,14 @@
   :config
   (yas-global-mode 1))
 
+;; rainbow delimiters
+(use-package rainbow-delimiters
+  :ensure t
+  :init
+  (dolist (hook '(emacs-lisp-mode-hook cperl-mode-hook))
+    (add-hook hook #'rainbow-delimiters-mode))
+  (add-hook 'cperl-mode-hook #'rainbow-delimiters-mode))
+
 
 ;;;_ + SLIME
 (use-package slime
