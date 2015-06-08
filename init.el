@@ -510,7 +510,7 @@
                          (magit-get-current-remote)
                          "url"))
              (magit-get-current-branch))))
-  (define-key magit-mode-map (kbd "V") #'endless/visit-pull-request-url)
+  (bind-key "V" #'endless/visit-pull-request-url magit-mode-map)
   (defun endless/add-PR-fetch ()
     "If refs/pull is not defined on a GH repo, define it."
     (let ((fetch-address
@@ -534,7 +534,7 @@
     (interactive)
     (kill-buffer)
     (jump-to-register :magit-fullscreen))
-  (define-key magit-status-mode-map (kbd "q") 'zakame/magit-quit-session))
+  (bind-key "q" #'zakame/magit-quit-session magit-status-mode-map))
 
 ;; git-timemachine
 (use-package git-timemachine
