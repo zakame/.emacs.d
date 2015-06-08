@@ -749,6 +749,8 @@
          ("\C-ca" . org-agenda)
          ("\C-cb" . org-iswitchb))
   :config
+  ; configure org-capture
+  (setq org-default-notes-file (concat org-directory "/notes.org"))
   ; make windmove work well with org-mode
   (add-hook 'org-shiftup-final-hook 'windmove-up)
   (add-hook 'org-shiftleft-final-hook 'windmove-left)
