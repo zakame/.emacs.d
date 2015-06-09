@@ -769,7 +769,14 @@
         org-src-fontify-natively t
         org-src-preserve-indentation t))
 
-;;; htmlize
+;; org-bullets
+(use-package org-bullets
+  :defer t
+  :ensure t
+  :init
+  (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1))))
+
+;; htmlize
 (use-package htmlize
   :defer t
   :ensure t)
