@@ -1,7 +1,7 @@
 ;;; init.el --- My Emacs customizations
 ;; Copyright (C) 2005-2015  Zak B. Elep
 
-;;;_* Package description
+;;; Package description
 
 ;; Author       :       Zak B. Elep ( zakame@zakame.net )
 ;; Date Created :       Thu Sep 29 12:29:42 UTC 2005
@@ -37,14 +37,14 @@
 ;; This new version is tailored to be more portable (e.g. being able to
 ;; run on a Mac OS X, Debian, and OpenBSD.)
 
-;;;_ + Usage
+;;; Usage
 
 ;; Put this file inside your `user-emacs-directory'.  Emacs will then
 ;; run it at startup by default, unless Emacs is invoked as `emacs -q'.
 
 ;;; Code:
 
-;;;_ + General setup
+;;; General setup
 
 ;; Set my full name and email address
 (setq-default user-full-name "Zak B. Elep"
@@ -114,7 +114,7 @@
 (require 'bind-key)
 
 
-;;;_ + Editing
+;;; Editing
 
 ;; I want backups in their own directory, and even backup while in VC
 (setq backup-directory-alist
@@ -417,7 +417,7 @@
   (add-hook 'after-init-hook #'global-flycheck-mode))
 
 
-;;;_ + Programming
+;;; Programming
 
 ;; Enable ElDoc for automatic documentation of elisp functions
 (dolist (hook
@@ -730,7 +730,7 @@
   (add-hook 'cperl-mode-hook #'rainbow-delimiters-mode))
 
 
-;;;_ + SLIME
+;;; SLIME
 (use-package slime
   :defer t
   :ensure t
@@ -739,7 +739,7 @@
         slime-contribs '(slime-fancy)))
 
 
-;;;_ + Org-Mode
+;;; Org-Mode
 (use-package org
   :ensure org-plus-contrib
   :mode ("\\.\\(org\\|org_archive\\)$" . org-mode)
@@ -769,13 +769,13 @@
         org-src-fontify-natively t
         org-src-preserve-indentation t))
 
-;;;_ + htmlize
+;;; htmlize
 (use-package htmlize
   :defer t
   :ensure t)
 
 
-;;;_ + SX.el
+;;; SX.el
 (use-package sx
   :defer t
   :ensure t
@@ -785,12 +785,12 @@
   (use-package sx-switchto))
 
 
-;;;_ + tmux xterm-keys support (for windmove, etc. to work)
+;;; tmux xterm-keys support (for windmove, etc. to work)
 (use-package tmux-xterm-keys
   :load-path "site-lisp/tmux-xterm-keys")
 
 
-;;;_ + Local customizations
+;;; Local customizations
 (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
 (when (file-exists-p custom-file)
   (load custom-file))
