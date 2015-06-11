@@ -744,6 +744,7 @@
   :ensure org-plus-contrib
   :mode ("\\.\\(org\\|org_archive\\)$" . org-mode)
   :init
+  (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
   :bind (("\C-cl" . org-store-link)
          ("\C-cc" . org-capture)
          ("\C-ca" . org-agenda)
@@ -768,13 +769,6 @@
   (setq org-log-done 'time
         org-src-fontify-natively t
         org-src-preserve-indentation t))
-
-;; org-bullets
-(use-package org-bullets
-  :defer t
-  :ensure t
-  :init
-  (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1))))
 
 ;; htmlize
 (use-package htmlize
