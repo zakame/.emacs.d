@@ -1,0 +1,16 @@
+#+TITLE: My Emacs Settings
+
+Inspired by [[http://emacsrocks.com][Emacs Rocks]] and [[https://github.com/magnars/.emacs.d][Magnars' .emacs.d]].
+
+* Setup
+
+  #+begin_src sh
+cd $HOME
+git clone --recursive https://github.com/zakame/.emacs.d.git
+  #+end_src
+
+* Notes
+
+  My Emacs settings is primarily optimized for a Perl web development
+  environment with Git support.  Furthermore, it has some older
+  customizations that come from my old =.emacs= setup for misc stuff.
