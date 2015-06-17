@@ -416,6 +416,12 @@
   :init
   (add-hook 'after-init-hook #'global-flycheck-mode))
 
+;; undo-tree
+(use-package undo-tree
+  :ensure t
+  :config
+  (global-undo-tree-mode 1))
+
 
 ;;; Programming
 
