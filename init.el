@@ -770,12 +770,18 @@
    '((perl . t)
      (ruby . t)
      (clojure . t)
+     (http . t)
      (sh . t)
      (sql . t)
      (sqlite . t)))
   (setq org-log-done 'time
         org-src-fontify-natively t
         org-src-preserve-indentation t))
+
+;; ob-http (REST client)
+(use-package ob-http
+  :defer t
+  :ensure t)
 
 ;; org-dashboard
 (use-package org-dashboard
