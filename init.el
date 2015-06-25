@@ -777,6 +777,11 @@
         org-src-fontify-natively t
         org-src-preserve-indentation t))
 
+;; org-dashboard
+(use-package org-dashboard
+  :defer t
+  :ensure t)
+
 ;; htmlize
 (use-package htmlize
   :defer t
