@@ -558,7 +558,8 @@
   :ensure t
   :config
   (global-git-gutter-mode +1)
-  (setq git-gutter:hide-gutter t))
+  (setq git-gutter:hide-gutter t
+        git-gutter:update-interval 2))
 
 ;; emmet-mode
 (use-package emmet-mode
