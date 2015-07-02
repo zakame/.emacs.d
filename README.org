@@ -4,10 +4,10 @@ Inspired by [[http://emacsrocks.com][Emacs Rocks]] and [[https://github.com/magn
 
 * Setup
 
-  #+begin_src sh
+#+begin_src sh
 cd $HOME
 git clone --recursive https://github.com/zakame/.emacs.d.git
-  #+end_src
+#+end_src
 
 * Notes
 
