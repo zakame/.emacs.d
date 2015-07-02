@@ -505,7 +505,6 @@
 
 ;; Magit
 (use-package magit
-  :diminish magit-auto-revert-mode
   :ensure t
   :bind ("C-c g" . magit-status)
   :init
@@ -515,14 +514,14 @@
     "Visit the current branch's PR on Github."
     (interactive)
     (browse-url
-     (format "https://github.com/%s/compare/%s"
+     (format "https://github.com/%s/pull/new/%s"
              (replace-regexp-in-string
               "\\`.+github\\.com:\\(.+\\)\\.git\\'" "\\1"
               (magit-get "remote"
-                         (magit-get-current-remote)
+                         (magit-get-remote)
                          "url"))
-             (magit-get-current-branch))))
-  (bind-key "V" #'endless/visit-pull-request-url magit-mode-map)
+             (cdr (magit-get-remote-branch)))))
+  (bind-key "v" #'endless/visit-pull-request-url magit-mode-map)
   (defun endless/add-PR-fetch ()
     "If refs/pull is not defined on a GH repo, define it."
     (let ((fetch-address
