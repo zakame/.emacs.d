@@ -514,7 +514,7 @@
     "Visit the current branch's PR on Github."
     (interactive)
     (browse-url
-     (format "https://github.com/%s/pull/new/%s"
+     (format "https://github.com/%s/compare/%s"
              (replace-regexp-in-string
               "\\`.+github\\.com:\\(.+\\)\\.git\\'" "\\1"
               (magit-get "remote"
