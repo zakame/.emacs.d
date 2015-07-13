@@ -738,8 +738,7 @@
   :ensure t
   :init
   (dolist (hook '(emacs-lisp-mode-hook cperl-mode-hook))
-    (add-hook hook #'rainbow-delimiters-mode))
-  (add-hook 'cperl-mode-hook #'rainbow-delimiters-mode))
+    (add-hook hook #'rainbow-delimiters-mode)))
 
 
 ;;; SLIME
