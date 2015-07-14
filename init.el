@@ -357,7 +357,8 @@
   :init
   (setq yas-verbosity 2)
   :config
-  (yas-global-mode 1))
+  (yas-global-mode 1)
+  (add-hook 'term-mode-hook (lambda () (yas-minor-mode -1))))
 
 ;; Autocomplete
 (use-package auto-complete
