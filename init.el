@@ -349,13 +349,25 @@
                           'vertical-border (make-glyph-code ?┃))
   (setq standard-display-table display-table))
 
+;; yasnippet
+(use-package yasnippet
+  :defer 5
+  :diminish yas-minor-mode
+  :ensure t
+  :init
+  (setq yas-verbosity 2)
+  :config
+  (yas-global-mode 1))
+
 ;; Autocomplete
 (use-package auto-complete
   :diminish auto-complete-mode
   :ensure t
   :config
   (use-package auto-complete-config)
-  (ac-config-default))
+  (ac-config-default)
+  (ac-set-trigger-key "TAB")
+  (ac-set-trigger-key "<tab>"))
 
 ;; Smartparens
 (use-package smartparens
@@ -722,16 +734,6 @@
   (global-semantic-decoration-mode)
   (global-semantic-highlight-func-mode)
   (global-semantic-show-unmatched-syntax-mode))
-
-;; yasnippet
-(use-package yasnippet
-  :defer 5
-  :diminish yas-minor-mode
-  :ensure t
-  :init
-  (setq yas-verbosity 2)
-  :config
-  (yas-global-mode 1))
 
 ;; rainbow delimiters
 (use-package rainbow-delimiters
