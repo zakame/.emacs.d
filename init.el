@@ -776,6 +776,7 @@
    '((perl . t)
      (ruby . t)
      (clojure . t)
+     (haskell . t)
      (http . t)
      (sh . t)
      (sql . t)
