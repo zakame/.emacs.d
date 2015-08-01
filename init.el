@@ -109,6 +109,8 @@
     (package-refresh-contents)
     (package-install 'use-package)))
 (eval-when-compile
+  (eval-after-load 'advice
+    `(setq ad-redefinition-action 'accept))
   (require 'use-package))
 (require 'diminish)
 (require 'bind-key)
