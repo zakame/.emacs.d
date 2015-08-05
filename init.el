@@ -522,7 +522,8 @@
   :ensure t
   :bind ("C-c g" . magit-status)
   :init
-  (setq magit-last-seen-setup-instructions "1.4.0")
+  (setq magit-last-seen-setup-instructions "2.1.0")
+  (setq magit-push-always-verify nil)
   :config
   (defun endless/visit-pull-request-url ()
     "Visit the current branch's PR on Github."
