@@ -567,14 +567,13 @@
   :bind (("M-g t" . git-timemachine))
   :ensure t)
 
-;; git-gutter
-(use-package git-gutter
-  :diminish git-gutter-mode
+;; diff-hl
+(use-package diff-hl
   :ensure t
   :config
-  (global-git-gutter-mode +1)
-  (setq git-gutter:hide-gutter t
-        git-gutter:update-interval 2))
+  (global-diff-hl-mode)
+  (setq diff-hl-side 'left)
+  (diff-hl-margin-mode))
 
 ;; emmet-mode
 (use-package emmet-mode
