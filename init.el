@@ -100,8 +100,8 @@
 (nconc package-archives
        '(("melpa" . "http://melpa.org/packages/")
          ("org" . "http://orgmode.org/elpa/")))
-(package-initialize)
 (setq package-enable-at-startup nil)
+(package-initialize)
 
 ;; use-package
 (unless (package-installed-p 'use-package)
