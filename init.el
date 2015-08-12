@@ -254,6 +254,12 @@
   :config
   (projectile-global-mode))
 
+;; recentf tweaks
+(use-package recentf
+  :defer t
+  :config
+  (setq recentf-exclude '("TAGS" ".*-autoloads\\.el\\'")))
+
 ;; Helm
 (use-package helm
   :defer 2
