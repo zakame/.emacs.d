@@ -190,8 +190,22 @@
 ;; Use Gnus as a mail-user-agent
 (setq mail-user-agent 'gnus-user-agent)
 
-;; Rebind `dabbrev-expand' to `hippie-expand' for adaptive auto-completion.
-(global-set-key (kbd "M-/") 'hippie-expand)
+
+;; hippie-exp
+(use-package hippie-exp
+  :config
+  (global-set-key (kbd "M-/") 'hippie-expand)
+  (setq hippie-expand-try-functions-list
+        '(
+          try-expand-dabbrev
+          try-expand-dabbrev-all-buffers
+          try-complete-file-name-partially
+          try-complete-file-name
+          try-expand-all-abbrevs
+          try-expand-list
+          try-expand-line
+          try-complete-lisp-symbol-partially
+          try-complete-lisp-symbol)))
 
 ;; Use Markdown Mode
 (use-package markdown-mode
@@ -366,6 +380,7 @@
   (setq yas-verbosity 2)
   :config
   (yas-global-mode 1)
+  (push 'yas-hippie-try-expand hippie-expand-try-functions-list)
   (add-hook 'term-mode-hook (lambda () (yas-minor-mode -1))))
 
 ;; Autocomplete
