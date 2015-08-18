@@ -390,6 +390,7 @@
   :config
   (use-package auto-complete-config)
   (ac-config-default)
+  (setq ac-use-menu-map t)
   (ac-set-trigger-key "TAB")
   (ac-set-trigger-key "<tab>"))
 
