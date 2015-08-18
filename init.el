@@ -728,21 +728,6 @@
   (add-hook 'cider-mode-hook #'eldoc-mode)
   (setq nrepl-log-messages t))
 
-;; CEDET
-(use-package semantic
-  :defer 10
-  :config
-  (use-package semantic/ia)
-  (use-package semantic/sb)
-  (use-package semantic/bovine/gcc)
-  (global-ede-mode 1)
-  (semantic-mode 1)
-  (global-semantic-idle-scheduler-mode)
-  (global-semantic-idle-completions-mode)
-  (global-semantic-decoration-mode)
-  (global-semantic-highlight-func-mode)
-  (global-semantic-show-unmatched-syntax-mode))
-
 ;; rainbow delimiters
 (use-package rainbow-delimiters
   :ensure t
