@@ -644,11 +644,6 @@
   :ensure t
   :mode "\\.tx\\'")
 
-;; Emacs Code Browser
-(use-package ecb
-  :defer t
-  :ensure t)
-
 ;; JavaScript (js2-mode)
 (use-package js2-mode
   :ensure t
