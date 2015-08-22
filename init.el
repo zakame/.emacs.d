@@ -710,6 +710,10 @@
   :init
   (add-hook 'before-save-hook #'gofmt-before-save))
 
+;; Add Go language support to Projectile
+(use-package go-projectile
+  :ensure t)
+
 ;; Haskell Mode
 (use-package haskell-mode
   :defer t
