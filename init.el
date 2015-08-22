@@ -453,6 +453,10 @@
   :init
   (add-hook 'after-init-hook #'global-flycheck-mode))
 
+;; Add Perl6 support in flycheck
+(use-package flycheck-perl6
+  :ensure t)
+
 ;; undo-tree
 (use-package undo-tree
   :diminish undo-tree-mode
@@ -509,6 +513,11 @@
 ;; Use Perl testing support for Emamux
 (use-package emamux-perl-test
   :load-path "site-lisp/emamux-perl-test")
+
+;; Add Perl6 editing support
+(use-package perl6-mode
+  :defer t
+  :ensure t)
 
 ;; If Helm is present, enable helm-perldoc as well
 (use-package helm-perldoc
