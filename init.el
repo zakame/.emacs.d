@@ -231,6 +231,9 @@
           (lambda ()
             (load "dired-x")))
 
+;; set human-readable sizes in dired
+(setq dired-listing-switches "-alh")
+
 ;; Powerline
 (use-package powerline
   :ensure t
