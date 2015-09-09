@@ -797,8 +797,15 @@
            ((agenda)
             (todo "TODO")
             (tags "PROJECT")))))
+  ; configure org-protocol
+  (use-package org-protocol)
   ; configure org-capture
   (setq org-default-notes-file (concat org-directory "/notes.org"))
+  (setq org-capture-templates
+        '(("p" "Protocol" entry (file+headline (concat org-directory "/notes.org") "Inbox")
+           "* %^{Title}\nSource: %u, %c\n #+BEGIN_QUOTE\n%i\n#+END_QUOTE\n\n\n%?")
+          ("L" "Protocol Link" entry (file+headline (concat org-directory "/notes.org") "Inbox")
+           "* %? [[%:link][%:description]] \nCaptured On: %U")))
   ; make windmove work well with org-mode
   (add-hook 'org-shiftup-final-hook 'windmove-up)
   (add-hook 'org-shiftleft-final-hook 'windmove-left)
