@@ -783,6 +783,20 @@
          ("\C-ca" . org-agenda)
          ("\C-cb" . org-iswitchb))
   :config
+  ; add some custom commands to the agenda
+  (setq org-agenda-custom-commands
+        '(("P" "Projects"
+           ((tags "PROJECT")))
+          ("H" "Home"
+           ((agenda)
+            (tags-todo "HOME")))
+          ("O" "Office"
+           ((agenda)
+            (tags-todo "OFFICE")))
+          ("W" "Weekly Plan"
+           ((agenda)
+            (todo "TODO")
+            (tags "PROJECT")))))
   ; configure org-capture
   (setq org-default-notes-file (concat org-directory "/notes.org"))
   ; make windmove work well with org-mode
