@@ -783,6 +783,8 @@
          ("\C-ca" . org-agenda)
          ("\C-cb" . org-iswitchb))
   :config
+  ; don't let headline sublevels inherit project tags
+  (setq org-tags-exclude-from-inheritance '("PROJECT"))
   ; add some custom commands to the agenda
   (setq org-agenda-custom-commands
         '(("P" "Projects"
