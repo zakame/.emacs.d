@@ -662,6 +662,7 @@
   :interpreter (("node" . js2-mode))
   :mode "\\.js\\'"
   :config
+  (add-hook 'js-mode-hook 'js2-minor-mode)
   (setq js2-highlight-level 3))
 
 ;; JavaScript refactoring
