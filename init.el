@@ -301,7 +301,6 @@
         helm-recentf-fuzzy-match t
         helm-semantic-fuzzy-match t
         helm-locate-fuzzy-match t
-        helm-apropos-fuzzy-match t
         helm-ff-file-name-history-use-recentf t
         helm-su-or-sudo "su"
         helm-ff-auto-update-initial-value t)
