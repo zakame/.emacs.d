@@ -338,6 +338,18 @@
   (helm-projectile-on)
   (setq projectile-switch-project-action 'helm-projectile))
 
+;; Eshell
+(use-package eshell
+  :defer t
+  :config
+  (use-package em-smart)
+  (setq eshell-where-to-jump 'begin
+        eshell-review-quick-commands nil
+        eshell-smart-space-goes-to-end t)
+  (add-hook 'eshell-mode-hook
+            (lambda ()
+              (eshell-smart-initialize))))
+
 ;; Async
 (use-package dired-async
   :config
