@@ -307,6 +307,14 @@
   (helm-mode 1)
   (helm-adaptive-mode 1)
   (helm-autoresize-mode 1)
+  (add-hook 'eshell-mode-hook
+            (lambda ()
+              (define-key eshell-mode-map
+                [remap eshell-pcomplete]
+                'helm-esh-pcomplete)
+              (define-key eshell-mode-map
+                (kbd "M-p")
+                'helm-eshell-history)))
   (ido-mode -1))
 
 ;; Use helm to describe bindings
