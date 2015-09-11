@@ -15,7 +15,8 @@ url/
 recentf
 helm-adaptive-history
 abbrev_defs
-eshell/
+eshell/*
+!eshell/alias
 projectile-bookmarks.eld
 custom.el
 /kkcrc
