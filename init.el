@@ -342,6 +342,19 @@
 (use-package eshell
   :defer t
   :config
+  (defun zakame/eshell-rename-buffer-before-command ()
+    (let* ((last-input
+            (buffer-substring eshell-last-input-start eshell-last-input-end)))
+      (rename-buffer
+       (format "*eshell[%s]$ %s...*" default-directory last-input) t)))
+  (defun zakame/eshell-rename-buffer-after-command ()
+    (rename-buffer
+     (format "*eshell[%s]$ %s*" default-directory
+             (eshell-previous-input-string 0)) t))
+  (add-hook 'eshell-pre-command-hook
+            'zakame/eshell-rename-buffer-before-command)
+  (add-hook 'eshell-post-command-hook
+            'zakame/eshell-rename-buffer-after-command)
   (use-package em-smart)
   (setq eshell-where-to-jump 'begin
         eshell-review-quick-commands nil
