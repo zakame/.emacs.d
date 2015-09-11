@@ -746,6 +746,15 @@
   :init
   (add-hook 'before-save-hook #'gofmt-before-save))
 
+;; Go autocompletion
+(use-package go-autocomplete
+  :ensure t)
+
+;; Errcheck support for Go
+(use-package go-errcheck
+  :defer t
+  :ensure t)
+
 ;; Add Go language support to Projectile
 (use-package go-projectile
   :ensure t)
