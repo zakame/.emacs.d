@@ -888,6 +888,12 @@
   :ensure t)
 
 
+;;; Hacker News
+(use-package hackernews
+  :defer t
+  :ensure t)
+
+
 ;;; SX.el
 (use-package sx
   :defer t
