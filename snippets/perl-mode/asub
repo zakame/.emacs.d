@@ -1,0 +1,7 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: anonymous sub
+# key: asub
+# --
+sub {
+    $0
+};

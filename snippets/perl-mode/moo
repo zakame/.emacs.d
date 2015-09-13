@@ -1,0 +1,11 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: moo
+# key: moo
+# --
+use Moo;
+use strictures 2;
+use namespace::clean;
+
+${1:#}BEGIN {extends '${2:ParentClass}'};
+
+$0

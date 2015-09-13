@@ -1,0 +1,5 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: use parent
+# key: parent
+# --
+use parent qw(${1:ParentClass});

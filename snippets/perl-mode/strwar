@@ -1,0 +1,6 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: use strict warnings
+# key: strwar
+# --
+use strict;
+use warnings;
