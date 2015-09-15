@@ -1,0 +1,7 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: subtest
+# key: subtest
+# --
+subtest '${1:test_name}' => sub {
+    $0
+};
