@@ -851,6 +851,8 @@
           ("L" "Protocol Link" entry
            (file+headline (concat org-directory "/notes.org") "Inbox")
            "* %? [[%:link][%:description]] \nCaptured On: %U")))
+  (setq org-refile-targets '((nil . (:level . 1))
+                             (org-agenda-files . (:maxlevel . 9))))
   ; make windmove work well with org-mode
   (add-hook 'org-shiftup-final-hook 'windmove-up)
   (add-hook 'org-shiftleft-final-hook 'windmove-left)
