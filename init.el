@@ -871,7 +871,8 @@
      (sqlite . t)))
   (setq org-log-done 'time
         org-src-fontify-natively t
-        org-src-preserve-indentation t))
+        org-src-preserve-indentation nil
+        org-edit-src-content-indentation 0))
 
 ;; ob-http (REST client)
 (use-package ob-http
