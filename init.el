@@ -269,15 +269,6 @@
   :diminish projectile-mode
   :ensure t
   :init
-  ;; if Helm is available, use it for projectile completion
-  (use-package helm-projectile
-    :bind (("C-c p h" . helm-projectile)
-           ("C-c p p" . helm-projectile-switch-project))
-    :init
-    (setq projectile-completion-system 'helm)
-    :config
-    (helm-projectile-on)
-    (setq projectile-switch-project-action 'helm-projectile))
   :config
   (projectile-global-mode))
 
@@ -326,6 +317,17 @@
                 (kbd "M-p")
                 'helm-eshell-history)))
   (ido-mode -1))
+
+;; if Helm is available, use it for projectile completion
+(use-package helm-projectile
+  :ensure t
+  :bind (("C-c p h" . helm-projectile)
+         ("C-c p p" . helm-projectile-switch-project))
+  :init
+  (setq projectile-completion-system 'helm)
+  :config
+  (helm-projectile-on)
+  (setq projectile-switch-project-action 'helm-projectile))
 
 ;; Use helm to describe bindings
 (use-package helm-descbinds
