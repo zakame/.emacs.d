@@ -500,11 +500,6 @@
   :config
   (global-undo-tree-mode 1))
 
-;; scratch buffer with current major mode
-(use-package scratch
-  :defer t
-  :ensure t)
-
 
 ;;; Programming
 
