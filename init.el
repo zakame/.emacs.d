@@ -828,10 +828,10 @@
         '(("P" "Projects"
            ((tags "PROJECT")))
           ("H" "Home"
-           ((agenda)
+           ((agenda "HOME")
             (tags-todo "HOME")))
           ("O" "Office"
-           ((agenda)
+           ((agenda "OFFICE")
             (tags-todo "OFFICE")))
           ("W" "Weekly Plan"
            ((agenda)
