@@ -903,6 +903,26 @@
   (use-package sx-switchto))
 
 
+;;; EMMS
+(use-package emms-setup
+  :bind (("C-c m" . emms))
+  :ensure emms
+  :config
+  (emms-standard)
+  (use-package emms-streams))
+
+;; use mpv as the default player
+(use-package emms-player-mpv
+  :ensure t
+  :init
+  (setq emms-player-list '(emms-player-mpv)))
+
+;; use Helm as the default EMMS interface for streams
+(use-package helm-emms
+  :ensure t
+  :bind (("C-c s" . helm-emms)))
+
+
 ;;; tmux xterm-keys support (for windmove, etc. to work)
 (use-package tmux-xterm-keys
   :load-path "site-lisp/tmux-xterm-keys")
