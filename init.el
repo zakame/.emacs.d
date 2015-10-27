@@ -874,6 +874,11 @@
         org-src-preserve-indentation nil
         org-edit-src-content-indentation 0))
 
+;; org-present (for meetups)
+(use-package org-present
+  :defer t
+  :ensure t)
+
 ;; ob-http (REST client)
 (use-package ob-http
   :defer t
