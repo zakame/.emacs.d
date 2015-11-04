@@ -917,7 +917,10 @@
   :ensure emms
   :config
   (emms-standard)
-  (use-package emms-streams))
+  (use-package emms-streams)
+  (setq emms-source-file-default-directory "~/Music/")
+  (use-package emms-history)
+  (emms-history-load))
 
 ;; use mpv as the default player
 (use-package emms-player-mpv
