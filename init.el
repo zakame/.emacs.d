@@ -800,6 +800,13 @@
   (dolist (hook '(emacs-lisp-mode-hook cperl-mode-hook))
     (add-hook hook #'rainbow-delimiters-mode)))
 
+;; android-mode
+(use-package android-mode
+  :ensure t
+  :config
+  (setq android-mode-sdk-dir "~/src/android-sdk-linux"
+        android-mode-builder 'gradle))
+
 
 ;;; SLIME
 (use-package slime
