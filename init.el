@@ -804,8 +804,7 @@
 (use-package android-mode
   :ensure t
   :config
-  (setq android-mode-sdk-dir "~/src/android-sdk-linux"
-        android-mode-builder 'gradle))
+  (setq android-mode-builder 'gradle))
 
 
 ;;; SLIME
