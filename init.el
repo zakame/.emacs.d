@@ -804,7 +804,8 @@
 (use-package android-mode
   :ensure t
   :config
-  (setq android-mode-builder 'gradle))
+  (setq android-mode-builder 'gradle
+        android-mode-build-command-alist '((gradle . "gradle"))))
 
 
 ;;; SLIME
