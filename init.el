@@ -877,6 +877,7 @@
      (sql . t)
      (sqlite . t)))
   (setq org-log-done 'time
+        org-ellipsis "▼"
         org-src-fontify-natively t
         org-src-preserve-indentation nil
         org-edit-src-content-indentation 0))
