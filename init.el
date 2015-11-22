@@ -704,6 +704,26 @@
   :config
   (js2r-add-keybindings-with-prefix "C-c C-m"))
 
+;; Python mode
+(use-package python-mode
+  :ensure t
+  :demand t
+  :mode "\\.py\\'"
+  :interpreter (("python" . python-mode)))
+
+;; Jedi autocompletion for Python
+(use-package jedi
+  :ensure t
+  :defer t
+  :commands jedi:setup
+  :init
+  (add-hook 'python-mode-hook 'jedi:setup)
+  :config
+  (setq jedi:complete-on-dot t)
+  (bind-key "C-c d" 'jedi:show-doc python-mode-map)
+  (bind-key "M-/" 'jedi:complete python-mode-map)
+  (bind-key "M-." 'jedi:goto-definition python-mode-map))
+
 ;; AutoComplete for JavaScript
 (use-package ac-js2
   :defer t
