@@ -500,6 +500,11 @@
   :config
   (global-undo-tree-mode 1))
 
+;; expand-region
+(use-package expand-region
+  :ensure t
+  :bind (("C-=" . er/expand-region)))
+
 
 ;;; Programming
 
