@@ -642,6 +642,12 @@
   (setq diff-hl-side 'left)
   (diff-hl-margin-mode))
 
+;; php-mode
+(use-package php-mode
+  :ensure t
+  :defer t
+  :mode "\\.php\\'")
+
 ;; emmet-mode
 (use-package emmet-mode
   :diminish emmet-mode
@@ -662,27 +668,39 @@
   :ensure t
   :mode (("\\.tt\\'" . web-mode)
          ("\\.erb\\'" . web-mode)
-         ("\\.html\\.ep\\'" . web-mode))
+         ("\\.html\\.ep\\'" . web-mode)
+         ("\\.blade\\.php\\'" . web-mode))
   :config
-  (setq web-mode-enable-auto-pairing t
+  (setq web-mode-enable-auto-pairing nil
         web-mode-enable-auto-closing t
         web-mode-enable-current-element-highlight t
         web-mode-enable-current-column-highlight t
         web-mode-ac-sources-alist
         '(("css" . (ac-source-css-property ac-source-emmet-css-snippets))
+          ("php" . (ac-source-yasnippet))
           ("html" . (ac-source-emmet-html-aliases
                      ac-source-emmet-html-snippets))))
   (add-hook 'web-mode-before-auto-complete-hooks
             '(lambda ()
                (let ((web-mode-cur-language
                       (web-mode-language-at-pos)))
+                 (if (string= web-mode-cur-language "php")
+                     (yas-activate-extra-mode 'php-mode)
+                   (yas-deactivate-extra-mode 'php-mode))
                  (if (string= web-mode-cur-language "css")
                      (setq emmet-use-css-transform t)
                    (setq emmet-use-css-transform nil)))))
+  (defun zakame/sp-web-mode-code-context-p (id action context)
+    "Set smartparens context when in web-mode."
+    (and (eq action 'insert)
+       (not (or (get-text-property (point) 'part-side)
+             (get-text-property (point) 'block-side)))))
+  (sp-local-pair 'web-mode "<" nil :when '(zakame/sp-web-mode-code-context-p))
   (add-hook 'web-mode-hook
             '(lambda () (emmet-mode)))
   (setq web-mode-engines-alist
-        '(("mojolicious" . "\\.html\\.ep\\'"))))
+        '(("mojolicious" . "\\.html\\.ep\\'")
+          ("blade" . "\\.blade\\."))))
 
 ;; kolon-mode
 (use-package kolon-mode
