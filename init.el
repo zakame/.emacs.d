@@ -505,6 +505,14 @@
   :ensure t
   :bind (("C-=" . er/expand-region)))
 
+;; pdf-tools (Linux only unfortunately)
+(use-package pdf-tools
+  :defer 5
+  :ensure t
+  :if (string= system-type 'gnu/linux)
+  :config
+  (pdf-tools-install))
+
 
 ;;; Programming
 
