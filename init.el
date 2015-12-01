@@ -677,7 +677,8 @@
   :mode (("\\.tt\\'" . web-mode)
          ("\\.erb\\'" . web-mode)
          ("\\.html\\.ep\\'" . web-mode)
-         ("\\.blade\\.php\\'" . web-mode))
+         ("\\.blade\\.php\\'" . web-mode)
+         ("\\.hbs\\'" . web-mode))
   :config
   (setq web-mode-enable-auto-pairing nil
         web-mode-enable-auto-closing t
@@ -708,7 +709,8 @@
             '(lambda () (emmet-mode)))
   (setq web-mode-engines-alist
         '(("mojolicious" . "\\.html\\.ep\\'")
-          ("blade" . "\\.blade\\."))))
+          ("blade" . "\\.blade\\.")
+          ("ctemplate" . "\\.hbs\\'"))))
 
 ;; kolon-mode
 (use-package kolon-mode
