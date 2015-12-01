@@ -325,9 +325,9 @@
          ("C-c p p" . helm-projectile-switch-project))
   :init
   (setq projectile-completion-system 'helm)
+  (setq projectile-switch-project-action 'helm-projectile)
   :config
-  (helm-projectile-on)
-  (setq projectile-switch-project-action 'helm-projectile))
+  (helm-projectile-on))
 
 ;; Use helm to describe bindings
 (use-package helm-descbinds
