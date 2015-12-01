@@ -858,6 +858,11 @@
   (setq android-mode-builder 'gradle
         android-mode-build-command-alist '((gradle . "gradle"))))
 
+;; groovy-mode (mainly for Gradle files)
+(use-package groovy-mode
+  :ensure t
+  :mode "\\.gradle\\'")
+
 
 ;;; SLIME
 (use-package slime
