@@ -214,6 +214,11 @@
   :config
   (setq markdown-command "Markdown.pl"))
 
+;; Markdown previewer (especially for GFH)
+(use-package gh-md
+  :ensure t
+  :defer t)
+
 ;; Save point position between editing sessions
 (use-package saveplace
   :config
