@@ -275,6 +275,13 @@
   :config
   (setq recentf-exclude '("TAGS" ".*-autoloads\\.el\\'")))
 
+;; Projectile
+(use-package projectile
+  :diminish projectile-mode
+  :ensure t
+  :config
+  (projectile-global-mode))
+
 ;; Helm
 (use-package helm
   :diminish helm-mode
@@ -317,20 +324,14 @@
   (use-package helm-descbinds
     :ensure t
     :bind (("C-h b" . helm-descbinds)))
-
   ;; Helm-swoop
   (use-package helm-swoop
     :ensure t
-    :bind (("M-s p" . helm-swoop))))
-
-;; Projectile
-(use-package projectile
-  :diminish projectile-mode
-  :ensure t
-  :config
-  (projectile-global-mode)
-  (use-package helm-projectile)
-  (helm-projectile-on))
+    :bind (("M-s p" . helm-swoop)))
+  ;; Helm projectile
+  (use-package helm-projectile
+    :config
+    (helm-projectile-on)))
 
 ;; Eshell
 (use-package eshell
