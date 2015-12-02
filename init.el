@@ -320,28 +320,26 @@
               (define-key eshell-mode-map
                 (kbd "M-p")
                 'helm-eshell-history)))
-  (ido-mode -1))
+  (ido-mode -1)
+  ;; Use helm to describe bindings
+  (use-package helm-descbinds
+    :ensure t
+    :bind (("C-h b" . helm-descbinds)))
 
-;; if Helm is available, use it for projectile completion
-(use-package helm-projectile
-  :ensure t
-  :bind (("C-c p h" . helm-projectile)
-         ("C-c p p" . helm-projectile-switch-project))
-  :init
-  (setq projectile-completion-system 'helm)
-  (setq projectile-switch-project-action 'helm-projectile)
-  :config
-  (helm-projectile-on))
-
-;; Use helm to describe bindings
-(use-package helm-descbinds
-  :ensure t
-  :bind (("C-h b" . helm-descbinds)))
-
-;; Helm-swoop
-(use-package helm-swoop
-  :ensure t
-  :bind (("M-s p" . helm-swoop)))
+  ;; Helm-swoop
+  (use-package helm-swoop
+    :ensure t
+    :bind (("M-s p" . helm-swoop)))
+  ;; use Helm for projectile completion
+  (use-package helm-projectile
+    :ensure t
+    :bind (("C-c p h" . helm-projectile)
+           ("C-c p p" . helm-projectile-switch-project))
+    :init
+    (setq projectile-completion-system 'helm)
+    (setq projectile-switch-project-action 'helm-projectile)
+    :config
+    (helm-projectile-on)))
 
 ;; Eshell
 (use-package eshell
