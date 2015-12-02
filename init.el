@@ -284,6 +284,7 @@
 
 ;; Helm
 (use-package helm
+  :defer 2
   :diminish helm-mode
   :ensure t
   :bind (("M-x" . helm-M-x)
@@ -330,7 +331,10 @@
     :bind (("M-s p" . helm-swoop)))
   ;; Helm projectile
   (use-package helm-projectile
+    :bind (("C-c p h" . helm-projectile)
+           ("C-c p p" . helm-projectile-switch-project))
     :config
+    (setq projectile-completion-system 'helm)
     (helm-projectile-on)))
 
 ;; Eshell
