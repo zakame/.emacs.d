@@ -951,6 +951,14 @@
   :defer t
   :ensure t)
 
+;; ob-go (Golang in Babel)
+(use-package ob-go
+  :load-path "site-lisp/ob-go"
+  :config
+  (org-babel-do-load-languages
+   'org-babel-load-languages
+   '((go . t))))
+
 ;; org-dashboard
 (use-package org-dashboard
   :defer t
