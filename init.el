@@ -271,10 +271,8 @@
 
 ;; Projectile
 (use-package projectile
-  :defer t
   :diminish projectile-mode
   :ensure t
-  :init
   :config
   (projectile-global-mode))
 
