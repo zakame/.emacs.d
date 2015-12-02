@@ -534,7 +534,6 @@
 
 ;; Use Emacs::PDE for editing Perl
 (use-package pde-load
-  :disabled t
   :load-path "site-lisp/pde/lisp"
   :init
   (setq pde-extra-setting nil)
@@ -544,12 +543,6 @@
   (use-package pde-patch)
   (setq cperl-invalid-face nil
         cperl-lazy-help-time 2))
-
-(use-package cperl-mode
-  :ensure t
-  :mode (("\\.pl\\'" . cperl-mode)
-         ("\\.pm\\'" . cperl-mode)
-         ("\\.t\\'" . cperl-mode)))
 
 ;; diminish abbrevs if loaded
 (eval-after-load "abbrev"
