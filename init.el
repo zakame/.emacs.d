@@ -335,10 +335,9 @@
     :ensure t
     :bind (("C-c p h" . helm-projectile)
            ("C-c p p" . helm-projectile-switch-project))
-    :init
-    (setq projectile-completion-system 'helm)
-    (setq projectile-switch-project-action 'helm-projectile)
     :config
+    (setq projectile-completion-system 'helm)
+    (setq projectile-switch-project-action 'helm-projectile-find-file)
     (helm-projectile-on)))
 
 ;; Eshell
