@@ -807,7 +807,11 @@
 
 ;; Add Go language support to Projectile
 (use-package go-projectile
-  :ensure t)
+  :ensure t
+  :commands go-projectile-mode
+  :init
+  (add-hook 'go-mode-hook #'go-projectile-mode))
+
 
 ;; Haskell Mode
 (use-package haskell-mode
@@ -924,6 +928,9 @@
   (add-hook 'org-shiftleft-final-hook 'windmove-left)
   (add-hook 'org-shiftdown-final-hook 'windmove-down)
   (add-hook 'org-shiftright-final-hook 'windmove-right)
+  ; ob-go (Golang in Babel)
+  (use-package ob-go
+    :load-path "site-lisp/ob-go")
   ; add some languages we use to babel
   (org-babel-do-load-languages
    'org-babel-load-languages
@@ -932,6 +939,7 @@
      (clojure . t)
      (haskell . t)
      (http . t)
+     (go . t)
      (sh . t)
      (sql . t)
      (sqlite . t)))
@@ -950,14 +958,6 @@
 (use-package ob-http
   :defer t
   :ensure t)
-
-;; ob-go (Golang in Babel)
-(use-package ob-go
-  :load-path "site-lisp/ob-go"
-  :config
-  (org-babel-do-load-languages
-   'org-babel-load-languages
-   '((go . t))))
 
 ;; org-dashboard
 (use-package org-dashboard
