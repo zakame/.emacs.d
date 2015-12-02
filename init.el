@@ -212,12 +212,13 @@
   :ensure t
   :mode "\\.md\\'"
   :config
-  (setq markdown-command "Markdown.pl"))
+  (setq markdown-command "Markdown.pl")
+  ;; Markdown previewer (especially for GFH)
+  (use-package gh-md
+    :ensure t
+    :config
+    (bind-key "C-c C-r" #'gh-md-render-buffer markdown-mode-map)))
 
-;; Markdown previewer (especially for GFH)
-(use-package gh-md
-  :ensure t
-  :defer t)
 
 ;; Save point position between editing sessions
 (use-package saveplace
