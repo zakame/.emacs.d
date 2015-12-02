@@ -679,6 +679,9 @@
          ("\\.html\\.ep\\'" . web-mode)
          ("\\.blade\\.php\\'" . web-mode)
          ("\\.hbs\\'" . web-mode))
+  :init
+  (dolist (hook '(emmet-mode ac-emmet-html-setup ac-emmet-css-setup))
+           (add-hook 'web-mode-hook hook))
   :config
   (setq web-mode-enable-auto-pairing nil
         web-mode-enable-auto-closing t
@@ -705,8 +708,6 @@
        (not (or (get-text-property (point) 'part-side)
              (get-text-property (point) 'block-side)))))
   (sp-local-pair 'web-mode "<" nil :when '(zakame/sp-web-mode-code-context-p))
-  (add-hook 'web-mode-hook
-            '(lambda () (emmet-mode)))
   (setq web-mode-engines-alist
         '(("mojolicious" . "\\.html\\.ep\\'")
           ("blade" . "\\.blade\\.")
