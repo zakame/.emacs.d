@@ -172,10 +172,10 @@
 (add-hook 'emacs-lisp-mode-hook #'zakame/imenu-use-package)
 
 ;; I want more descriptive unique buffer names when on Emacs <= 24.3
-(when (version<= emacs-version "24.3.1")
-  (use-package uniquify
+(use-package uniquify
+    :if (version<= emacs-version "24.3.1")
     :config
-    (setq uniquify-buffer-name-style 'post-forward-angle-brackets)))
+    (setq uniquify-buffer-name-style 'post-forward-angle-brackets))
 
 ;; Enable some commands I need.
 (put 'narrow-to-region 'disabled nil)     ; Restrict editing to narrowed
