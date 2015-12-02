@@ -420,6 +420,7 @@
   :config
   (use-package auto-complete-config)
   (ac-config-default)
+  (add-to-list 'ac-modes 'html-mode)
   (setq ac-use-menu-map t)
   (ac-set-trigger-key "TAB")
   (ac-set-trigger-key "<tab>"))
@@ -661,6 +662,7 @@
 ;; AutoComplete for emmet
 (use-package ac-emmet
   :ensure t
+  :commands (ac-emmet-html-setup ac-emmet-css-setup)
   :init
   (add-hook 'sgml-mode-hook 'ac-emmet-html-setup)
   (add-hook 'css-mode-hook 'ac-emmet-css-setup))
