@@ -269,13 +269,6 @@
   :init
   (add-hook 'emacs-lisp-mode-hook 'turn-on-pretty-mode))
 
-;; Projectile
-(use-package projectile
-  :diminish projectile-mode
-  :ensure t
-  :config
-  (projectile-global-mode))
-
 ;; recentf tweaks
 (use-package recentf
   :defer t
@@ -284,7 +277,6 @@
 
 ;; Helm
 (use-package helm
-  :defer 2
   :diminish helm-mode
   :ensure t
   :bind (("M-x" . helm-M-x)
@@ -329,16 +321,16 @@
   ;; Helm-swoop
   (use-package helm-swoop
     :ensure t
-    :bind (("M-s p" . helm-swoop)))
-  ;; use Helm for projectile completion
-  (use-package helm-projectile
-    :ensure t
-    :bind (("C-c p h" . helm-projectile)
-           ("C-c p p" . helm-projectile-switch-project))
-    :config
-    (setq projectile-completion-system 'helm)
-    (setq projectile-switch-project-action 'helm-projectile-find-file)
-    (helm-projectile-on)))
+    :bind (("M-s p" . helm-swoop))))
+
+;; Projectile
+(use-package projectile
+  :diminish projectile-mode
+  :ensure t
+  :config
+  (projectile-global-mode)
+  (use-package helm-projectile)
+  (helm-projectile-on))
 
 ;; Eshell
 (use-package eshell
@@ -541,6 +533,7 @@
 
 ;; Use Emacs::PDE for editing Perl
 (use-package pde-load
+  :disabled t
   :load-path "site-lisp/pde/lisp"
   :init
   (setq pde-extra-setting nil)
@@ -550,6 +543,12 @@
   (use-package pde-patch)
   (setq cperl-invalid-face nil
         cperl-lazy-help-time 2))
+
+(use-package cperl-mode
+  :ensure t
+  :mode (("\\.pl\\'" . cperl-mode)
+         ("\\.pm\\'" . cperl-mode)
+         ("\\.t\\'" . cperl-mode)))
 
 ;; diminish abbrevs if loaded
 (eval-after-load "abbrev"
