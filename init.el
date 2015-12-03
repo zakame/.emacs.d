@@ -743,7 +743,10 @@
   :ensure t
   :demand t
   :mode "\\.py\\'"
-  :interpreter (("python" . python-mode)))
+  :interpreter (("python" . python-mode))
+  :config
+  (setq py-outline-minor-mode-p nil
+        py-which-def-or-class-function nil))
 
 ;; Jedi autocompletion for Python
 (use-package jedi
