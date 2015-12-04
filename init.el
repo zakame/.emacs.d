@@ -390,6 +390,7 @@
 
 ;; Hungry delete
 (use-package hungry-delete
+  :diminish hungry-delete-mode
   :ensure t
   :config
   (global-hungry-delete-mode))
