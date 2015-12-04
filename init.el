@@ -739,6 +739,15 @@
   :config
   (js2r-add-keybindings-with-prefix "C-c C-m"))
 
+;; JavaScript beutifier
+(use-package web-beautify
+  :ensure t
+  :config
+  (bind-key "C-c C-b" 'web-beautify-js js2-mode-map)
+  (add-hook 'js2-mode-hook
+            (lambda ()
+              (add-hook 'before-save-hook 'web-beautify-js-buffer t t))))
+
 ;; Python mode
 (use-package python-mode
   :ensure t
