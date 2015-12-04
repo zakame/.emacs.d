@@ -869,8 +869,17 @@
 (use-package rainbow-delimiters
   :ensure t
   :init
-  (dolist (hook '(emacs-lisp-mode-hook cperl-mode-hook))
-    (add-hook hook #'rainbow-delimiters-mode)))
+  (dolist (hook '(prog-mode-hook java-mode-hook cperl-mode-hook))
+    (add-hook hook #'rainbow-delimiters-mode))
+  :config
+  (setq rainbow-delimiters-max-face-count 1)
+  (set-face-attribute 'rainbow-delimiters-depth-1-face nil
+                      :foreground "dim gray")
+  (dolist (face '(rainbow-delimiters-unmatched-face
+                  rainbow-delimiters-mismatched-face))
+    (set-face-attribute face nil
+                        :foreground 'unspecified
+                        :inherit 'error)))
 
 ;; android-mode
 (use-package android-mode
