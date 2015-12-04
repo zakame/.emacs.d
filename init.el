@@ -513,6 +513,16 @@
   :config
   (pdf-tools-install))
 
+;; make window splits much smarter especially when on widescreen
+(defun zakame/split-window-prefer-side-by-side (window)
+  "Split WINDOW, preferably side by side."
+  (let ((split-height-threshold (and (< (window-width window)
+                                   split-width-threshold)
+                                split-height-threshold)))
+    (split-window-sensibly window)))
+(setq split-window-preferred-function
+      #'zakame/split-window-prefer-side-by-side)
+
 
 ;;; Programming
 
