@@ -742,6 +742,7 @@
 ;; JavaScript beutifier
 (use-package web-beautify
   :ensure t
+  :defer t
   :config
   (bind-key "C-c C-b" 'web-beautify-js js2-mode-map)
   (add-hook 'js2-mode-hook
