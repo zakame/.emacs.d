@@ -736,7 +736,12 @@
   :mode "\\.js\\'"
   :config
   (add-hook 'js-mode-hook 'js2-minor-mode)
-  (setq js2-highlight-level 3))
+  (setq js2-highlight-level 3)
+  ;; JavaScript beautifier
+  (use-package web-beautify
+    :ensure t
+    :config
+    (bind-key "C-c C-b" 'web-beautify-js js2-mode-map)))
 
 ;; JavaScript refactoring
 (use-package js2-refactor
@@ -748,16 +753,6 @@
   (add-hook 'js2-mode-hook #'js2-refactor-mode)
   :config
   (js2r-add-keybindings-with-prefix "C-c C-m"))
-
-;; JavaScript beutifier
-(use-package web-beautify
-  :ensure t
-  :defer t
-  :config
-  (bind-key "C-c C-b" 'web-beautify-js js2-mode-map)
-  (add-hook 'js2-mode-hook
-            (lambda ()
-              (add-hook 'before-save-hook 'web-beautify-js-buffer t t))))
 
 ;; Python mode
 (use-package python-mode
