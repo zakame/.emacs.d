@@ -190,7 +190,6 @@
 ;; Use Gnus as a mail-user-agent
 (setq mail-user-agent 'gnus-user-agent)
 
-
 ;; hippie-exp
 (use-package hippie-exp
   :config
@@ -212,13 +211,14 @@
   :ensure t
   :mode "\\.md\\'"
   :config
-  (setq markdown-command "Markdown.pl")
-  ;; Markdown previewer (especially for GFH)
-  (use-package gh-md
-    :ensure t
-    :config
-    (bind-key "C-c C-r" #'gh-md-render-buffer markdown-mode-map)))
+  (setq markdown-command "Markdown.pl"))
 
+;; Markdown previewer (especially for GFH)
+(use-package gh-md
+  :ensure t
+  :after markdown-mode
+  :config
+  (bind-key "C-c C-r" #'gh-md-render-buffer markdown-mode-map))
 
 ;; Save point position between editing sessions
 (use-package saveplace
@@ -320,22 +320,29 @@
               (define-key eshell-mode-map
                 (kbd "M-p")
                 'helm-eshell-history)))
-  (ido-mode -1)
-  ;; Use helm to describe bindings
-  (use-package helm-descbinds
-    :ensure t
-    :bind (("C-h b" . helm-descbinds)))
-  ;; Helm-swoop
-  (use-package helm-swoop
-    :ensure t
-    :bind (("M-s p" . helm-swoop)))
-  ;; Helm projectile
-  (use-package helm-projectile
-    :bind (("C-c p h" . helm-projectile)
-           ("C-c p p" . helm-projectile-switch-project))
-    :init
-    (setq projectile-completion-system 'helm)
-    (helm-projectile-on)))
+  (ido-mode -1))
+
+;; Use helm to describe bindings
+(use-package helm-descbinds
+  :ensure t
+  :after helm
+  :bind (("C-h b" . helm-descbinds)))
+
+;; Helm-swoop
+(use-package helm-swoop
+  :ensure t
+  :after helm
+  :bind (("M-s p" . helm-swoop)))
+
+;; Helm projectile
+(use-package helm-projectile
+  :ensure t
+  :after helm
+  :bind (("C-c p h" . helm-projectile)
+	 ("C-c p p" . helm-projectile-switch-project))
+  :config
+  (setq projectile-completion-system 'helm)
+  (helm-projectile-on))
 
 ;; Eshell
 (use-package eshell
@@ -366,13 +373,6 @@
 (use-package dired-async
   :config
   (dired-async-mode 1))
-
-;; Emamux
-(use-package emamux
-  :defer t
-  :ensure t
-  :init
-  (setq emamux:completing-read-type 'helm))
 
 ;; Disable automatic scrolling
 (setq-default scroll-margin 1
@@ -408,11 +408,11 @@
 
 ;; yasnippet
 (use-package yasnippet
-  :defer 5
+  :after helm
   :diminish yas-minor-mode
   :ensure t
   :init
-  (setq yas-verbosity 2)
+  (setq yas-verbosity 3)
   :config
   (yas-global-mode 1)
   (push 'yas-hippie-try-expand hippie-expand-try-functions-list)
@@ -422,6 +422,7 @@
 (use-package auto-complete
   :diminish auto-complete-mode
   :ensure t
+  :after helm
   :config
   (use-package auto-complete-config)
   (ac-config-default)
@@ -466,7 +467,7 @@
 
 ;; use tramp for connecting to Docker containers
 (use-package docker-tramp
-  :defer 5
+  :after tramp
   :ensure t)
 
 ;; Turn on flyspell on all text buffers
@@ -489,10 +490,6 @@
   :init
   (add-hook 'after-init-hook #'global-flycheck-mode))
 
-;; Add Perl6 support in flycheck
-(use-package flycheck-perl6
-  :ensure t)
-
 ;; undo-tree
 (use-package undo-tree
   :diminish undo-tree-mode
@@ -507,7 +504,7 @@
 
 ;; pdf-tools (Linux only unfortunately)
 (use-package pdf-tools
-  :defer 5
+  :after yasnippet
   :ensure t
   :if (string= system-type 'gnu/linux)
   :config
@@ -517,8 +514,8 @@
 (defun zakame/split-window-prefer-side-by-side (window)
   "Split WINDOW, preferably side by side."
   (let ((split-height-threshold (and (< (window-width window)
-                                   split-width-threshold)
-                                split-height-threshold)))
+				      split-width-threshold)
+				   split-height-threshold)))
     (split-window-sensibly window)))
 (setq split-window-preferred-function
       #'zakame/split-window-prefer-side-by-side)
@@ -550,6 +547,7 @@
 
 ;; Use Emacs::PDE for editing Perl
 (use-package pde-load
+  :defer 2
   :load-path "site-lisp/pde/lisp"
   :init
   (setq pde-extra-setting nil)
@@ -564,20 +562,22 @@
 (eval-after-load "abbrev"
   '(diminish 'abbrev-mode))
 
-;; Use Perl testing support for Emamux
-(use-package emamux-perl-test
-  :load-path "site-lisp/emamux-perl-test")
-
 ;; Add Perl6 editing support
 (use-package perl6-mode
   :defer t
   :ensure t)
 
+;; Add Perl6 support in flycheck
+(use-package flycheck-perl6
+  :after flycheck
+  :ensure t)
+
 ;; If Helm is present, enable helm-perldoc as well
 (use-package helm-perldoc
-  :bind* (("C-x c h p" . helm-perldoc))
+  :after cperl-mode
   :ensure t
   :config
+  (bind-key "C-c C-h p" 'helm-perldoc cperl-mode-map)
   (helm-perldoc:setup))
 
 ;; This loads generic modes which support e.g batch files
@@ -592,13 +592,14 @@
 
 ;; enable projectile mode for rails projects
 (use-package projectile-rails
-  :defer t
+  :after ruby-mode
   :ensure t
-  :init
+  :config
   (add-hook 'projectile-mode-hook 'projectile-rails-on))
 
 ;; VC-Git
 (use-package vc-git
+  :if (version<= emacs-version "24.3.1")
   :config
   (add-to-list 'vc-handled-backends 'Git))
 
@@ -663,7 +664,6 @@
 ;; php-mode
 (use-package php-mode
   :ensure t
-  :defer t
   :mode "\\.php\\'")
 
 ;; emmet-mode
@@ -736,12 +736,14 @@
   :mode "\\.js\\'"
   :config
   (add-hook 'js-mode-hook 'js2-minor-mode)
-  (setq js2-highlight-level 3)
-  ;; JavaScript beautifier
-  (use-package web-beautify
-    :ensure t
-    :config
-    (bind-key "C-c C-b" 'web-beautify-js js2-mode-map)))
+  (setq js2-highlight-level 3))
+
+;; JavaScript beautifier
+(use-package web-beautify
+  :after js2-mode
+  :ensure t
+  :config
+  (bind-key "C-c C-b" 'web-beautify-js js2-mode-map))
 
 ;; JavaScript refactoring
 (use-package js2-refactor
@@ -754,10 +756,18 @@
   :config
   (js2r-add-keybindings-with-prefix "C-c C-m"))
 
+;; AutoComplete for JavaScript
+(use-package ac-js2
+  :defer t
+  :ensure t
+  :init
+  (add-hook 'js2-mode-hook 'ac-js2-mode)
+  (setq ac-js2-evaluate-calls t))
+
 ;; Python mode
 (use-package python-mode
   :ensure t
-  :demand t
+  :defer 2
   :mode "\\.py\\'"
   :interpreter (("python" . python-mode))
   :config
@@ -767,7 +777,7 @@
 ;; Jedi autocompletion for Python
 (use-package jedi
   :ensure t
-  :defer t
+  :after python-mode
   :commands jedi:setup
   :init
   (add-hook 'python-mode-hook 'jedi:setup)
@@ -776,14 +786,6 @@
   (bind-key "C-c d" 'jedi:show-doc python-mode-map)
   (bind-key "M-/" 'jedi:complete python-mode-map)
   (bind-key "M-." 'jedi:goto-definition python-mode-map))
-
-;; AutoComplete for JavaScript
-(use-package ac-js2
-  :defer t
-  :ensure t
-  :init
-  (add-hook 'js2-mode-hook 'ac-js2-mode)
-  (setq ac-js2-evaluate-calls t))
 
 ;; Skewer
 (use-package skewer-mode
@@ -827,10 +829,10 @@
 ;; Add Go language support to Projectile
 (use-package go-projectile
   :ensure t
+  :after go-mode
   :commands go-projectile-mode
-  :init
+  :config
   (add-hook 'go-mode-hook #'go-projectile-mode))
-
 
 ;; Haskell Mode
 (use-package haskell-mode
@@ -956,9 +958,6 @@
   (add-hook 'org-shiftleft-final-hook 'windmove-left)
   (add-hook 'org-shiftdown-final-hook 'windmove-down)
   (add-hook 'org-shiftright-final-hook 'windmove-right)
-  ; ob-go (Golang in Babel)
-  (use-package ob-go
-    :load-path "site-lisp/ob-go")
   ; add some languages we use to babel
   (org-babel-do-load-languages
    'org-babel-load-languages
@@ -966,8 +965,6 @@
      (ruby . t)
      (clojure . t)
      (haskell . t)
-     (http . t)
-     (go . t)
      (sh . t)
      (sql . t)
      (sqlite . t)))
@@ -977,15 +974,21 @@
         org-src-preserve-indentation nil
         org-edit-src-content-indentation 0))
 
-;; org-present (for meetups)
-(use-package org-present
-  :defer t
-  :ensure t)
-
 ;; ob-http (REST client)
 (use-package ob-http
-  :defer t
-  :ensure t)
+  :after org
+  :ensure t
+  :config
+  (add-to-list 'org-babel-load-languages '(http . t))
+  (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages))
+
+;; ob-go (Golang in Babel)
+(use-package ob-go
+  :load-path "site-lisp/ob-go"
+  :after org
+  :config
+  (add-to-list 'org-babel-load-languages '(go . t))
+  (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages))
 
 ;; org-dashboard
 (use-package org-dashboard
@@ -994,6 +997,11 @@
 
 ;; htmlize
 (use-package htmlize
+  :defer t
+  :ensure t)
+
+;; org-present (for meetups)
+(use-package org-present
   :defer t
   :ensure t)
 
@@ -1033,6 +1041,7 @@
 
 ;; use Helm as the default EMMS interface for streams
 (use-package helm-emms
+  :after helm
   :ensure t
   :bind (("C-c s" . helm-emms)))
 
@@ -1044,6 +1053,18 @@
 
 ;;; zone-nyan :3
 (use-package zone-nyan
+  :ensure t
+  :defer t)
+
+
+;;; ESUP
+(use-package esup
+  :ensure t
+  :defer t)
+
+
+;; Docker mode
+(use-package docker
   :ensure t
   :defer t)
 
