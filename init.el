@@ -766,6 +766,11 @@
   (add-hook 'js2-mode-hook 'ac-js2-mode)
   (setq ac-js2-evaluate-calls t))
 
+;; Jade templates
+(use-package jade-mode
+  :ensure t
+  :mode "\\.jade\\'")
+
 ;; Python mode
 (use-package python-mode
   :ensure t
