@@ -621,7 +621,7 @@
               (magit-get "remote"
                          (magit-get-remote)
                          "url"))
-             (cdr (magit-get-remote-branch)))))
+             (cdr (magit-split-branch-name (magit-get-tracked-branch))))))
   (bind-key "v" #'endless/visit-pull-request-url magit-mode-map)
   (defun endless/add-PR-fetch ()
     "If refs/pull is not defined on a GH repo, define it."
