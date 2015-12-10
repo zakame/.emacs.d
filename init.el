@@ -907,6 +907,19 @@
   :ensure t
   :mode "\\.gradle\\'")
 
+;; ggtags
+(use-package ggtags
+  :ensure t
+  :after projectile
+  :diminish ggtags-mode
+  :if (executable-find "gtags")
+  :init
+  (add-hook 'cperl-mode-hook 'ggtags-mode)
+  (add-hook 'c-mode-common-hook
+            (lambda ()
+              (when (derived-mode-p 'c-mode 'c++-mode 'java-mode)
+                (ggtags-mode 1)))))
+
 
 ;;; SLIME
 (use-package slime
