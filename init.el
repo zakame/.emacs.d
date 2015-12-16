@@ -520,6 +520,12 @@
 (setq split-window-preferred-function
       #'zakame/split-window-prefer-side-by-side)
 
+;; which-key-mode
+(use-package which-key
+  :ensure t
+  :config
+  (which-key-mode))
+
 
 ;;; Programming
 
