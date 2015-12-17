@@ -161,6 +161,9 @@
       search-highlight t                ; Highlight search strings
       compilation-window-height 10      ; Set a small window for
                                         ; compiles
+      compilation-scroll-output
+      'first-error                      ; Follow compilation scrolling
+                                        ; until the first error
       compilation-ask-about-save nil)
 
 ;; Use imenu to browse use-package blocks
