@@ -1033,7 +1033,22 @@
 ;; org-present (for meetups)
 (use-package org-present
   :defer t
-  :ensure t)
+  :ensure t
+  :config
+  (add-hook 'org-present-mode-hook
+            (lambda ()
+              (flyspell-mode -1)
+              (org-present-big)
+              (org-display-inline-images)
+              (org-present-hide-cursor)
+              (org-present-read-only)))
+  (add-hook 'org-present-mode-quit-hook
+            (lambda ()
+              (flyspell-mode 1)
+              (org-present-small)
+              (org-remove-inline-images)
+              (org-present-show-cursor)
+              (org-present-read-write))))
 
 
 ;;; Hacker News
