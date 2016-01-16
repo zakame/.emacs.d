@@ -451,6 +451,7 @@
 
 ;; Enable tail mode for logs
 (use-package autorevert
+  :diminish auto-revert-mode
   :mode (("\\.log\\'" . auto-revert-tail-mode)))
 
 ;; Ace Jump mode
