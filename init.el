@@ -918,6 +918,18 @@
   :ensure t
   :mode "\\.gradle\\'")
 
+;; Scala
+(use-package scala-mode2
+  :ensure t
+  :mode (("\\.scala\\'" . scala-mode)
+         ("\\.sbt\\'" . scala-mode)
+         ("\\.sc\\'" . scala-mode)))
+
+;; Scala build tool (sbt)
+(use-package sbt-mode
+  :ensure t
+  :defer t)
+
 ;; ggtags
 (use-package ggtags
   :ensure t
