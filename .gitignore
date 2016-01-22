@@ -24,3 +24,6 @@ custom.el
 /emms/cache
 /emms/history
 /GTAGS
+/emms/scores
+/image-dired/
+/projectile.cache
