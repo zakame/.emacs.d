@@ -617,7 +617,8 @@
 ;; Magit
 (use-package magit
   :ensure t
-  :bind ("C-c g" . magit-status)
+  :bind (("C-c g" . magit-status)
+         ("M-g b" . magit-blame))
   :init
   (setq magit-last-seen-setup-instructions "2.1.0")
   (setq magit-push-always-verify nil)
