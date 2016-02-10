@@ -944,6 +944,14 @@
               (when (derived-mode-p 'c-mode 'c++-mode 'java-mode)
                 (ggtags-mode 1)))))
 
+;; aggressive indent
+(use-package aggressive-indent
+  :ensure t
+  :defer t
+  :diminish aggressive-indent-mode
+  :config
+  (global-aggressive-indent-mode 1))
+
 
 ;;; SLIME
 (use-package slime
