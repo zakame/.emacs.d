@@ -919,6 +919,15 @@
   :ensure t
   :mode "\\.gradle\\'")
 
+;; easy import of android/java libraries
+(use-package java-imports
+  :ensure t
+  :after cc-mode
+  :config
+  (bind-key "C-c i" 'java-imports-add-import-dwim java-mode-map)
+  (setq java-imports-find-block-function 'java-imports-find-place-sorted-block)
+  (add-hook 'java-mode-hook 'java-imports-scan-file))
+
 ;; Scala
 (use-package scala-mode2
   :ensure t
