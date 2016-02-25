@@ -631,9 +631,9 @@
              (replace-regexp-in-string
               "\\`.+github\\.com:\\(.+\\)\\.git\\'" "\\1"
               (magit-get "remote"
-                         (magit-get-remote)
+                         (magit-get-push-remote)
                          "url"))
-             (cdr (magit-split-branch-name (magit-get-tracked-branch))))))
+             (magit-get-current-branch))))
   (bind-key "v" #'endless/visit-pull-request-url magit-mode-map)
   (defun endless/add-PR-fetch ()
     "If refs/pull is not defined on a GH repo, define it."
