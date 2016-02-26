@@ -663,6 +663,15 @@
     (jump-to-register :magit-fullscreen))
   (bind-key "q" #'zakame/magit-quit-session magit-status-mode-map))
 
+;; magit-gitflow
+(use-package magit-gitflow
+  :defer t
+  :diminish magit-gitflow-mode
+  :ensure t
+  :after magit
+  :config
+  (add-hook 'magit-mode-hook 'turn-on-magit-gitflow))
+
 ;; git-timemachine
 (use-package git-timemachine
   :bind (("M-g t" . git-timemachine))
