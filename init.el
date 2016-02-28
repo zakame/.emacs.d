@@ -968,7 +968,6 @@
 ;; aggressive indent
 (use-package aggressive-indent
   :ensure t
-  :defer t
   :diminish aggressive-indent-mode
   :config
   (global-aggressive-indent-mode 1))
