@@ -757,7 +757,7 @@
 (use-package js2-mode
   :ensure t
   :interpreter (("node" . js2-mode))
-  :mode "\\.js\\'"
+  :mode "\\.\\(js\\|json\\)$"
   :config
   (add-hook 'js-mode-hook 'js2-minor-mode)
   (setq js2-highlight-level 3
@@ -789,6 +789,13 @@
   :init
   (add-hook 'js2-mode-hook 'ac-js2-mode)
   (setq ac-js2-evaluate-calls t))
+
+;; JSON snatcher
+(use-package json-snatcher
+  :ensure t
+  :after js2-mode
+  :config
+  (bind-key "C-c C-g" 'jsons-print-path js2-mode-map))
 
 ;; Jade templates
 (use-package jade-mode
