@@ -634,7 +634,7 @@
              (replace-regexp-in-string
               "\\`.+github\\.com:\\(.+\\)\\.git\\'" "\\1"
               (magit-get "remote"
-                         (magit-get-push-remote)
+                         (magit-get-upstream-remote)
                          "url"))
              (magit-get-current-branch))))
   (bind-key "v" #'endless/visit-pull-request-url magit-mode-map)
