@@ -350,6 +350,13 @@
   (setq projectile-completion-system 'helm)
   (helm-projectile-on))
 
+;; wgrep-helm
+(use-package wgrep-helm
+  :ensure t
+  :after helm
+  :config
+  (setq wgrep-auto-save-buffer t))
+
 ;; Ansi-Term tweaks
 (eval-after-load "term"
   '(progn
