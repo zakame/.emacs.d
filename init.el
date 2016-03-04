@@ -822,6 +822,21 @@
   :config
   (bind-key "C-c C-g" 'jsons-print-path js2-mode-map))
 
+;; Tern
+(use-package tern
+  :defer t
+  :ensure t
+  :diminish tern-mode
+  :init
+  (add-hook 'js2-mode-hook 'tern-mode))
+
+;; auto-completion for Tern
+(use-package tern-auto-complete
+  :ensure t
+  :after tern
+  :config
+  (tern-ac-setup))
+
 ;; Jade templates
 (use-package jade-mode
   :ensure t
