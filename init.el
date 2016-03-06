@@ -1017,6 +1017,7 @@
   :ensure t
   :diminish aggressive-indent-mode
   :config
+  (add-to-list 'aggressive-indent-excluded-modes 'jade-mode)
   (global-aggressive-indent-mode 1))
 
 
