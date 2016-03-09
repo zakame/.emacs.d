@@ -220,8 +220,8 @@
 (use-package gh-md
   :ensure t
   :after markdown-mode
-  :config
-  (bind-key "C-c C-r" #'gh-md-render-buffer markdown-mode-map))
+  :bind (:map markdown-mode-map
+              ("C-c C-r" . gh-md-render-buffer)))
 
 ;; Save point position between editing sessions
 (use-package saveplace
@@ -615,8 +615,9 @@
 (use-package helm-perldoc
   :after cperl-mode
   :ensure t
+  :bind (:map cperl-mode-map
+              ("C-c C-h p" . helm-perldoc))
   :config
-  (bind-key "C-c C-h p" 'helm-perldoc cperl-mode-map)
   (helm-perldoc:setup))
 
 ;; This loads generic modes which support e.g batch files
@@ -646,7 +647,11 @@
 (use-package magit
   :ensure t
   :bind (("C-c g" . magit-status)
-         ("M-g b" . magit-blame))
+         ("M-g b" . magit-blame)
+         :map magit-mode-map
+         ("v" . endless/visit-pull-request-url)
+         :map magit-status-mode-map
+         ("q" . zakame/magit-quit-session))
   :init
   (setq magit-last-seen-setup-instructions "2.1.0")
   (setq magit-push-always-verify nil)
@@ -662,7 +667,6 @@
                          (magit-get-upstream-remote)
                          "url"))
              (magit-get-current-branch))))
-  (bind-key "v" #'endless/visit-pull-request-url magit-mode-map)
   (defun endless/add-PR-fetch ()
     "If refs/pull is not defined on a GH repo, define it."
     (let ((fetch-address
@@ -685,8 +689,7 @@
     "Restores the previous window configuration and kills the magit buffer."
     (interactive)
     (kill-buffer)
-    (jump-to-register :magit-fullscreen))
-  (bind-key "q" #'zakame/magit-quit-session magit-status-mode-map))
+    (jump-to-register :magit-fullscreen)))
 
 ;; magit-gitflow
 (use-package magit-gitflow
@@ -793,8 +796,8 @@
 (use-package web-beautify
   :after js2-mode
   :ensure t
-  :config
-  (bind-key "C-c C-b" 'web-beautify-js js2-mode-map))
+  :bind (:map js2-mode-map
+              ("C-c C-b" . web-beautify-js)))
 
 ;; JavaScript refactoring
 (use-package js2-refactor
@@ -819,8 +822,8 @@
 (use-package json-snatcher
   :ensure t
   :after js2-mode
-  :config
-  (bind-key "C-c C-g" 'jsons-print-path js2-mode-map))
+  :bind (:map js2-mode-map
+              ("C-c C-g" . jsons-print-path)))
 
 ;; Tern
 (use-package tern
@@ -859,11 +862,12 @@
   :commands jedi:setup
   :init
   (add-hook 'python-mode-hook 'jedi:setup)
+  :bind (:map python-mode-map
+              ("C-c d" . jedi:show-doc)
+              ("M-/" . jedi:complete)
+              ("M-." . jedi:goto-definition))
   :config
-  (setq jedi:complete-on-dot t)
-  (bind-key "C-c d" 'jedi:show-doc python-mode-map)
-  (bind-key "M-/" 'jedi:complete python-mode-map)
-  (bind-key "M-." 'jedi:goto-definition python-mode-map))
+  (setq jedi:complete-on-dot t))
 
 ;; Skewer
 (use-package skewer-mode
@@ -982,8 +986,9 @@
 (use-package java-imports
   :ensure t
   :after cc-mode
+  :bind (:map java-mode-map
+              ("C-c i" . java-imports-add-import-dwim))
   :config
-  (bind-key "C-c i" 'java-imports-add-import-dwim java-mode-map)
   (setq java-imports-find-block-function 'java-imports-find-place-sorted-block)
   (add-hook 'java-mode-hook 'java-imports-scan-file))
 
