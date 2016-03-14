@@ -897,6 +897,7 @@
   :defer t
   :ensure t
   :init
+  (setq gofmt-command "goimports")
   (add-hook 'before-save-hook #'gofmt-before-save))
 
 ;; Go autocompletion
