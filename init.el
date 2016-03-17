@@ -711,7 +711,9 @@
   :config
   (global-diff-hl-mode)
   (setq diff-hl-side 'left)
-  (diff-hl-margin-mode))
+  (diff-hl-margin-mode)
+  (eval-after-load "magit"
+    '(add-hook 'magit-post-refresh-hook 'diff-hl-magit-post-refresh)))
 
 ;; php-mode
 (use-package php-mode
