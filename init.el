@@ -358,26 +358,27 @@
   (setq wgrep-auto-save-buffer t))
 
 ;; Ansi-Term tweaks
-(eval-after-load "term"
-  '(progn
-     (defadvice term-sentinel (around ansi-term-kill-buffer (proc msg))
-       (if (memq (process-status proc) '(signal exit))
-           (let ((buffer (process-buffer proc)))
-             ad-do-it
-             (kill-buffer buffer))
-         ad-do-it))
-     (ad-activate 'term-sentinel)
-     (defadvice ansi-term (before ansi-term-force-shell)
-       (interactive (list (getenv "SHELL"))))
-     (ad-activate 'ansi-term)
-     (add-hook 'term-mode-hook 'goto-address-mode)
-     (add-hook 'term-exec-hook
-               '(lambda ()
-                  (set-buffer-process-coding-system 'utf-8-unix 'utf-8-unix)))))
+(use-package term
+  :bind (("C-c t" . ansi-term))
+  :config
+  (defadvice term-sentinel (around ansi-term-kill-buffer (proc msg))
+    (if (memq (process-status proc) '(signal exit))
+	(let ((buffer (process-buffer proc)))
+	  ad-do-it
+	  (kill-buffer buffer))
+      ad-do-it))
+  (ad-activate 'term-sentinel)
+  (defadvice ansi-term (before ansi-term-force-shell)
+    (interactive (list (getenv "SHELL"))))
+  (ad-activate 'ansi-term)
+  (add-hook 'term-mode-hook 'goto-address-mode)
+  (add-hook 'term-exec-hook
+	    '(lambda ()
+	       (set-buffer-process-coding-system 'utf-8-unix 'utf-8-unix))))
 
 ;; Eshell
 (use-package eshell
-  :defer t
+  :bind (("C-c e" . eshell))
   :config
   (defun zakame/eshell-rename-buffer-before-command ()
     (let* ((last-input
