@@ -151,6 +151,8 @@
                                         ; from adding a new line to that
                                         ; buffer
 
+(setq search-whitespace-regexp ".*?")   ; match anything (non-greedy)
+
 (setq auto-save-timeout 15              ; Auto-save after 15 sec of
                                         ; idleness
       require-final-newline t           ; Always add a newline to file's end
