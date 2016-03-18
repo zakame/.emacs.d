@@ -1194,7 +1194,11 @@
 ;;; zone-nyan :3
 (use-package zone-nyan
   :ensure t
-  :defer t)
+  :preface
+  (use-package zone)
+  :config
+  (setq zone-programs [zone-nyan])
+  (zone-when-idle 120))
 
 
 ;;; ESUP
