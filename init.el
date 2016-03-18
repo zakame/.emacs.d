@@ -50,10 +50,6 @@
 (setq-default user-full-name "Zak B. Elep"
               user-mail-address "zakame@zakame.net")
 
-;; Set my default colors
-(setq default-frame-alist
-      '((user-position t)))
-
 ;; Enable mouse wheel support
 (if (fboundp 'mwheel-install) (mwheel-install))
 
