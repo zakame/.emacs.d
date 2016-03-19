@@ -1215,8 +1215,10 @@
 
 ;; Docker mode
 (use-package docker
+  :if (file-exists-p "/var/run/docker.sock")
   :ensure t
-  :defer t)
+  :bind (("C-c d c" . docker-containers)
+         ("C-c d i" . docker-images)))
 
 
 ;;; Local customizations
