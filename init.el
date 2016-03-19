@@ -436,6 +436,10 @@
                           'vertical-border (make-glyph-code ?┃))
   (setq standard-display-table display-table))
 
+;; pos-tip
+(use-package pos-tip
+  :ensure t)
+
 ;; yasnippet
 (use-package yasnippet
   :after helm
