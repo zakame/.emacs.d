@@ -255,7 +255,7 @@
   :ensure t
   :config
   (setq moe-theme-highlight-buffer-id t)
-  (moe-theme-set-color 'purple)
+  (moe-theme-set-color 'red)
   (if (daemonp)
       (add-hook 'after-make-frame-functions
                 (lambda (frame)
