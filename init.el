@@ -791,6 +791,8 @@
   :ensure t
   :interpreter (("node" . js2-mode))
   :mode "\\.\\(js\\|json\\)$"
+  :bind (:map js2-mode-map
+              ("C-c C-p" . js2-print-json-path))
   :config
   (add-hook 'js-mode-hook 'js2-minor-mode)
   (setq js2-highlight-level 3
