@@ -1233,6 +1233,11 @@
          ("C-c d i" . docker-images)))
 
 
+;; Sprunge pastebin
+(use-package sprunge
+  :ensure t)
+
+
 ;;; Local customizations
 (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
 (when (file-exists-p custom-file)
