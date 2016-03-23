@@ -750,9 +750,12 @@
          ("\\.hbs\\'" . web-mode))
   :init
   (dolist (hook '(emmet-mode ac-emmet-html-setup ac-emmet-css-setup))
-           (add-hook 'web-mode-hook hook))
+    (add-hook 'web-mode-hook hook))
   :config
-  (setq web-mode-enable-auto-pairing nil
+  (setq web-mode-markup-indent-offset 2
+        web-mode-css-indent-offset 2
+        web-mode-code-indent-offset 2
+        web-mode-enable-auto-pairing nil
         web-mode-enable-auto-closing t
         web-mode-enable-current-element-highlight t
         web-mode-enable-current-column-highlight t
