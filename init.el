@@ -50,6 +50,9 @@
 (setq-default user-full-name "Zak B. Elep"
               user-mail-address "zakame@zakame.net")
 
+;; High GC threshold for Emacs
+(setq gc-cons-threshold 20000000)
+
 ;; Enable mouse wheel support
 (if (fboundp 'mwheel-install) (mwheel-install))
 
