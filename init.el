@@ -177,9 +177,9 @@
 
 ;; I want more descriptive unique buffer names when on Emacs <= 24.3
 (use-package uniquify
-    :if (version<= emacs-version "24.3.1")
-    :config
-    (setq uniquify-buffer-name-style 'post-forward-angle-brackets))
+  :if (version<= emacs-version "24.3.1")
+  :config
+  (setq uniquify-buffer-name-style 'post-forward-angle-brackets))
 
 ;; Enable some commands I need.
 (put 'narrow-to-region 'disabled nil)     ; Restrict editing to narrowed
@@ -1063,9 +1063,9 @@
          ("\C-ca" . org-agenda)
          ("\C-cb" . org-iswitchb))
   :config
-  ; don't let headline sublevels inherit project tags
+  ;; don't let headline sublevels inherit project tags
   (setq org-tags-exclude-from-inheritance '("PROJECT"))
-  ; add some custom commands to the agenda
+  ;; add some custom commands to the agenda
   (setq org-agenda-custom-commands
         '(("P" "Projects"
            ((tags "PROJECT")))
@@ -1079,9 +1079,9 @@
            ((agenda)
             (todo "TODO")
             (tags "PROJECT")))))
-  ; configure org-protocol
+  ;; configure org-protocol
   (use-package org-protocol)
-  ; configure org-capture
+  ;; configure org-capture
   (setq org-default-notes-file (concat org-directory "/notes.org"))
   (setq org-capture-templates
         '(("p" "Protocol" entry
@@ -1095,12 +1095,12 @@
            "* %? [[%:link][%:description]] \nCaptured On: %U")))
   (setq org-refile-targets '((nil . (:level . 1))
                              (org-agenda-files . (:maxlevel . 9))))
-  ; make windmove work well with org-mode
+  ;; make windmove work well with org-mode
   (add-hook 'org-shiftup-final-hook 'windmove-up)
   (add-hook 'org-shiftleft-final-hook 'windmove-left)
   (add-hook 'org-shiftdown-final-hook 'windmove-down)
   (add-hook 'org-shiftright-final-hook 'windmove-right)
-  ; add some languages we use to babel
+  ;; add some languages we use to babel
   (org-babel-do-load-languages
    'org-babel-load-languages
    '((perl . t)
