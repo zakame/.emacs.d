@@ -553,8 +553,8 @@
 (defun zakame/split-window-prefer-side-by-side (window)
   "Split WINDOW, preferably side by side."
   (let ((split-height-threshold (and (< (window-width window)
-				      split-width-threshold)
-				   split-height-threshold)))
+                                      split-width-threshold)
+                                   split-height-threshold)))
     (split-window-sensibly window)))
 (setq split-window-preferred-function
       #'zakame/split-window-prefer-side-by-side)
@@ -681,7 +681,7 @@
           (magit-remotes
            (magit-get-all "remote" "origin" "fetch")))
       (unless (or (not magit-remotes)
-                 (member fetch-address magit-remotes))
+                  (member fetch-address magit-remotes))
         (when (string-match
                "github" (magit-get "remote" "origin" "url"))
           (magit-git-string
@@ -782,8 +782,8 @@
   (defun zakame/sp-web-mode-code-context-p (id action context)
     "Set smartparens context when in web-mode."
     (and (eq action 'insert)
-       (not (or (get-text-property (point) 'part-side)
-             (get-text-property (point) 'block-side)))))
+         (not (or (get-text-property (point) 'part-side)
+                  (get-text-property (point) 'block-side)))))
   (sp-local-pair 'web-mode "<" nil :when '(zakame/sp-web-mode-code-context-p))
   (setq web-mode-engines-alist
         '(("mojolicious" . "\\.html\\.ep\\'")
