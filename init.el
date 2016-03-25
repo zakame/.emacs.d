@@ -1126,7 +1126,7 @@
 
 ;; ob-go (Golang in Babel)
 (use-package ob-go
-  :load-path "site-lisp/ob-go"
+  :ensure t
   :after org
   :config
   (add-to-list 'org-babel-load-languages '(go . t))

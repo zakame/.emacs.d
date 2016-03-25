@@ -5,6 +5,3 @@
 [submodule "site-lisp/emamux-perl-test"]
 	path = site-lisp/emamux-perl-test
 	url = https://github.com/syohex/emamux-perl-test.git
-[submodule "site-lisp/ob-go"]
-	path = site-lisp/ob-go
-	url = https://github.com/pope/ob-go.git
