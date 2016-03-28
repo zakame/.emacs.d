@@ -483,13 +483,6 @@
   (use-package smartparens-config)
   (smartparens-global-mode 1))
 
-;; xclip-mode
-(use-package xclip
-  :if (executable-find "xclip")
-  :ensure t
-  :config
-  (turn-on-xclip))
-
 ;; Enable tail mode for logs
 (use-package autorevert
   :diminish auto-revert-mode
