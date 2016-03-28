@@ -114,6 +114,12 @@
 (require 'diminish)
 (require 'bind-key)
 
+;; quelpa
+(use-package quelpa-use-package
+  :ensure t
+  :config
+  (setq quelpa-checkout-melpa-p nil))
+
 
 ;;; Editing
 
