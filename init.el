@@ -456,7 +456,7 @@
   :diminish yas-minor-mode
   :ensure t
   :init
-  (setq yas-verbosity 3)
+  (setq yas-verbosity 2)
   :config
   (yas-global-mode 1)
   (push 'yas-hippie-try-expand hippie-expand-try-functions-list)
