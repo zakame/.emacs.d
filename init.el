@@ -1039,7 +1039,10 @@
   :ensure t
   :diminish aggressive-indent-mode
   :config
-  (add-to-list 'aggressive-indent-excluded-modes 'jade-mode)
+  (mapc
+   (lambda (mode)
+     (add-to-list 'aggressive-indent-excluded-modes mode))
+   '(jade-mode cperl-mode))
   (global-aggressive-indent-mode 1))
 
 
