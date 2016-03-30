@@ -648,6 +648,15 @@
   :diminish ruby-tools-mode
   :ensure t)
 
+;; robe (require pry, pry-doc, and method_source gems)
+(use-package robe
+  :diminish robe-mode
+  :ensure t
+  :after ruby-mode
+  :config
+  (add-hook 'ruby-mode-hook 'robe-mode)
+  (add-hook 'robe-mode-hook 'ac-robe-setup))
+
 ;; VC-Git
 (use-package vc-git
   :if (version<= emacs-version "24.3.1")
