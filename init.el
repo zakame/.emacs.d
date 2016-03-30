@@ -645,6 +645,7 @@
 
 ;; extra tools for Ruby
 (use-package ruby-tools
+  :diminish ruby-tools-mode
   :ensure t)
 
 ;; VC-Git
