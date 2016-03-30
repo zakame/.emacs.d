@@ -643,6 +643,10 @@
   :config
   (add-hook 'projectile-mode-hook 'projectile-rails-on))
 
+;; extra tools for Ruby
+(use-package ruby-tools
+  :ensure t)
+
 ;; VC-Git
 (use-package vc-git
   :if (version<= emacs-version "24.3.1")
