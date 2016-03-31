@@ -173,6 +173,10 @@
                                         ; until the first error
       compilation-ask-about-save nil)
 
+;; diminish "Compiling" mode line
+(eval-after-load "compile"
+  '(diminish 'compilation-in-progress))
+
 ;; Use imenu to browse use-package blocks
 (defun zakame/imenu-use-package ()
   "Extract use-package lines to be used as anchors in imenu."
