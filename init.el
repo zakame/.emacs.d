@@ -321,6 +321,8 @@
         helm-semantic-fuzzy-match t
         helm-locate-fuzzy-match t
         helm-ff-file-name-history-use-recentf t
+        helm-ff-guess-ffap-filenames t
+        helm-ff-newfile-prompt-p nil
         helm-su-or-sudo "su"
         helm-ff-auto-update-initial-value t)
   (helm-mode 1)
