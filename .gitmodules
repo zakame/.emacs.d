@@ -1,4 +1,0 @@
-[submodule "site-lisp/pde"]
-	path = site-lisp/pde
-	url = https://github.com/zakame/emacs-pde.git
-        branch = perltidyrc_closest

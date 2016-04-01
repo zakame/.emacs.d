@@ -597,18 +597,30 @@
 ;; Always indent using spaces, no tabs
 (setq-default indent-tabs-mode nil)
 
-;; Use Emacs::PDE for editing Perl
-(use-package pde-load
-  :defer 2
-  :load-path "site-lisp/pde/lisp"
-  :init
-  (setq pde-extra-setting nil)
-  (add-to-list 'auto-mode-alist '("\\.t\\'" . perl-mode))
-  (add-to-list 'auto-mode-alist '("\\.psgi\\'" . perl-mode))
+;; Use cperl-mode for editing Perl
+(use-package cperl-mode
+  :mode "\\.\\([pP]\\([Llm]\\|erl\\|od\\|sgi\\)\\|al\\|t\\)\\'"
+  :preface
+  (defalias 'perl-mode 'cperl-mode)
   :config
-  (use-package pde-patch)
+  (cperl-lazy-install)
   (setq cperl-invalid-face nil
+        cperl-indent-level 4
+        cperl-indent-parens-as-block t
+        cperl-close-paren-offset -4
+        cperl-continued-statement-offset 4
+        cperl-tab-always-indent t
         cperl-lazy-help-time 2))
+
+;; Add perltidy.el from the wiki
+(use-package perltidy
+  :quelpa (perltidy :fetcher url :url "https://www.emacswiki.org/emacs/download/perltidy.el")
+  :after cperl-mode
+  :bind (:map cperl-mode-map
+              ("C-c <tab> r" . perltidy-region)
+              ("C-c <tab> b" . perltidy-buffer)
+              ("C-c <tab> s" . perltidy-subroutine)
+              ("C-c <tab> t" . perltidy-dwim-safe)))
 
 ;; diminish abbrevs if loaded
 (eval-after-load "abbrev"
