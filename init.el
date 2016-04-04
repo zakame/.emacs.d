@@ -1146,6 +1146,7 @@
      (sql . t)
      (sqlite . t)))
   (setq org-log-done 'time
+        org-hide-emphasis-markers t
         org-ellipsis "▼"
         org-src-fontify-natively t
         org-src-preserve-indentation nil
