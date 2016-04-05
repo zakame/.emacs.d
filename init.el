@@ -1074,7 +1074,7 @@
   (mapc
    (lambda (mode)
      (add-to-list 'aggressive-indent-excluded-modes mode))
-   '(jade-mode cperl-mode))
+   '(jade-mode cperl-mode web-mode html-mode))
   (global-aggressive-indent-mode 1))
 
 
