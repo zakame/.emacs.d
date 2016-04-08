@@ -1282,6 +1282,13 @@
   :ensure t)
 
 
+;; helm-aws
+(use-package helm-aws
+  :if (file-exists-p (expand-file-name ".aws/config" (getenv "HOME")))
+  :ensure t
+  :bind (("C-c w" . helm-aws)))
+
+
 ;;; Local customizations
 (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
 (when (file-exists-p custom-file)
