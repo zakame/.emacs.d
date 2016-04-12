@@ -324,6 +324,8 @@
         helm-recentf-fuzzy-match t
         helm-semantic-fuzzy-match t
         helm-locate-fuzzy-match t
+        helm-imenu-fuzzy-match t
+        helm-M-x-fuzzy-match t
         helm-ff-file-name-history-use-recentf t
         helm-ff-guess-ffap-filenames t
         helm-ff-newfile-prompt-p nil
