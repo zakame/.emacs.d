@@ -618,7 +618,10 @@
         cperl-close-paren-offset -4
         cperl-continued-statement-offset 4
         cperl-tab-always-indent t
-        cperl-lazy-help-time 2))
+        cperl-lazy-help-time 2)
+  (dolist (face '(cperl-array-face cperl-hash-face))
+    (set-face-attribute face nil
+                        :background 'unspecified)))
 
 ;; Add perltidy.el from the wiki
 (use-package perltidy
