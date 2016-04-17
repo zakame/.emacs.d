@@ -367,7 +367,7 @@
   :ensure t
   :after helm
   :bind (("C-c p h" . helm-projectile)
-	 ("C-c p p" . helm-projectile-switch-project))
+         ("C-c p p" . helm-projectile-switch-project))
   :config
   (setq projectile-completion-system 'helm)
   (helm-projectile-on)
@@ -386,9 +386,9 @@
   :config
   (defadvice term-sentinel (around ansi-term-kill-buffer (proc msg))
     (if (memq (process-status proc) '(signal exit))
-	(let ((buffer (process-buffer proc)))
-	  ad-do-it
-	  (kill-buffer buffer))
+        (let ((buffer (process-buffer proc)))
+          ad-do-it
+          (kill-buffer buffer))
       ad-do-it))
   (ad-activate 'term-sentinel)
   (defadvice ansi-term (before ansi-term-force-shell)
@@ -396,8 +396,8 @@
   (ad-activate 'ansi-term)
   (add-hook 'term-mode-hook 'goto-address-mode)
   (add-hook 'term-exec-hook
-	    '(lambda ()
-	       (set-buffer-process-coding-system 'utf-8-unix 'utf-8-unix))))
+            '(lambda ()
+               (set-buffer-process-coding-system 'utf-8-unix 'utf-8-unix))))
 
 ;; Eshell
 (use-package eshell
@@ -567,8 +567,8 @@
 (defun zakame/split-window-prefer-side-by-side (window)
   "Split WINDOW, preferably side by side."
   (let ((split-height-threshold (and (< (window-width window)
-                                      split-width-threshold)
-                                   split-height-threshold)))
+                                        split-width-threshold)
+                                     split-height-threshold)))
     (split-window-sensibly window)))
 (setq split-window-preferred-function
       #'zakame/split-window-prefer-side-by-side)
