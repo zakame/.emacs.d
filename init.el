@@ -1034,8 +1034,7 @@
 (use-package android-mode
   :ensure t
   :config
-  (setq android-mode-builder 'gradle
-        android-mode-build-command-alist '((gradle . "gradle"))))
+  (setq android-mode-builder 'gradle))
 
 ;; groovy-mode (mainly for Gradle files)
 (use-package groovy-mode
