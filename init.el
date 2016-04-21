@@ -242,6 +242,23 @@
                 save-place-file (expand-file-name ".places"
                                                   user-emacs-directory)))
 
+(use-package tramp
+  :defer t
+  :init
+  ;; Before loading TRAMP, fix up its detection for ssh ControlMaster
+  ;; feature
+  (setq tramp-ssh-controlmaster-options
+        (concat "-o ControlMaster=auto "
+                "-o ControlPath='tramp.%%C' "
+                "-o ControlPersist=no"))
+  :config
+  (setq tramp-default-method "ssh")
+  ;; Enable TRAMP and editing files as root (via sudo) on remote hosts
+  (add-to-list 'tramp-default-proxies-alist
+               '(nil "\\`root\\'" "/ssh:%h:"))
+  (add-to-list 'tramp-default-proxies-alist
+               '((regexp-quote (system-name)) nil nil)))
+
 ;; Auto refresh buffers and dired, and be quiet about it
 (global-auto-revert-mode 1)
 (setq global-auto-revert-non-file-buffers t
@@ -508,15 +525,6 @@
   :ensure t
   :bind (("C-c SPC" . ace-jump-mode)
          ("C-c C-0" . ace-jump-mode)))
-
-;; Enable TRAMP and editing files as root (via sudo) on remote hosts
-(eval-after-load "tramp"
-  '(progn
-     (setq tramp-default-method "ssh")
-     (add-to-list 'tramp-default-proxies-alist
-                  '(nil "\\`root\\'" "/ssh:%h:"))
-     (add-to-list 'tramp-default-proxies-alist
-                  '((regexp-quote (system-name)) nil nil))))
 
 ;; use tramp for connecting to Docker containers
 (use-package docker-tramp
