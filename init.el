@@ -175,7 +175,14 @@
 
 ;; diminish "Compiling" mode line
 (eval-after-load "compile"
-  '(diminish 'compilation-in-progress))
+  '(progn
+     (use-package ansi-color)
+     (diminish 'compilation-in-progress)
+     (add-hook 'compilation-filter-hook
+               '(lambda ()
+                  (let ((inhibit-read-only t))
+                    (ansi-color-apply-on-region
+                     compilation-filter-start (point)))))))
 
 ;; Use imenu to browse use-package blocks
 (defun zakame/imenu-use-package ()
