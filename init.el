@@ -1044,7 +1044,10 @@
 (use-package android-mode
   :ensure t
   :config
-  (setq android-mode-builder 'gradle))
+  (setq android-mode-builder 'gradle)
+  (add-to-list 'compilation-error-regexp-alist 'gradle)
+  (add-to-list 'compilation-error-regexp-alist-alist
+               '(gradle ":compile.*?\\(/.*?\\):\\([0-9]+\\): " 1 2)))
 
 ;; groovy-mode (mainly for Gradle files)
 (use-package groovy-mode
