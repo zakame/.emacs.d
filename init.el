@@ -576,7 +576,8 @@
 (use-package pdf-tools
   :after yasnippet
   :ensure t
-  :if (string= system-type 'gnu/linux)
+  :if (and (string= system-type 'gnu/linux)
+         (eq (call-process-shell-command "pkg-config" nil nil nil "--exists" "poppler") 0))
   :config
   (pdf-tools-install))
 
