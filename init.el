@@ -1245,7 +1245,8 @@
 (use-package emms-player-mpv
   :ensure t
   :init
-  (setq emms-player-list '(emms-player-mpv)))
+  (setq emms-player-list '(emms-player-mpv)
+        emms-player-mpv-parameters '("--quiet" "--really-quiet" "--no-audio-display")))
 
 ;; use Helm as the default EMMS interface for streams
 (use-package helm-emms
