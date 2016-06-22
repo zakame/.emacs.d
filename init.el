@@ -637,6 +637,7 @@
         cperl-continued-statement-offset 4
         cperl-tab-always-indent t
         cperl-lazy-help-time 2)
+  (define-key cperl-mode-map "{" nil)
   (dolist (face '(cperl-array-face cperl-hash-face))
     (set-face-attribute face nil
                         :background 'unspecified)))
