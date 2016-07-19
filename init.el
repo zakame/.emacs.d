@@ -1266,7 +1266,7 @@
 (use-package emojify
   :ensure t
   :config
-  (unless (file-exists-p emojify-image-dir)
+  (unless (file-exists-p (emojify-image-dir))
     (emojify-download-emoji emojify-emoji-set))
   (add-to-list 'emojify-inhibit-major-modes 'cider-repl-mode)
   (add-hook 'after-init-hook #'global-emojify-mode))
