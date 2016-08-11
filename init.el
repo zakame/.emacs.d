@@ -400,8 +400,7 @@
          ("C-c p s a" . helm-projectile-ack))
   :config
   (setq projectile-completion-system 'helm)
-  (helm-projectile-on)
-  (setq projectile-switch-project-action 'projectile-dired))
+  (helm-projectile-on))
 
 ;; wgrep-helm
 (use-package wgrep-helm
