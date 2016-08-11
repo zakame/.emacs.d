@@ -324,6 +324,9 @@
   :diminish projectile-mode
   :ensure t
   :config
+  (defadvice projectile-run-term (before projectile-run-term-force-shell)
+    (interactive (list (getenv "SHELL"))))
+  (ad-activate 'projectile-run-term)
   (projectile-global-mode))
 
 ;; Helm
