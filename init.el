@@ -1133,10 +1133,8 @@
 
 ;;; Org-Mode
 (use-package org
-  :ensure org-plus-contrib
+  :ensure org
   :mode ("\\.\\(org\\|org_archive\\)$" . org-mode)
-  :init
-  (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
   :bind (("\C-cl" . org-store-link)
          ("\C-cc" . org-capture)
          ("\C-ca" . org-agenda)
@@ -1195,6 +1193,12 @@
         org-src-fontify-natively t
         org-src-preserve-indentation nil
         org-edit-src-content-indentation 0))
+
+;; Org-Bullets
+(use-package org-bullets
+  :ensure t
+  :init
+  (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1))))
 
 ;; ob-http (REST client)
 (use-package ob-http
