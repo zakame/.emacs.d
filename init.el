@@ -1087,7 +1087,7 @@
 
 ;; Scala
 (use-package scala-mode2
-  :ensure t
+  :ensure scala-mode
   :mode (("\\.scala\\'" . scala-mode)
          ("\\.sbt\\'" . scala-mode)
          ("\\.sc\\'" . scala-mode)))
