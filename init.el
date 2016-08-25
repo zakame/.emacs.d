@@ -1250,7 +1250,7 @@
 (use-package ox-reveal
   :ensure t
   :config
-  (setq org-reveal-root "https://cdn.jsdelivr.net/reveal.js/3.3.0"))
+  (setq org-reveal-root "https://cdn.jsdelivr.net/reveal.js/3.0.0"))
 
 
 ;;; Hacker News
