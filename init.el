@@ -1226,6 +1226,32 @@
   :defer t
   :ensure t)
 
+;; org-present (for meetups)
+(use-package org-present
+  :defer t
+  :ensure t
+  :config
+  (add-hook 'org-present-mode-hook
+            (lambda ()
+              (flyspell-mode -1)
+              (org-present-big)
+              (org-display-inline-images)
+              (org-present-hide-cursor)
+              (org-present-read-only)))
+  (add-hook 'org-present-mode-quit-hook
+            (lambda ()
+              (flyspell-mode 1)
+              (org-present-small)
+              (org-remove-inline-images)
+              (org-present-show-cursor)
+              (org-present-read-write))))
+
+;; reveal.js support for Org (in case I need fancy slides)
+(use-package ox-reveal
+  :ensure t
+  :config
+  (setq org-reveal-root "https://cdn.jsdelivr.net/reveal.js/3.3.0"))
+
 
 ;;; Hacker News
 (use-package hackernews
