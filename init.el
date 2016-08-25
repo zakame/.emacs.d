@@ -1338,6 +1338,21 @@
   :ensure t)
 
 
+;; Engine-mode
+(use-package engine-mode
+  :ensure t
+  :config
+  (define-key engine-mode-map (kbd "C-c /") nil)
+  (engine/set-keymap-prefix (kbd "C-c C-/"))
+  (defengine duckduckgo
+    "https://duckduckgo.com/?q=%s"
+    :keybinding "d")
+  (defengine github
+    "https://github.com/search?ref=simplesearch&q=%s"
+    :keybinding "h")
+  (engine-mode t))
+
+
 ;; helm-aws
 (use-package helm-aws
   :if (file-exists-p (expand-file-name ".aws/config" (getenv "HOME")))
