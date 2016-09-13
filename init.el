@@ -660,6 +660,29 @@
               ("C-c <tab> s" . perltidy-subroutine)
               ("C-c <tab> t" . perltidy-dwim-safe)))
 
+;; Use Perl Reply in Emacs
+(use-package reply
+  :quelpa (reply :fetcher github :repo "syohex/emacs-reply" )
+  :after cperl-mode
+  :config
+  (defun zakame/reply-sentinel (process event)
+    (if (memq (process-status process) '(signal exit))
+        (let ((buffer (process-buffer process)))
+          (kill-buffer buffer))))
+  (defadvice run-reply (around reply-set-process-sentinel activate)
+    ad-do-it
+    (set-process-sentinel (get-process "reply") 'zakame/reply-sentinel))
+  (ad-activate 'run-reply)
+  (defun zakame/reply-other-window ()
+    "Run `reply' on other window."
+    (interactive)
+    (switch-to-buffer-other-window (get-buffer-create "*reply*"))
+    (run-reply "reply"))
+  :bind (:map cperl-mode-map
+              ("C-c r r" . run-reply)
+              ("C-c r C-r" . reply-send-region)
+              ("C-c r C-z" . zakame/reply-other-window)))
+
 ;; diminish abbrevs if loaded
 (eval-after-load "abbrev"
   '(diminish 'abbrev-mode))
