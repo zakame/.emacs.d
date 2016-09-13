@@ -1,6 +1,6 @@
 #+TITLE: My Emacs Settings
 
-My [[./init.el][init.el]] Inspired by [[http://emacsrocks.com][Emacs Rocks]] and [[https://github.com/magnars/.emacs.d][Magnars' .emacs.d]].
+My [[./init.el][init.el]] inspired by [[http://emacsrocks.com][Emacs Rocks]] and [[https://github.com/magnars/.emacs.d][Magnars' .emacs.d]].
 
 * Setup
 
