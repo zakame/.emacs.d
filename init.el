@@ -387,7 +387,9 @@
 (use-package helm-swoop
   :ensure t
   :after helm
-  :bind (("M-s p" . helm-swoop)))
+  :bind (("M-s p" . helm-swoop)
+         ("M-s P" . helm-multi-swoop)
+         ("C-c p s p" . helm-multi-swoop-projectile)))
 
 ;; Helm-flx
 (use-package helm-flx
