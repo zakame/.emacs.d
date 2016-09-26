@@ -656,6 +656,16 @@
     (set-face-attribute face nil
                         :background 'unspecified)))
 
+;; define a simple generic-x mode for cpanfiles
+(define-generic-mode 'cpanfile-mode
+  '("#")
+  '("requires" "recommends" "suggests" "conflicts" "on" "feature"
+    "configure_requires" "build_requires" "test_requires" "author_requires")
+  '(("sub" . 'font-lock-function-name-face))
+  '("cpanfile")
+  nil
+  "Edit cpanfiles with Emacs")
+
 ;; Add perltidy.el from the wiki
 (use-package perltidy
   :quelpa (perltidy :fetcher url :url "https://www.emacswiki.org/emacs/download/perltidy.el")
