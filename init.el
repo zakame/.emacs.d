@@ -438,6 +438,10 @@
 (use-package eshell
   :bind (("C-c e" . eshell))
   :config
+  (mapc
+   (lambda (command)
+     (add-to-list 'eshell-visual-commands command))
+   '("cpandoc" "htop" "minil" "perldoc"))
   (defun zakame/eshell-rename-buffer-before-command ()
     (let* ((last-input
             (buffer-substring eshell-last-input-start eshell-last-input-end)))
