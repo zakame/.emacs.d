@@ -665,7 +665,9 @@
   '("#")
   '("requires" "recommends" "suggests" "conflicts" "on" "feature"
     "configure_requires" "build_requires" "test_requires" "author_requires")
-  '(("sub" . 'font-lock-function-name-face))
+  '(("'.+?'" . font-lock-string-face)
+    ("\".+?\"" . font-lock-string-face)
+    ("sub" . 'font-lock-function-name-face))
   '("cpanfile")
   nil
   "Edit cpanfiles with Emacs")
