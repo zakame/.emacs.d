@@ -822,6 +822,11 @@
   :config
   (add-hook 'magit-mode-hook 'turn-on-magit-gitflow))
 
+;; magit-github
+(use-package magithub
+  :after magit
+  :ensure t)
+
 ;; git-timemachine
 (use-package git-timemachine
   :bind (("M-g t" . git-timemachine))
