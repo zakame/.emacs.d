@@ -645,6 +645,13 @@
 (use-package cask-mode
   :ensure t)
 
+;; Emacs-Lisp package linting in FlyCheck
+(use-package flycheck-package
+  :ensure t
+  :after flycheck
+  :config
+  (flycheck-package-setup))
+
 ;; Use cperl-mode for editing Perl
 (use-package cperl-mode
   :mode "\\.\\([pP]\\([Llm]\\|erl\\|od\\|sgi\\)\\|al\\|t\\)\\'"
