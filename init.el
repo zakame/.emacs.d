@@ -1196,20 +1196,10 @@
   :config
   ;; don't let headline sublevels inherit project tags
   (setq org-tags-exclude-from-inheritance '("PROJECT"))
-  ;; add some custom commands to the agenda
-  (setq org-agenda-custom-commands
-        '(("P" "Projects"
-           ((tags "PROJECT")))
-          ("H" "Home"
-           ((agenda "HOME")
-            (tags-todo "HOME")))
-          ("O" "Office"
-           ((agenda "OFFICE")
-            (tags-todo "OFFICE")))
-          ("W" "Weekly Plan"
-           ((agenda)
-            (todo "TODO")
-            (tags "PROJECT")))))
+  ;; set agenda files for GTD
+  (setq org-agenda-files (list (concat org-directory "/gtd.org")))
+  ;; Don't set long warning days prior to deadline
+  (setq org-deadline-warning-days 0)
   ;; configure org-protocol
   (use-package org-protocol)
   ;; configure org-capture
