@@ -641,6 +641,10 @@
 ;; Always indent using spaces, no tabs
 (setq-default indent-tabs-mode nil)
 
+;; cask-mode for Emacs-Lisp package development
+(use-package cask-mode
+  :ensure t)
+
 ;; Use cperl-mode for editing Perl
 (use-package cperl-mode
   :mode "\\.\\([pP]\\([Llm]\\|erl\\|od\\|sgi\\)\\|al\\|t\\)\\'"
