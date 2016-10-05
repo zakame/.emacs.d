@@ -671,18 +671,6 @@
     (set-face-attribute face nil
                         :background 'unspecified)))
 
-;; define a simple generic-x mode for cpanfiles
-(define-generic-mode 'cpanfile-mode
-  '("#")
-  '("requires" "recommends" "suggests" "conflicts" "on" "feature"
-    "configure_requires" "build_requires" "test_requires" "author_requires")
-  '(("'.+?'" . font-lock-string-face)
-    ("\".+?\"" . font-lock-string-face)
-    ("sub" . 'font-lock-function-name-face))
-  '("cpanfile")
-  nil
-  "Edit cpanfiles with Emacs")
-
 ;; Add perltidy.el from the wiki
 (use-package perltidy
   :quelpa (perltidy :fetcher url :url "https://www.emacswiki.org/emacs/download/perltidy.el")
@@ -715,6 +703,10 @@
               ("C-c r r" . run-reply)
               ("C-c r C-r" . reply-send-region)
               ("C-c r C-z" . zakame/reply-other-window)))
+
+;; My own cpanfile-mode now on MELPA!
+(use-package cpanfile-mode
+  :ensure t)
 
 ;; diminish abbrevs if loaded
 (eval-after-load "abbrev"
