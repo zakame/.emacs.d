@@ -828,6 +828,7 @@
 ;; magit-github
 (use-package magithub
   :after magit
+  :if (executable-find "hub")
   :ensure t)
 
 ;; git-timemachine
