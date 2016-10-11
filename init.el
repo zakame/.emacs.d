@@ -1194,6 +1194,8 @@
          ("\C-ca" . org-agenda)
          ("\C-cb" . org-iswitchb))
   :config
+  ;; Keep images within a certain width
+  (setq org-image-actual-width (/ (display-pixel-width) 3))
   ;; don't let headline sublevels inherit project tags
   (setq org-tags-exclude-from-inheritance '("PROJECT"))
   ;; set agenda files for GTD
