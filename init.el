@@ -980,6 +980,11 @@
   :config
   (tern-ac-setup))
 
+;; Better React JSX support
+(use-package rjsx-mode
+  :ensure t
+  :mode "components\\/.*\\.js\\'")
+
 ;; Jade templates
 (use-package jade-mode
   :ensure t
