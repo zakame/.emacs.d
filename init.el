@@ -1416,6 +1416,12 @@
   :bind (("C-c w" . helm-aws)))
 
 
+;; Focus mode
+(use-package focus
+  :ensure t
+  :bind (("C-c F" . focus-mode)))
+
+
 ;;; Local customizations
 (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
 (when (file-exists-p custom-file)
