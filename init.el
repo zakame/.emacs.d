@@ -834,7 +834,8 @@
 (use-package magithub
   :after magit
   :if (executable-find "hub")
-  :ensure t)
+  :ensure t
+  :config (magithub-feature-autoinject t))
 
 ;; git-timemachine
 (use-package git-timemachine
