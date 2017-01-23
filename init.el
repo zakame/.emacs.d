@@ -746,6 +746,10 @@
   "cmuscheme" "Switch to interactive Scheme buffer." t)
 (setq scheme-program-name "mit-scheme")
 
+;; lua mode
+(use-package lua-mode
+  :ensure t)
+
 ;; enable projectile mode for rails projects
 (use-package projectile-rails
   :after ruby-mode
