@@ -110,6 +110,7 @@
 (eval-when-compile
   (eval-after-load 'advice
     `(setq ad-redefinition-action 'accept))
+  (setq use-package-enable-imenu-support t)
   (require 'use-package))
 (require 'diminish)
 (require 'bind-key)
@@ -183,14 +184,6 @@
                   (let ((inhibit-read-only t))
                     (ansi-color-apply-on-region
                      compilation-filter-start (point)))))))
-
-;; Use imenu to browse use-package blocks
-(defun zakame/imenu-use-package ()
-  "Extract use-package lines to be used as anchors in imenu."
-  (add-to-list 'imenu-generic-expression
-               '("Used Packages"
-                 "\\(^\\s-*(use-package +\\)\\(\\_<.+\\_>\\)" 2)))
-(add-hook 'emacs-lisp-mode-hook #'zakame/imenu-use-package)
 
 ;; I want more descriptive unique buffer names when on Emacs <= 24.3
 (use-package uniquify
