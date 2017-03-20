@@ -1186,6 +1186,7 @@
 
 ;;; SLIME
 (use-package slime
+  :if (executable-find "sbcl")
   :defer t
   :ensure t
   :init
