@@ -397,7 +397,7 @@
   :bind (("C-c p h" . helm-projectile)
          ("C-c p p" . helm-projectile-switch-project)
          ("C-c p s a" . helm-projectile-ack))
-  :config
+  :init
   (setq projectile-completion-system 'helm)
   (helm-projectile-on))
 
