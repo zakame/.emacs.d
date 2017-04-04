@@ -667,11 +667,11 @@
 ;; Use pod-mode from renomarlist
 (use-package pod-mode
   :mode "\\.[pP]od\\'"
-  :quelpa (pod-mode :fetcher github :repo "renormalist/emacs-pod-mode" ))
+  :quelpa (pod-mode :fetcher github :repo "renormalist/emacs-pod-mode"))
 
 ;; Add perltidy.el from the wiki
 (use-package perltidy
-  :quelpa (perltidy :fetcher url :url "https://www.emacswiki.org/emacs/download/perltidy.el")
+  :quelpa (perltidy :fetcher github :repo "zakame/perltidy.el")
   :after cperl-mode
   :bind (:map cperl-mode-map
               ("C-c <tab> r" . perltidy-region)
