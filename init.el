@@ -317,10 +317,10 @@
   :diminish projectile-mode
   :ensure t
   :config
-  (projectile-register-project-type 'perl-module '("META.json" "lib" "t") nil "prove -lr t")
-  (projectile-register-project-type 'perl-dzil '("dist.ini") "dzil build" "dzil test")
-  (projectile-register-project-type 'perl-minil '("minil.toml") "minil dist" "minil test")
-  (projectile-register-project-type 'perl6-mi6 '("META6.json") "mi6 build" "mi6 test")
+  (projectile-register-project-type 'perl-module '("META.json" "lib" "t") :test "prove -lr t")
+  (projectile-register-project-type 'perl-dzil '("dist.ini") :compile "dzil build" :test "dzil test")
+  (projectile-register-project-type 'perl-minil '("minil.toml") :compile "minil dist" :test "minil test")
+  (projectile-register-project-type 'perl6-mi6 '("META6.json") :compile "mi6 build" :test "mi6 test")
   (defadvice projectile-run-term (before projectile-run-term-force-shell)
     (interactive (list (getenv "SHELL"))))
   (ad-activate 'projectile-run-term)
