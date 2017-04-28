@@ -356,6 +356,7 @@
         helm-ff-guess-ffap-filenames t
         helm-ff-newfile-prompt-p nil
         helm-su-or-sudo "su"
+        helm-man-format-switches "%s"
         helm-ff-auto-update-initial-value t)
   (helm-mode 1)
   (helm-adaptive-mode 1)
