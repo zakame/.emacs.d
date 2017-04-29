@@ -646,6 +646,11 @@
   :config
   (flycheck-package-setup))
 
+;; Use cc-mode from SourceForge
+(use-package cc-mode
+  :if (executable-find "hg")
+  :quelpa (cc-mode :fetcher hg :url "http://hg.code.sf.net/p/cc-mode/cc-mode"))
+
 ;; Use cperl-mode for editing Perl
 (use-package cperl-mode
   :mode "\\.\\([pP]\\([Llm]\\|erl\\|sgi\\)\\|al\\|t\\)\\'"
