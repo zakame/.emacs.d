@@ -457,8 +457,6 @@
             'zakame/eshell-rename-buffer-before-command)
   (add-hook 'eshell-post-command-hook
             'zakame/eshell-rename-buffer-after-command)
-  (add-hook 'eshell-output-filter-functions
-            'zakame/eshell-nuke-ansi-escapes t)
   (use-package em-smart)
   (setq eshell-where-to-jump 'begin
         eshell-review-quick-commands nil
@@ -469,6 +467,8 @@
                (lambda (command)
                  (add-to-list 'eshell-visual-commands command))
                '("cpandoc" "htop" "minil" "perldoc"))
+              (add-to-list 'eshell-output-filter-functions
+                           'zakame/eshell-nuke-ansi-escapes t)
               (eshell-smart-initialize))))
 
 ;; Async
