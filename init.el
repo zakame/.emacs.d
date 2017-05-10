@@ -432,6 +432,18 @@
 (use-package eshell
   :bind (("C-c e" . eshell))
   :config
+  (defvar zakame/ansi-escapes-re
+    (rx (or ?\233 (and ?\e ?\[))
+        (zero-or-more (char (?0 . ?\?)))
+        (zero-or-more (char ?\s ?- ?\/))
+        (char (?@ .?~))))
+  (defun zakame/nuke-ansi-escapes (beg end)
+    (save-excursion
+      (goto-char beg)
+      (while (re-search-forward zakame/ansi-escapes-re end t)
+        (replace-match ""))))
+  (defun zakame/eshell-nuke-ansi-escapes ()
+    (zakame/nuke-ansi-escapes eshell-last-output-start eshell-last-output-end))
   (defun zakame/eshell-rename-buffer-before-command ()
     (let* ((last-input
             (buffer-substring eshell-last-input-start eshell-last-input-end)))
@@ -445,6 +457,8 @@
             'zakame/eshell-rename-buffer-before-command)
   (add-hook 'eshell-post-command-hook
             'zakame/eshell-rename-buffer-after-command)
+  (add-hook 'eshell-output-filter-functions
+            'zakame/eshell-nuke-ansi-escapes t)
   (use-package em-smart)
   (setq eshell-where-to-jump 'begin
         eshell-review-quick-commands nil
