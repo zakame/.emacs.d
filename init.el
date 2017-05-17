@@ -1083,7 +1083,10 @@
   :after go-mode
   :commands go-projectile-mode
   :config
-  (add-hook 'go-mode-hook #'go-projectile-mode))
+  (add-hook 'go-mode-hook #'go-projectile-mode)
+  ;; Eldoc for Go (already pulled in by go-projectile)
+  (add-hook 'go-mode-hook #'go-eldoc-setup))
+
 
 ;; Haskell Mode
 (use-package haskell-mode
