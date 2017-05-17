@@ -852,7 +852,9 @@
   :after magit
   :if (executable-find "hub")
   :ensure t
-  :config (magithub-feature-autoinject t))
+  :config
+  (setq magithub-api-timeout 2)
+  (magithub-feature-autoinject t))
 
 ;; git-timemachine
 (use-package git-timemachine
