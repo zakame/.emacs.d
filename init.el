@@ -1085,6 +1085,9 @@
   :after go-mode
   :commands go-projectile-mode
   :config
+  ;; add go-projectile-tools to exec-path, if it exists
+  (if (file-directory-p (expand-file-name "gotools" user-emacs-directory))
+      (go-projectile-tools-add-path))
   (add-hook 'go-mode-hook #'go-projectile-mode)
   ;; Eldoc for Go (already pulled in by go-projectile)
   (add-hook 'go-mode-hook #'go-eldoc-setup))
