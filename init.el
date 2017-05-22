@@ -1127,13 +1127,13 @@
 
 ;; Cider
 (use-package cider
-  :defer t
   :ensure t
   :init
   (setq org-babel-clojure-backend 'cider)
   :config
   (add-hook 'cider-mode-hook #'eldoc-mode)
-  (setq nrepl-log-messages t))
+  (setq cider-boot-parameters "dev"
+        nrepl-log-messages t))
 
 ;; rainbow delimiters
 (use-package rainbow-delimiters
