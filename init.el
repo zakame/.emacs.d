@@ -1135,6 +1135,16 @@
   (setq cider-boot-parameters "dev"
         nrepl-log-messages t))
 
+;; clj-refactor
+(use-package clj-refactor
+  :diminish clj-refactor-mode
+  :ensure t
+  :config
+  (add-hook 'clojure-mode-hook
+            (lambda ()
+              (clj-refactor-mode 1)
+              (cljr-add-keybindings-with-prefix "C-c C-m"))))
+
 ;; rainbow delimiters
 (use-package rainbow-delimiters
   :ensure t
