@@ -1048,6 +1048,12 @@
   :config
   (setq jedi:complete-on-dot t))
 
+;; pip-requirements mode
+(use-package pip-requirements
+  :ensure t
+  :config
+  (add-hook 'pip-requirements-mode-hook #'pip-requirements-auto-complete-setup))
+
 ;; Skewer
 (use-package skewer-mode
   :defer t
