@@ -1022,16 +1022,25 @@
   :mode "\\.py\\'"
   :interpreter (("python" . python-mode))
   :config
-  (setq py-outline-minor-mode-p nil
-        py-which-def-or-class-function nil))
+  (setq py-outline-minor-mode-p nil))
 
 ;; Jedi autocompletion for Python
 (use-package jedi
   :ensure t
+  :if (executable-find "pyenv")
   :after python-mode
   :commands jedi:setup
   :init
-  (add-hook 'python-mode-hook 'jedi:setup)
+  (defun zakame/jedi:setup ()
+    "Configure `jedi' using `pyenv'."
+    ;; Install `jedi', `epc', and if necessary, `flake8' into virtualenvs.
+    (jedi:setup)
+    (let ((cmd (replace-regexp-in-string
+                "\n" ""
+                (shell-command-to-string "pyenv which python"))))
+      (when cmd (set (make-local-variable 'jedi:server-command)
+                     (list cmd jedi:server-script)))))
+  (add-hook 'python-mode-hook #'zakame/jedi:setup)
   :bind (:map python-mode-map
               ("C-c d" . jedi:show-doc)
               ("M-/" . jedi:complete)
