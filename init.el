@@ -1015,15 +1015,6 @@
   :ensure t
   :mode "\\.jade\\'")
 
-;; Python mode
-(use-package python-mode
-  :ensure t
-  :defer 2
-  :mode "\\.py\\'"
-  :interpreter (("python" . python-mode))
-  :config
-  (setq py-outline-minor-mode-p nil))
-
 ;; Jedi autocompletion for Python
 (use-package jedi
   :ensure t
