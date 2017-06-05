@@ -749,6 +749,14 @@
   :config
   (helm-perldoc:setup))
 
+;; p6doc support
+(use-package p6doc
+  :if (executable-find "p6doc")
+  :quelpa (p6doc :fetcher github :repo "syohex/emacs-p6doc")
+  :after perl6-mode
+  :bind (:map perl6-mode-map
+              ("C-c C-h p" . p6doc)))
+
 ;; This loads generic modes which support e.g batch files
 (use-package generic-x)
 
