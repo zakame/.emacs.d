@@ -1412,7 +1412,10 @@
   :config
   (unless (file-exists-p (emojify-image-dir))
     (emojify-download-emoji emojify-emoji-set))
-  (add-to-list 'emojify-inhibit-major-modes 'cider-repl-mode)
+  (mapc
+   (lambda (mode)
+     (add-to-list 'emojify-inhibit-major-modes mode))
+   '(cider-repl-mode eshell-mode term-mode))
   (add-hook 'after-init-hook #'global-emojify-mode))
 
 
