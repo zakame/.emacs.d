@@ -1443,7 +1443,8 @@
   :if (file-exists-p "/var/run/docker.sock")
   :ensure t
   :bind (("C-c d c" . docker-containers)
-         ("C-c d i" . docker-images)))
+         ("C-c d i" . docker-images)
+         ("C-c d v" . docker-volumes)))
 
 
 ;; Sprunge pastebin
