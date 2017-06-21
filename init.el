@@ -469,7 +469,7 @@
               (mapc
                (lambda (command)
                  (add-to-list 'eshell-visual-commands command))
-               '("cpandoc" "htop" "minil" "perldoc"))
+               '("cpandoc" "htop""perldoc"))
               (add-to-list 'eshell-output-filter-functions
                            'zakame/eshell-nuke-ansi-escapes t)
               (eshell-smart-initialize))))
