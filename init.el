@@ -174,6 +174,17 @@
                                         ; until the first error
       compilation-ask-about-save nil)
 
+(defvar zakame/ansi-escapes-re
+  (rx (or ?\233 (and ?\e ?\[))
+      (zero-or-more (char (?0 . ?\?)))
+      (zero-or-more (char ?\s ?- ?\/))
+      (char (?@ .?~))))
+(defun zakame/nuke-ansi-escapes (beg end)
+  (save-excursion
+    (goto-char beg)
+    (while (re-search-forward zakame/ansi-escapes-re end t)
+      (replace-match ""))))
+
 ;; diminish "Compiling" mode line
 (eval-after-load "compile"
   '(progn
@@ -183,6 +194,8 @@
                '(lambda ()
                   (let ((inhibit-read-only t))
                     (ansi-color-apply-on-region
+                     compilation-filter-start (point))
+                    (zakame/nuke-ansi-escapes
                      compilation-filter-start (point)))))))
 
 ;; I want more descriptive unique buffer names when on Emacs <= 24.3
@@ -432,16 +445,6 @@
 (use-package eshell
   :bind (("C-c e" . eshell))
   :config
-  (defvar zakame/ansi-escapes-re
-    (rx (or ?\233 (and ?\e ?\[))
-        (zero-or-more (char (?0 . ?\?)))
-        (zero-or-more (char ?\s ?- ?\/))
-        (char (?@ .?~))))
-  (defun zakame/nuke-ansi-escapes (beg end)
-    (save-excursion
-      (goto-char beg)
-      (while (re-search-forward zakame/ansi-escapes-re end t)
-        (replace-match ""))))
   (defun zakame/eshell-nuke-ansi-escapes ()
     (zakame/nuke-ansi-escapes eshell-last-output-start eshell-last-output-end))
   (defun zakame/eshell-rename-buffer-before-command ()
