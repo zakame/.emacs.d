@@ -848,6 +848,7 @@
 
 ;; magit-gitflow
 (use-package magit-gitflow
+  :if (executable-find "git-flow")
   :defer t
   :diminish magit-gitflow-mode
   :ensure t
