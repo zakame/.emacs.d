@@ -792,6 +792,13 @@
   (add-hook 'ruby-mode-hook 'robe-mode)
   (add-hook 'robe-mode-hook 'ac-robe-setup))
 
+;; VC-fossil
+(use-package vc-fossil
+  :ensure t
+  :if (executable-find "fossil")
+  :config
+  (add-to-list 'vc-handled-backends 'Fossil))
+
 ;; VC-Git
 (use-package vc-git
   :if (version<= emacs-version "24.3.1")
