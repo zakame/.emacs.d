@@ -1233,11 +1233,14 @@
   :ensure t
   :diminish aggressive-indent-mode
   :config
+  (add-hook 'c-mode-common-hook
+            (lambda ()
+              (when (derived-mode-p 'c-mode 'c++-mode 'java-mode)
+                (aggressive-indent-mode))))
   (mapc
-   (lambda (mode)
-     (add-to-list 'aggressive-indent-excluded-modes mode))
-   '(jade-mode cperl-mode web-mode html-mode))
-  (global-aggressive-indent-mode 1))
+   (lambda (hook)
+     (add-hook hook #'aggressive-indent-mode))
+   '(clojure-mode-hook emacs-lisp-mode-hook perl6-mode)))
 
 
 ;;; SLIME
