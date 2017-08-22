@@ -1069,10 +1069,8 @@
   (add-hook 'css-mode-hook 'skewer-css-mode)
   (add-hook 'html-mode-hook 'skewer-html-mode))
 
-;; use Google Chrome in incognito mode as our default browser
-(setq browse-url-browser-function 'browse-url-generic
-      browse-url-generic-program "google-chrome-stable"
-      browse-url-generic-args '("--incognito " "chrome://newtab"))
+;; use whatever xdg-open uses as our default browser
+(setq browse-url-browser-function 'browse-url-xdg-open)
 
 ;; yaml-mode
 (use-package yaml-mode
