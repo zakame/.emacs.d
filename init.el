@@ -1363,6 +1363,13 @@
   :config
   (setq org-reveal-root "https://cdn.jsdelivr.net/reveal.js/3.0.0"))
 
+;; perl6 support for Org Babel
+(use-package ob-perl6
+  :after org
+  :quelpa (ob-perl6
+           :fetcher url
+           :url "https://raw.githubusercontent.com/LLFourn/p6-and-chill/master/ob-perl6.el"))
+
 
 ;;; Hacker News
 (use-package hackernews
