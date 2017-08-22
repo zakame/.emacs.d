@@ -732,13 +732,11 @@
 
 ;; Add Perl6 editing support
 (use-package perl6-mode
-  :defer t
-  :ensure t)
+  :quelpa (perl6-mode :fetcher github :repo "perl6/perl6-mode"))
 
 ;; Add Perl6 support in flycheck
 (use-package flycheck-perl6
-  :after flycheck
-  :ensure t)
+  :quelpa (flycheck-perl6 :fetcher github :repo "zakame/flycheck-perl6"))
 
 ;; If Helm is present, enable helm-perldoc as well
 (use-package helm-perldoc
