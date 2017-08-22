@@ -1447,6 +1447,8 @@
   :ensure t
   :bind (("C-c d c" . docker-containers)
          ("C-c d i" . docker-images)
+         ("C-c d m" . docker-machines)
+         ("C-c d n" . docker-networks)
          ("C-c d v" . docker-volumes)))
 
 
