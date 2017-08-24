@@ -1,0 +1,5 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: set perl -d breakpoint
+# key: dbs
+# --
+no warnings 'once'; $DB::single = 1;
