@@ -686,7 +686,7 @@
 
 ;; Use pod-mode from renomarlist
 (use-package pod-mode
-  :mode "\\.[pP]od\\'"
+  :mode "\\.[pP]od6?\\'"
   :quelpa (pod-mode :fetcher github :repo "renormalist/emacs-pod-mode"))
 
 ;; Add perltidy.el from the wiki
