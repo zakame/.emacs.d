@@ -722,6 +722,12 @@
               ("C-c r C-r" . reply-send-region)
               ("C-c r C-z" . zakame/reply-other-window)))
 
+;; RealGUD mode
+(use-package realgud
+  :ensure t
+  :config
+  (define-key cperl-mode-map "\C-c\C-d" 'realgud:perldb))
+
 ;; My own cpanfile-mode now on MELPA!
 (use-package cpanfile-mode
   :ensure t)
