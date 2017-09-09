@@ -607,6 +607,11 @@
   :mode "\\.tsv\\'"
   :quelpa (tsv-mode :fetcher url :url "https://www.emacswiki.org/emacs/download/tsv-mode.el"))
 
+;; csv-mode
+(use-package csv-mode
+  :ensure t
+  :mode "\\.csv\\'")
+
 ;; make window splits much smarter especially when on widescreen
 (defun zakame/split-window-prefer-side-by-side (window)
   "Split WINDOW, preferably side by side."
