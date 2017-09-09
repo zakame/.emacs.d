@@ -886,6 +886,25 @@
   :bind (("M-g t" . git-timemachine))
   :ensure t)
 
+;; monky
+(use-package monky
+  :if (executable-find "hg")
+  :bind (("C-c M-g" . monky-status)
+         ("M-g M-b" . monky-blame-current-file)
+         :map monky-status-mode-map
+         ("q" . zakame/monky-quit-session))
+  :ensure t
+  :config
+  (defadvice monky-status (around monky-fullscreen activate)
+    (window-configuration-to-register :monky-fullscreen)
+    ad-do-it
+    (delete-other-windows))
+  (defun zakame/monky-quit-session ()
+    "Restores the previous window configuration and kills the monky buffer."
+    (interactive)
+    (kill-buffer)
+    (jump-to-register :monky-fullscreen)))
+
 ;; diff-hl
 (use-package diff-hl
   :ensure t
