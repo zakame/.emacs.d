@@ -941,7 +941,7 @@
 ;; web-mode
 (use-package web-mode
   :ensure t
-  :mode (("\\.tt\\'" . web-mode)
+  :mode (("\\.tt2?\\'" . web-mode)
          ("\\.erb\\'" . web-mode)
          ("\\.html\\.ep\\'" . web-mode)
          ("\\.blade\\.php\\'" . web-mode)
@@ -957,6 +957,7 @@
         web-mode-enable-auto-closing t
         web-mode-enable-current-element-highlight t
         web-mode-enable-current-column-highlight t
+        web-mode-enable-engine-detection t
         web-mode-ac-sources-alist
         '(("css" . (ac-source-css-property ac-source-emmet-css-snippets))
           ("php" . (ac-source-yasnippet))
@@ -980,6 +981,8 @@
   (sp-local-pair 'web-mode "<" nil :when '(zakame/sp-web-mode-code-context-p))
   (setq web-mode-engines-alist
         '(("mojolicious" . "\\.html\\.ep\\'")
+          ("underscore" . nil)
+          ("template-toolkit" . "\\.tt2?\\'")
           ("blade" . "\\.blade\\.")
           ("ctemplate" . "\\.hbs\\'"))))
 
