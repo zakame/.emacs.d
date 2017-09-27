@@ -1221,6 +1221,17 @@
   (add-to-list 'compilation-error-regexp-alist-alist
                '(gradle ":compile.*?\\(/.*?\\):\\([0-9]+\\): " 1 2)))
 
+;; kotlin-mode
+(use-package kotlin-mode
+  :ensure t)
+
+;; Flycheck support for Kotlin
+(use-package flycheck-kotlin
+  :ensure t
+  :after kotlin-mode
+  :config
+  (flycheck-kotlin-setup))
+
 ;; groovy-mode (mainly for Gradle files)
 (use-package groovy-mode
   :ensure t
