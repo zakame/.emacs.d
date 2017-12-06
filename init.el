@@ -1253,12 +1253,15 @@
   :ensure scala-mode
   :mode (("\\.scala\\'" . scala-mode)
          ("\\.sbt\\'" . scala-mode)
-         ("\\.sc\\'" . scala-mode)))
+         ("\\.sc\\'" . scala-mode))
+  :config
+  (setq flycheck-scala-scalastyle-executable (executable-find "scalastyle")
+        flycheck-scalastylerc "~/.config/scalastyle_config.xml"))
 
 ;; Scala build tool (sbt)
 (use-package sbt-mode
   :ensure t
-  :defer t)
+  :commands sbt-start sbt-command)
 
 ;; ggtags
 (use-package ggtags
