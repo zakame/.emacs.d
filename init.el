@@ -317,6 +317,7 @@
   :diminish projectile-mode
   :ensure t
   :config
+  (add-to-list 'projectile-globally-ignored-directories ".precomp")
   (projectile-register-project-type 'perl-module '("META.json" "lib" "t") :test "prove -lr t")
   (projectile-register-project-type 'perl-dzil '("dist.ini") :compile "dzil build" :test "dzil test")
   (projectile-register-project-type 'perl-minil '("minil.toml") :compile "minil dist" :test "minil test")
