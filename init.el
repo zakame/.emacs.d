@@ -1360,7 +1360,7 @@
      (ruby . t)
      (clojure . t)
      (haskell . t)
-     (sh . t)
+     (shell . t)
      (sql . t)
      (sqlite . t)))
   (setq org-log-done 'time
