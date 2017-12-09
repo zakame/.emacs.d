@@ -505,6 +505,10 @@
   :ensure t
   :mode "Dockerfile\\'")
 
+;; Docker Compose mode
+(use-package docker-compose-mode
+  :ensure t)
+
 ;; Neater vertical separator in emacs -nw
 (let ((display-table (or standard-display-table (make-display-table))))
   (set-display-table-slot display-table
