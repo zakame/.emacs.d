@@ -112,8 +112,10 @@
     `(setq ad-redefinition-action 'accept))
   (setq use-package-enable-imenu-support t)
   (require 'use-package))
-(require 'diminish)
 (require 'bind-key)
+
+(use-package diminish
+  :ensure t)
 
 ;; quelpa
 (use-package quelpa-use-package
