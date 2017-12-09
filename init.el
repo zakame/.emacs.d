@@ -1236,7 +1236,9 @@
 
 ;; kotlin-mode
 (use-package kotlin-mode
-  :ensure t)
+  :ensure t
+  :config
+  (setq kotlin-tab-width 4))
 
 ;; Flycheck support for Kotlin
 (use-package flycheck-kotlin
