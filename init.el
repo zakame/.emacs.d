@@ -405,6 +405,12 @@
   (setq projectile-completion-system 'helm)
   (helm-projectile-on))
 
+;; helm-tramp
+(use-package helm-tramp
+  :ensure t
+  :after helm
+  :bind (("C-c S" . helm-tramp)))
+
 ;; wgrep-helm
 (use-package wgrep-helm
   :ensure t
