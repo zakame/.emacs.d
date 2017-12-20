@@ -1337,14 +1337,14 @@
   ;; configure org-capture
   (setq org-default-notes-file (concat org-directory "/notes.org"))
   (setq org-capture-templates
-        '(("p" "Protocol" entry
-           (file+headline (concat org-directory "/notes.org") "Inbox")
+        `(("p" "Protocol" entry
+           (file+headline ,(concat org-directory "/notes.org") "Inbox")
            "* %^{Title}\nSource: %u, %c\n#+BEGIN_QUOTE\n%i\n#+END_QUOTE\n%?")
           ("T" "TODO" entry
-           (file+headline (concat org-directory "/gtd.org") "Tasks")
+           (file+headline ,(concat org-directory "/gtd.org") "Tasks")
            "* TODO %^{Brief Description} %^g\n%?\nAdded: %U")
           ("L" "Protocol Link" entry
-           (file+headline (concat org-directory "/notes.org") "Inbox")
+           (file+headline ,(concat org-directory "/notes.org") "Inbox")
            "* %? [[%:link][%:description]] \nCaptured On: %U")))
   (setq org-refile-targets '((nil . (:level . 1))
                              (org-agenda-files . (:maxlevel . 9))))
