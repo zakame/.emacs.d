@@ -345,6 +345,8 @@
   :config
   (use-package helm-config)
   (setq enable-recursive-minibuffers t
+        helm-window-show-buffers-function 'helm-window-default-split-fn
+        helm-window-prefer-horizontal-split 'decide
         helm-split-window-in-side-p t
         helm-yank-symbol-first t
         helm-move-to-line-cycle-in-source t
