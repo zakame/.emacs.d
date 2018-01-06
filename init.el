@@ -511,7 +511,7 @@
 ;; Dockerfile
 (use-package dockerfile-mode
   :ensure t
-  :mode "Dockerfile\\'")
+  :mode "Dockerfile\\.?")
 
 ;; Docker Compose mode
 (use-package docker-compose-mode
