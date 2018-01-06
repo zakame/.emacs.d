@@ -742,9 +742,11 @@
 
 ;; RealGUD mode
 (use-package realgud
+  :disabled
   :ensure t
-  :config
-  (define-key cperl-mode-map "\C-c\C-d" 'realgud:perldb))
+  :after cperl-mode
+  :bind (:map cperl-mode-map
+              ("C-c C-d" . realgud:perldb)))
 
 ;; My own cpanfile-mode now on MELPA!
 (use-package cpanfile-mode
