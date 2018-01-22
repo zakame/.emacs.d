@@ -745,7 +745,6 @@
 
 ;; RealGUD mode
 (use-package realgud
-  :disabled
   :ensure t
   :after cperl-mode
   :bind (:map cperl-mode-map
