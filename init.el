@@ -252,11 +252,17 @@
   ;; Before loading TRAMP, fix up its detection for ssh ControlMaster
   ;; feature
   (setq tramp-ssh-controlmaster-options
-        (concat "-o ControlMaster=auto "
+        (concat "-o Cipher=aes128-gcm@openssh.com "
+                "-o ControlMaster=auto "
                 "-o ControlPath='tramp.%%C' "
                 "-o ControlPersist=no"))
   :config
-  (setq tramp-default-method "ssh")
+  (setq tramp-default-method "ssh"
+        remote-file-name-inhibit-cache nil
+        tramp-completion-reread-directory-timeout nil
+        vc-ignore-dir-regexp (format "\\(%s\\)|\\(%s\\)"
+                                     vc-ignore-dir-regexp
+                                     tramp-file-name-regexp))
   ;; Enable TRAMP and editing files as root (via sudo) on remote hosts
   (add-to-list 'tramp-default-proxies-alist
                '(nil "\\`root\\'" "/ssh:%h:"))
