@@ -426,6 +426,11 @@
   :config
   (setq wgrep-auto-save-buffer t))
 
+;; helm-ag
+(use-package helm-ag
+  :ensure t
+  :after helm)
+
 ;; Ansi-Term tweaks
 (use-package term
   :bind (("C-c t" . ansi-term))
