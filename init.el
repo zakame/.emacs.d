@@ -321,6 +321,13 @@
   :config
   (setq recentf-exclude '("TAGS" ".*-autoloads\\.el\\'")))
 
+;; direnv
+(use-package direnv
+  :if (executable-find "direnv")
+  :ensure t
+  :config
+  (direnv-mode))
+
 ;; Projectile
 (use-package projectile
   :diminish projectile-mode
