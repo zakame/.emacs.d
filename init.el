@@ -1028,7 +1028,8 @@
               ("C-c C-p" . js2-print-json-path))
   :config
   (add-hook 'js-mode-hook 'js2-minor-mode)
-  (setq js2-highlight-level 3
+  (setq js2-basic-offset 2
+        js2-highlight-level 3
         js2-mode-show-parse-errors nil
         js2-mode-show-strict-warnings nil))
 
