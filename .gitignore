@@ -33,3 +33,5 @@ custom.el
 /.python-environments
 /gotools/
 /magithub/
+/.trello/
+/request/
