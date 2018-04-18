@@ -308,12 +308,8 @@
       (moe-theme-set-color 'green))
   (moe-dark))
 
-;; pretty-mode
-(use-package pretty-mode
-  :defer t
-  :ensure t
-  :init
-  (add-hook 'emacs-lisp-mode-hook 'turn-on-pretty-mode))
+;; pretty-mode is somewhat redundant on Emacs 24.4+
+(add-hook 'emacs-lisp-mode-hook 'prettify-symbols-mode)
 
 ;; recentf tweaks
 (use-package recentf
