@@ -1473,12 +1473,7 @@
   (use-package emms-streams)
   (setq emms-source-file-default-directory "~/Music/")
   (use-package emms-history)
-  (emms-history-load))
-
-;; use mpv as the default player
-(use-package emms-player-mpv
-  :ensure t
-  :init
+  (emms-history-load)
   (setq emms-player-list '(emms-player-mpv emms-player-mpg321 emms-player-ogg123)
         emms-player-mpv-parameters '("--quiet" "--really-quiet" "--no-audio-display")))
 
