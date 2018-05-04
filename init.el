@@ -1327,6 +1327,14 @@
         slime-contribs '(slime-fancy)))
 
 
+;;; Terraform-mode
+(use-package terraform-mode
+  :if (executable-find "terraform")
+  :ensure t
+  :config
+  (add-hook 'terraform-mode-hook #'terraform-format-on-save-mode))
+
+
 ;;; Org-Mode
 (use-package org
   :ensure org
