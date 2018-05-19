@@ -1327,6 +1327,18 @@
         slime-contribs '(slime-fancy)))
 
 
+;;; Vagrant
+(use-package vagrant
+  :if (executable-find "vagrant")
+  :ensure t)
+
+;;; TRAMP method for Vagrant
+(use-package vagrant-tramp
+  :if (executable-find "vagrant")
+  :after vagrant
+  :ensure t)
+
+
 ;;; Terraform-mode
 (use-package terraform-mode
   :if (executable-find "terraform")
