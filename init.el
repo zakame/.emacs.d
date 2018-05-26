@@ -779,7 +779,7 @@
 
 ;; Add Perl6 support in flycheck
 (use-package flycheck-perl6
-  :quelpa (flycheck-perl6 :fetcher github :repo "zakame/flycheck-perl6"))
+  :ensure t)
 
 ;; If Helm is present, enable helm-perldoc as well
 (use-package helm-perldoc
