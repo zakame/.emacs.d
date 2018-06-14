@@ -1348,6 +1348,17 @@
   (add-hook 'terraform-mode-hook #'terraform-format-on-save-mode))
 
 
+;;; Test Kitchen
+(use-package test-kitchen
+  :if (executable-find "kitchen")
+  :ensure t
+  :bind (("C-c k l" . test-kitchen-list)
+         ("C-c k c" . test-kitchen-converge)
+         ("C-c k v" . test-kitchen-verify)
+         ("C-c k v" . test-kitchen-verify)
+         ("C-c k d" . test-kitchen-destroy)))
+
+
 ;;; Org-Mode
 (use-package org
   :ensure org
