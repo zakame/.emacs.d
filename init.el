@@ -1583,7 +1583,9 @@
 
 ;; helm-aws
 (use-package helm-aws
-  :if (file-exists-p (expand-file-name ".aws/config" (getenv "HOME")))
+  :if (and
+       (executable-find "aws")
+       (file-exists-p (expand-file-name ".aws/config" (getenv "HOME"))))
   :ensure t
   :bind (("C-c w" . helm-aws)))
 
