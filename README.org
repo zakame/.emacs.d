@@ -4,10 +4,18 @@ My [[./init.el][init.el]] inspired by [[http://emacsrocks.com][Emacs Rocks]] and
 
 * Setup
 
-#+begin_src sh
-cd $HOME
-git clone https://github.com/zakame/.emacs.d.git
-#+end_src
+  #+BEGIN_SRC sh
+  cd $HOME
+  git clone https://github.com/zakame/.emacs.d.git
+  #+END_SRC
+
+  It is best to do the initial load under an xterm first:
+
+  #+BEGIN_SRC sh
+  command emacs -nw
+  #+END_SRC
+
+  For subsequent runs, =emacsclient -c -n= is preferred.
 
 * Notes
 
