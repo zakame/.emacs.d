@@ -6,7 +6,7 @@ My [[./init.el][init.el]] inspired by [[http://emacsrocks.com][Emacs Rocks]] and
 
 #+begin_src sh
 cd $HOME
-git clone --recursive https://github.com/zakame/.emacs.d.git
+git clone https://github.com/zakame/.emacs.d.git
 #+end_src
 
 * Notes
