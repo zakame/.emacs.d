@@ -97,8 +97,8 @@
 ;; package.el
 (require 'package)
 (nconc package-archives
-       '(("melpa" . "http://melpa.org/packages/")
-         ("org" . "http://orgmode.org/elpa/")))
+       '(("melpa" . "https://melpa.org/packages/")
+         ("org" . "https://orgmode.org/elpa/")))
 (setq package-enable-at-startup nil)
 (package-initialize)
 
