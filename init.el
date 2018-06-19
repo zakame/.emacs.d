@@ -867,6 +867,8 @@
   (setq magit-last-seen-setup-instructions "2.1.0")
   (setq magit-push-always-verify nil)
   :config
+  (magit-define-popup-option 'magit-rebase-popup
+    ?S "Sign using gpg" "--gpg-sign=" 'magit-read-gpg-secret-key)
   (defun zakame/add-PR-fetch ()
     "If refs/pull is not defined on a GH or GL repo, define it."
     (let ((gh-fetch-address
