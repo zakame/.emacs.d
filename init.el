@@ -324,6 +324,15 @@
   :config
   (direnv-mode))
 
+;; let gpg-agent know the right kind of pinentry needed
+;; ~/.gnupg/gpg.conf should also have `use-agent' setting enabled
+(add-hook 'window-configuration-change-hook
+          '(lambda ()
+             (if (display-graphic-p)
+                 (setenv "DISPLAY" (terminal-name))
+               (setenv "GPG_TTY" (terminal-name))
+               (setenv "DISPLAY"))))
+
 ;; Projectile
 (use-package projectile
   :diminish projectile-mode
