@@ -1493,6 +1493,9 @@
   :config
   (setq org-reveal-root "https://cdn.jsdelivr.net/reveal.js/3.0.0"))
 
+;; Markdown export for Org
+(use-package ox-md)
+
 ;; perl6 support for Org Babel
 (use-package ob-perl6
   :after org
