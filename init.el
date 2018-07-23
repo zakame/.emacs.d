@@ -337,6 +337,8 @@
 (use-package projectile
   :diminish projectile-mode
   :ensure t
+  :init
+  (setq projectile-keymap-prefix (kbd "C-c p"))
   :config
   (add-to-list 'projectile-globally-ignored-directories ".precomp")
   (projectile-register-project-type 'perl-module '("META.json" "lib" "t") :test "prove -lr t")
