@@ -565,6 +565,14 @@
   (push 'yas-hippie-try-expand hippie-expand-try-functions-list)
   (add-hook 'term-mode-hook (lambda () (yas-minor-mode -1))))
 
+;; snippets to go along with yasnippet (no longer bundled in yasnippet
+;; by default)
+(use-package yasnippet-snippets
+  :after yasnippet
+  :ensure t
+  :config
+  (yasnippet-snippets-initialize))
+
 ;; Autocomplete
 (use-package auto-complete
   :diminish auto-complete-mode
