@@ -1193,7 +1193,9 @@
 ;; Haskell Mode
 (use-package haskell-mode
   :defer t
-  :ensure t)
+  :ensure t
+  :config
+  (add-hook 'haskell-mode-hook 'interactive-haskell-mode))
 
 ;; Coffee Mode
 (use-package coffee-mode
