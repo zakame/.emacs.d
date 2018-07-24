@@ -738,7 +738,9 @@
   (defvar zakame/cperl-package-re "\\([A-Z_a-z][0-9A-Z_a-z]*::\\)+")
   (defun zakame/which-function-trim-package (s)
     "Trim Perl package namespace from S."
-    (string-trim-left s zakame/cperl-package-re))
+    (if (string-match (concat "\\`\\(?:" zakame/cperl-package-re "\\)") s)
+        (substring s (match-end 0))
+      s))
   (add-hook 'cperl-mode-hook
             #'(lambda ()
                 (advice-add 'which-function :filter-return
