@@ -871,6 +871,7 @@
   :bind (("C-c g" . magit-status)
          ("M-g b" . magit-blame)
          ("M-g c" . magit-clone)
+         ("M-g l" . magit-log-trace-definition)
          :map magit-status-mode-map
          ("q" . zakame/magit-quit-session))
   :init
