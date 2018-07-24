@@ -734,6 +734,14 @@
         cperl-continued-statement-offset 4
         cperl-tab-always-indent t
         cperl-lazy-help-time 2)
+  ;; remove any prefixes (namespaces etc.) from the function name
+  (advice-add 'cperl-imenu--create-perl-index :override
+              #'imenu-default-create-index-function)
+  (add-hook 'cperl-mode-hook
+            #'(lambda ()
+                (require 'perl-mode)
+                (setq-local imenu-generic-expression
+                            perl-imenu-generic-expression)))
   (define-key cperl-mode-map "{" nil)
   (dolist (face '(cperl-array-face cperl-hash-face))
     (set-face-attribute face nil
