@@ -1324,6 +1324,10 @@
   :ensure t
   :commands sbt-start sbt-command)
 
+;; Elixir Alchemist
+(use-package alchemist
+  :ensure t)
+
 ;; ggtags
 (use-package ggtags
   :ensure t
