@@ -1326,6 +1326,7 @@
 
 ;; Elixir Alchemist
 (use-package alchemist
+  :diminish alchemist-mode
   :ensure t)
 
 ;; ggtags
