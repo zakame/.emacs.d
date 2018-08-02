@@ -366,6 +366,7 @@
   :config
   (use-package helm-config)
   (setq enable-recursive-minibuffers t
+        helm-show-completion-display-function 'helm-show-completion-default-display-function
         helm-window-show-buffers-function 'helm-window-default-split-fn
         helm-window-prefer-horizontal-split 'decide
         helm-split-window-in-side-p t
@@ -389,6 +390,7 @@
   (helm-autoresize-mode 1)
   (add-hook 'eshell-mode-hook
             (lambda ()
+              (eshell-cmpl-initialize)
               (define-key eshell-mode-map
                 [remap eshell-pcomplete]
                 'helm-esh-pcomplete)
