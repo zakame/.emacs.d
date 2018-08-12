@@ -1408,7 +1408,7 @@
   :bind (("\C-cl" . org-store-link)
          ("\C-cc" . org-capture)
          ("\C-ca" . org-agenda)
-         ("\C-cb" . org-iswitchb))
+         ("\C-cb" . org-switchb))
   :config
   ;; Keep images within a certain width
   (setq org-image-actual-width 480)
