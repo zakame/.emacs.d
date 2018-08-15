@@ -744,9 +744,9 @@
         (substring s (match-end 0))
       s))
   (add-hook 'cperl-mode-hook
-            #'(lambda ()
-                (advice-add 'which-function :filter-return
-                            #'zakame/which-function-trim-package)))
+            '(lambda ()
+               (advice-add 'which-function :filter-return
+                           #'zakame/which-function-trim-package)))
   (define-key cperl-mode-map "{" nil)
   (dolist (face '(cperl-array-face cperl-hash-face))
     (set-face-attribute face nil
