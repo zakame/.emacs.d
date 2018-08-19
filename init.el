@@ -1174,18 +1174,24 @@
 (which-function-mode)
 
 ;; Go Mode
+;; go get -u golang.org/x/tools/cmd/goimports
+;; go get -u github.com/rogpeppe/godef
 (use-package go-mode
   :defer t
   :ensure t
+  :bind (:map go-mode-map
+              ("M-." . godef-jump))
   :init
   (setq gofmt-command "goimports")
   (add-hook 'before-save-hook #'gofmt-before-save))
 
 ;; Go autocompletion
+;; go get -u github.com/nsf/gocode
 (use-package go-autocomplete
   :ensure t)
 
 ;; Errcheck support for Go
+;; go get -u github.com/kisielk/errcheck
 (use-package go-errcheck
   :defer t
   :ensure t)
