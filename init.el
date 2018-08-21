@@ -1235,7 +1235,9 @@
 ;; Rust
 (use-package rust-mode
   :defer t
-  :ensure t)
+  :ensure t
+  :config
+  (setq rust-format-on-save t))
 
 ;; Clojure
 (use-package clojure-mode
