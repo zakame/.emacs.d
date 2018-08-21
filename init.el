@@ -1239,6 +1239,14 @@
   :config
   (setq rust-format-on-save t))
 
+;; Flycheck support for Rust/Cargo projects
+(use-package flycheck-rust
+  :defer t
+  :ensure t
+  :after rust-mode
+  :config
+  (add-hook 'flycheck-mode-hook #'flycheck-rust-setup))
+
 ;; Clojure
 (use-package clojure-mode
   :defer t
