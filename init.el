@@ -1125,22 +1125,22 @@
 ;; Jedi autocompletion for Python
 (use-package jedi
   :ensure t
-  :if (executable-find "pyenv")
-  :after python-mode
   :commands jedi:setup
   :init
   (defun zakame/jedi:setup ()
     "Configure `jedi' using `pyenv'."
     ;; Install `jedi', `epc', and if necessary, `flake8' into virtualenvs.
     (jedi:setup)
-    (let ((cmd (replace-regexp-in-string
-                "\n" ""
-                (shell-command-to-string "pyenv which python"))))
+    (let ((cmd (if (executable-find "pyenv")
+                   (replace-regexp-in-string
+                    "\n" ""
+                    (shell-command-to-string "pyenv which python"))
+                 nil)))
       (when cmd (set (make-local-variable 'jedi:server-command)
                      (list cmd jedi:server-script)))))
   (add-hook 'python-mode-hook #'zakame/jedi:setup)
   :bind (:map python-mode-map
-              ("C-c d" . jedi:show-doc)
+              ("C-c C-h p" . jedi:show-doc)
               ("M-/" . jedi:complete)
               ("M-." . jedi:goto-definition))
   :config
