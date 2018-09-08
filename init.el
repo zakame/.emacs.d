@@ -1186,7 +1186,7 @@
   (add-hook 'before-save-hook #'gofmt-before-save))
 
 ;; Go autocompletion
-;; go get -u github.com/nsf/gocode
+;; go get -u github.com/mdempsky/gocode
 (use-package go-autocomplete
   :ensure t)
 
