@@ -1122,6 +1122,15 @@
   :ensure t
   :mode "\\.jade\\'")
 
+;; let FlyCheck find checkers in Python virtualenvs
+;; (as long as python-shell-virtualenv-root is set via .dir-locals.el)
+(add-hook 'python-mode-hook
+          '(lambda ()
+             (setq-local flycheck-executable-find
+                         '(lambda (executable)
+                            (let ((exec-path (python-shell-calculate-exec-path)))
+                              (executable-find executable))))))
+
 ;; Jedi autocompletion for Python
 (use-package jedi
   :ensure t
