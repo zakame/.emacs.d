@@ -1049,7 +1049,7 @@
 (use-package js2-mode
   :ensure t
   :interpreter (("node" . js2-mode))
-  :mode "\\.\\(js\\|json\\)$"
+  :mode "\\.js\\'"
   :bind (:map js2-mode-map
               ("C-c C-p" . js2-print-json-path))
   :config
