@@ -683,11 +683,6 @@
 
 ;;; Programming
 
-;; Enable ElDoc for automatic documentation of elisp functions
-(dolist (hook
-         '(emacs-lisp-mode-hook lisp-interaction-mode-hook ielm-mode-hook))
-  (add-hook hook #'eldoc-mode))
-
 ;; Don't mention ElDoc mode in modeline
 (eval-after-load "eldoc"
   '(diminish 'eldoc-mode))
@@ -1267,7 +1262,6 @@
   :init
   (setq org-babel-clojure-backend 'cider)
   :config
-  (add-hook 'cider-mode-hook #'eldoc-mode)
   (setq cider-boot-parameters "dev"
         nrepl-log-messages t))
 
