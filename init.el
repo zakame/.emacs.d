@@ -926,14 +926,10 @@
   :config
   (add-hook 'magit-mode-hook 'turn-on-magit-gitflow))
 
-;; magit-github
-(use-package magithub
+;; magit-forge
+(use-package forge
   :after magit
-  :if (executable-find "hub")
-  :ensure t
-  :config
-  (setq magithub-api-timeout 30)
-  (magithub-feature-autoinject t))
+  :ensure t)
 
 ;; git-timemachine
 (use-package git-timemachine
