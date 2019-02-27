@@ -882,30 +882,7 @@
          ("M-g l" . magit-log-trace-definition)
          :map magit-status-mode-map
          ("q" . zakame/magit-quit-session))
-  :init
-  (setq magit-last-seen-setup-instructions "2.1.0")
-  (setq magit-push-always-verify nil)
   :config
-  (magit-define-popup-option 'magit-rebase-popup
-    ?S "Sign using gpg" "--gpg-sign=" 'magit-read-gpg-secret-key)
-  (defun zakame/add-PR-fetch ()
-    "If refs/pull is not defined on a GH or GL repo, define it."
-    (let ((gh-fetch-address
-           "+refs/pull/*/head:refs/pull/origin/*")
-          (gl-fetch-address
-           "+refs/merge-requests/*/head:refs/pull/origin/*")
-          (magit-remotes
-           (magit-get-all "remote" "origin" "fetch")))
-      (unless (or (not magit-remotes)
-                  (member gh-fetch-address magit-remotes)
-                  (member gl-fetch-address magit-remotes))
-        (cond ((string-match "github" (magit-get "remote" "origin" "url"))
-               (magit-git-string
-                "config" "--add" "remote.origin.fetch" gh-fetch-address))
-              ((string-match "gitlab" (magit-get "remote" "origin" "url"))
-               (magit-git-string
-                "config" "--add" "remote.origin.fetch" gl-fetch-address))))))
-  (add-hook 'magit-mode-hook #'zakame/add-PR-fetch)
   (defadvice magit-status (around magit-fullscreen activate)
     (window-configuration-to-register :magit-fullscreen)
     ad-do-it
