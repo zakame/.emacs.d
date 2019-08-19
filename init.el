@@ -1371,9 +1371,7 @@
 ;;; TRAMP method for Vagrant
 (use-package vagrant-tramp
   :if (executable-find "vagrant")
-  :after vagrant
-  :quelpa (vagrant-tramp :fetcher github :repo "zakame/vagrant-tramp"
-                         :files ("bin" "vagrant-tramp.el")))
+  :after vagrant)
 
 
 ;;; Terraform-mode
