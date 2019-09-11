@@ -1371,6 +1371,7 @@
 ;;; TRAMP method for Vagrant
 (use-package vagrant-tramp
   :if (executable-find "vagrant")
+  :ensure t
   :after vagrant)
 
 
