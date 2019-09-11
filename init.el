@@ -94,8 +94,8 @@
 (if (>= emacs-major-version 22)
     (file-name-shadow-mode 1))
 
-;; Work around Emacs <= 26.3 and GnuTLS issues
-(if (version<= emacs-version "26.3")
+;; Work around Emacs < 26.3 and GnuTLS issues
+(if (version< emacs-version "26.3")
     (setq gnutls-algorithm-priority "NORMAL:-VERS-TLS1.3"))
 
 ;; package.el
