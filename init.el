@@ -125,7 +125,8 @@
 (use-package quelpa-use-package
   :ensure t
   :config
-  (setq quelpa-checkout-melpa-p nil))
+  (setq quelpa-checkout-melpa-p nil
+        quelpa-build-explicit-tar-format-p t))
 
 
 ;;; Editing
