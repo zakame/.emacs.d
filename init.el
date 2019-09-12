@@ -1397,6 +1397,7 @@
 
 ;;; Org-Mode
 (use-package org
+  :pin org
   :ensure org
   :mode ("\\.\\(org\\|org_archive\\)$" . org-mode)
   :bind (("\C-cl" . org-store-link)
