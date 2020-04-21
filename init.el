@@ -807,6 +807,8 @@
 
 ;; Add Perl6 editing support
 (use-package perl6-mode
+  :preface (defalias 'perl6-mode 'raku-mode)
+  :defer t
   :quelpa (perl6-mode :fetcher github :repo "perl6/perl6-mode"))
 
 ;; Add Perl6 support in flycheck
