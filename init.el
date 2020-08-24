@@ -805,11 +805,11 @@
 (eval-after-load "abbrev"
   '(diminish 'abbrev-mode))
 
-;; Add Perl6 editing support
-(use-package perl6-mode
+;; Add Raku (Perl6) editing support
+(use-package raku-mode
   :preface (defalias 'perl6-mode 'raku-mode)
-  :defer t
-  :quelpa (perl6-mode :fetcher github :repo "perl6/perl6-mode"))
+  :ensure t
+  :defer t)
 
 ;; Add Perl6 support in flycheck
 (use-package flycheck-perl6
