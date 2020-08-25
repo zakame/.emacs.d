@@ -82,11 +82,11 @@
     (menu-bar-mode int)))
 (when (fboundp 'advice-add)
   (advice-add 'menu-bar-open
-              :before '(lambda ()
+              :before '(lambda (&optional frame initial-x)
                          "Toggle the menu bar on."
                          (zakame/toggle-menu-bar 1)))
   (advice-add 'menu-bar-open
-              :after '(lambda ()
+              :after '(lambda (&optional frame initial-x)
                         "Toggle the menu bar off."
                         (zakame/toggle-menu-bar -1))))
 
