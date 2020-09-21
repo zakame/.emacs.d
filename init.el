@@ -302,7 +302,7 @@
   :ensure t
   :config
   (setq moe-theme-highlight-buffer-id t)
-  (moe-theme-set-color 'red)
+  (moe-theme-apply-color 'red)
   (if (daemonp)
       (add-hook 'after-make-frame-functions
                 (lambda (frame)
@@ -310,7 +310,7 @@
                     (powerline-moe-theme))))
     (powerline-moe-theme))
   (if (string-equal (daemonp) "gnus")
-      (moe-theme-set-color 'green))
+      (moe-theme-apply-color 'green))
   (moe-dark))
 
 ;; pretty-mode is somewhat redundant on Emacs 24.4+
