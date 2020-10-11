@@ -656,7 +656,13 @@
   :if (and (string= system-type 'gnu/linux)
            (eq (call-process-shell-command "pkg-config" nil nil nil "--exists" "poppler") 0))
   :config
-  (pdf-tools-install))
+  ;; fool pdf-tools into thinking we're in nix-shell to not pull in nix deps
+  (defadvice pdf-tools-install (around pdf-tools-install-no-nix)
+    (setenv "AUTOBUILD_NIX_SHELL" "true")
+    ad-do-it
+    (setenv "AUTOBUILD_NIX_SHELL" ""))
+  (ad-activate 'pdf-tools-install)
+  (pdf-tools-install t t))
 
 ;; tsv-mode
 (use-package tsv-mode
