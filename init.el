@@ -453,6 +453,11 @@
   :ensure t
   :after helm)
 
+;; helm-rg
+(use-package helm-rg
+  :ensure t
+  :after helm)
+
 ;; Ansi-Term tweaks
 (use-package term
   :bind (("C-c t" . ansi-term))
