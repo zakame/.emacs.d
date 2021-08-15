@@ -823,8 +823,8 @@
   :ensure t
   :defer t)
 
-;; Add Perl6 support in flycheck
-(use-package flycheck-perl6
+;; Add Raku (Perl6) support in flycheck
+(use-package flycheck-raku
   :ensure t)
 
 ;; If Helm is present, enable helm-perldoc as well
