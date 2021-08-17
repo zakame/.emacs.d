@@ -1388,6 +1388,13 @@
   :after vagrant)
 
 
+;;; Nix
+
+;; nix-mode
+(use-package nix-mode
+  :ensure t)
+
+
 ;;; Terraform-mode
 (use-package terraform-mode
   :if (executable-find "terraform")
