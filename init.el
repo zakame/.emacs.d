@@ -371,12 +371,17 @@
   :config
   (use-package helm-config)
   (setq enable-recursive-minibuffers t
+        helm-completion-style 'emacs
+        completion-styles '(,(if (version< emacs-version "27") 'helm-flex 'flex)
+                            basic partial-completion emacs22)
         helm-show-completion-display-function 'helm-show-completion-default-display-function
         helm-window-show-buffers-function 'helm-window-default-split-fn
         helm-window-prefer-horizontal-split 'decide
         helm-split-window-in-side-p t
         helm-yank-symbol-first t
         helm-move-to-line-cycle-in-source t
+        helm-lisp-fuzzy-completion t
+        helm-etags-fuzzy-match t
         helm-buffers-fuzzy-matching t
         helm-apropos-fuzzy-match t
         helm-recentf-fuzzy-match t
