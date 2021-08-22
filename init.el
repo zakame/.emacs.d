@@ -418,12 +418,6 @@
          ("M-s P" . helm-multi-swoop)
          ("C-c p s p" . helm-multi-swoop-projectile)))
 
-;; Helm-flx
-(use-package helm-flx
-  :ensure t
-  :config
-  (helm-flx-mode +1))
-
 ;; Helm projectile
 (use-package helm-projectile
   :ensure t
