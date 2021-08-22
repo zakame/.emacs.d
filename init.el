@@ -617,9 +617,10 @@
   :ensure t)
 
 ;; Turn on flyspell on all text buffers
-(add-to-list 'text-mode-hook 'flyspell-mode)
-(eval-after-load "flyspell"
-  '(diminish 'flyspell-mode))
+(when (executable-find "ispell")
+  (add-to-list 'text-mode-hook 'flyspell-mode)
+  (eval-after-load "flyspell"
+    '(diminish 'flyspell-mode)))
 
 ;; adaptive wrap for long lines
 (use-package adaptive-wrap
