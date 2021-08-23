@@ -82,13 +82,13 @@
     (menu-bar-mode int)))
 (when (fboundp 'advice-add)
   (advice-add 'menu-bar-open
-              :before '(lambda (&optional frame initial-x)
-                         "Toggle the menu bar on."
-                         (zakame/toggle-menu-bar 1)))
+              :before (lambda (&optional frame initial-x)
+                        "Toggle the menu bar on."
+                        (zakame/toggle-menu-bar 1)))
   (advice-add 'menu-bar-open
-              :after '(lambda (&optional frame initial-x)
-                        "Toggle the menu bar off."
-                        (zakame/toggle-menu-bar -1))))
+              :after (lambda (&optional frame initial-x)
+                       "Toggle the menu bar off."
+                       (zakame/toggle-menu-bar -1))))
 
 ;; Enable File-Name Shadows (currently only available in Emacs 22
 (if (>= emacs-major-version 22)
@@ -187,10 +187,10 @@
      (use-package ansi-color)
      (diminish 'compilation-in-progress)
      (add-hook 'compilation-filter-hook
-               '(lambda ()
-                  (let ((inhibit-read-only t))
-                    (ansi-color-apply-on-region
-                     compilation-filter-start (point)))))))
+               (lambda ()
+                 (let ((inhibit-read-only t))
+                   (ansi-color-apply-on-region
+                    compilation-filter-start (point)))))))
 
 ;; I want more descriptive unique buffer names when on Emacs <= 24.3
 (use-package uniquify
@@ -332,11 +332,11 @@
 ;; let gpg-agent know the right kind of pinentry needed
 ;; ~/.gnupg/gpg.conf should also have `use-agent' setting enabled
 (add-hook 'window-configuration-change-hook
-          '(lambda ()
-             (if (display-graphic-p)
-                 (setenv "DISPLAY" (terminal-name))
-               (setenv "GPG_TTY" (terminal-name))
-               (setenv "DISPLAY"))))
+          (lambda ()
+            (if (display-graphic-p)
+                (setenv "DISPLAY" (terminal-name))
+              (setenv "GPG_TTY" (terminal-name))
+              (setenv "DISPLAY"))))
 
 ;; Projectile
 (use-package projectile
@@ -473,8 +473,8 @@
   (ad-activate 'ansi-term)
   (add-hook 'term-mode-hook 'goto-address-mode)
   (add-hook 'term-exec-hook
-            '(lambda ()
-               (set-buffer-process-coding-system 'utf-8-unix 'utf-8-unix))))
+            (lambda ()
+              (set-buffer-process-coding-system 'utf-8-unix 'utf-8-unix))))
 
 ;; Eshell
 (use-package eshell
@@ -705,7 +705,7 @@
 
 ;; Enable magic indents and newlines at C/C++ files
 (add-hook 'c-mode-common-hook
-          '(lambda () (c-toggle-auto-newline 1)))
+          (lambda () (c-toggle-auto-newline 1)))
 
 ;; Set my C indentation mode to cc-mode
 (setq c-default-style
@@ -756,9 +756,9 @@
         (substring s (match-end 0))
       s))
   (add-hook 'cperl-mode-hook
-            '(lambda ()
-               (advice-add 'which-function :filter-return
-                           #'zakame/which-function-trim-package)))
+            (lambda ()
+              (advice-add 'which-function :filter-return
+                          #'zakame/which-function-trim-package)))
   (define-key cperl-mode-map "{" nil)
   (dolist (face '(cperl-array-face cperl-hash-face))
     (set-face-attribute face nil
@@ -1010,15 +1010,15 @@
           ("html" . (ac-source-emmet-html-aliases
                      ac-source-emmet-html-snippets))))
   (add-hook 'web-mode-before-auto-complete-hooks
-            '(lambda ()
-               (let ((web-mode-cur-language
-                      (web-mode-language-at-pos)))
-                 (if (string= web-mode-cur-language "php")
-                     (yas-activate-extra-mode 'php-mode)
-                   (yas-deactivate-extra-mode 'php-mode))
-                 (if (string= web-mode-cur-language "css")
-                     (setq emmet-use-css-transform t)
-                   (setq emmet-use-css-transform nil)))))
+            (lambda ()
+              (let ((web-mode-cur-language
+                     (web-mode-language-at-pos)))
+                (if (string= web-mode-cur-language "php")
+                    (yas-activate-extra-mode 'php-mode)
+                  (yas-deactivate-extra-mode 'php-mode))
+                (if (string= web-mode-cur-language "css")
+                    (setq emmet-use-css-transform t)
+                  (setq emmet-use-css-transform nil)))))
   (defun zakame/sp-web-mode-code-context-p (id action context)
     "Set smartparens context when in web-mode."
     (and (eq action 'insert)
@@ -1112,11 +1112,11 @@
 ;; let FlyCheck find checkers in Python virtualenvs
 ;; (as long as python-shell-virtualenv-root is set via .dir-locals.el)
 (add-hook 'python-mode-hook
-          '(lambda ()
-             (setq-local flycheck-executable-find
-                         '(lambda (executable)
-                            (let ((exec-path (python-shell-calculate-exec-path)))
-                              (executable-find executable))))))
+          (lambda ()
+            (setq-local flycheck-executable-find
+                        (lambda (executable)
+                          (let ((exec-path (python-shell-calculate-exec-path)))
+                            (executable-find executable))))))
 
 ;; Jedi autocompletion for Python
 (use-package jedi
