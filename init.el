@@ -734,7 +734,6 @@
 
 ;; Use cperl-mode for editing Perl
 (use-package cperl-mode
-  :quelpa (cperl-mode :fetcher github :repo "jrockway/cperl-mode")
   :mode "\\.\\([pP]\\([Llm]\\|erl\\|sgi\\)\\|al\\|t\\)\\'"
   :preface
   (defalias 'perl-mode 'cperl-mode)
