@@ -302,7 +302,8 @@
 (use-package powerline
   :ensure t
   :config
-  (setq powerline-gui-use-vcs-glyph t)
+  (unless (eq window-system 'ns)
+    (setq powerline-gui-use-vcs-glyph t))
   ;; I don't like the recent powerline window focus change, so undo it
   (remove-hook 'focus-out-hook 'powerline-unset-selected-window)
   (add-hook 'focus-out-hook 'powerline-set-selected-window)
