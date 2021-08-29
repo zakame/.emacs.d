@@ -128,6 +128,17 @@
   (setq quelpa-checkout-melpa-p nil
         quelpa-build-explicit-tar-format-p t))
 
+;; Import Nix variables via exec-path-from-shell on macOS
+(use-package exec-path-from-shell
+  :ensure t
+  :if (eq system-type 'darwin)
+  :config
+  (exec-path-from-shell-initialize)
+  (mapc
+   (lambda (env)
+     (exec-path-from-shell-copy-env env))
+   '("NIX_SSL_CERT_FILE" "NIX_PROFILES" "NIX_PATH")))
+
 
 ;;; Editing
 
