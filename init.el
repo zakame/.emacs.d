@@ -669,7 +669,7 @@
 (use-package pdf-tools
   :after yasnippet
   :ensure t
-  :if (and (string= system-type 'gnu/linux)
+  :if (and (eq system-type 'gnu/linux)
            (eq (call-process-shell-command "pkg-config" nil nil nil "--exists" "poppler") 0))
   :config
   ;; fool pdf-tools into thinking we're in nix-shell to not pull in nix deps
