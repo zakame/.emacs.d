@@ -298,6 +298,16 @@
 ;; set human-readable sizes in dired
 (setq dired-listing-switches "-alh")
 
+;; Gruvbox
+(use-package gruvbox-theme
+  :ensure t
+  :config
+  (load-theme 'gruvbox-dark-hard t)
+  ;; Darken the tag found by which-function
+  (advice-add 'which-function-mode
+              :after (lambda ()
+                       (set-face-attribute 'which-func nil
+                                           :foreground "#2B3C44"))))
 ;; Powerline
 (use-package powerline
   :ensure t
