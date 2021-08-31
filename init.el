@@ -346,7 +346,7 @@
   :diminish projectile-mode
   :ensure t
   :init
-  (setq projectile-keymap-prefix (kbd "C-c p"))
+  (define-key projectile-mode-map (kbd "C-c p") ’projectile-command-map)
   :config
   (add-to-list 'projectile-globally-ignored-directories ".precomp")
   (projectile-register-project-type 'perl-module '("META.json" "lib" "t") :test "prove -lr t")
@@ -380,7 +380,7 @@
         helm-show-completion-display-function 'helm-show-completion-default-display-function
         helm-window-show-buffers-function 'helm-window-default-split-fn
         helm-window-prefer-horizontal-split 'decide
-        helm-split-window-in-side-p t
+        helm-split-window-inside-p t
         helm-yank-symbol-first t
         helm-move-to-line-cycle-in-source t
         helm-lisp-fuzzy-completion t
@@ -662,7 +662,7 @@
   :after yasnippet
   :ensure t
   :if (and (eq system-type 'gnu/linux)
-           (eq (call-process-shell-command "pkg-config" nil nil nil "--exists" "poppler") 0))
+           (eq (call-process-shell-command "pkg-config --exists poppler" nil nil nil) 0))
   :config
   ;; fool pdf-tools into thinking we're in nix-shell to not pull in nix deps
   (defadvice pdf-tools-install (around pdf-tools-install-no-nix)
@@ -1571,7 +1571,7 @@
   :bind (("C-c m" . emms))
   :ensure emms
   :config
-  (emms-standard)
+  (emms-all)
   (use-package emms-streams)
   (setq emms-source-file-default-directory "~/Music/")
   (use-package emms-history)
