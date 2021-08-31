@@ -346,8 +346,8 @@
   :diminish projectile-mode
   :ensure t
   :init
-  (define-key projectile-mode-map (kbd "C-c p") ’projectile-command-map)
   :config
+  (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
   (add-to-list 'projectile-globally-ignored-directories ".precomp")
   (projectile-register-project-type 'perl-module '("META.json" "lib" "t") :test "prove -lr t")
   (projectile-register-project-type 'perl-dzil '("dist.ini") :compile "dzil build" :test "dzil test")
