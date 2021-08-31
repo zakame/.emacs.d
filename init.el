@@ -914,6 +914,15 @@
     (kill-buffer)
     (jump-to-register :magit-fullscreen)))
 
+;; magit-delta
+(use-package magit-delta
+  :ensure t
+  :after magit
+  :if (executable-find "delta")
+  :config (setq magit-delta-default-dark-theme "gruvbox-dark")
+  :diminish magit-delta-mode
+  :hook (magit-mode . magit-delta-mode))
+
 ;; magit-gitflow
 (use-package magit-gitflow
   :if (executable-find "git-flow")
