@@ -477,7 +477,11 @@
   (add-hook 'term-mode-hook 'goto-address-mode)
   (add-hook 'term-exec-hook
             (lambda ()
-              (set-buffer-process-coding-system 'utf-8-unix 'utf-8-unix))))
+              (let ((proc (get-buffer-process (current-buffer))))
+                (if (null proc)
+                    (error "No process")
+                  (set-process-coding-system proc 'utf-8-unix 'utf-8-unix)))
+              (force-mode-line-update))))
 
 ;; Eshell
 (use-package eshell
