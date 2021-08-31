@@ -306,22 +306,6 @@
     (setq powerline-gui-use-vcs-glyph t))
   (powerline-default-theme))
 
-;; Moe-Theme
-(use-package moe-theme
-  :ensure t
-  :config
-  (setq moe-theme-highlight-buffer-id t)
-  (moe-theme-apply-color 'red)
-  (if (daemonp)
-      (add-hook 'after-make-frame-functions
-                (lambda (frame)
-                  (with-selected-frame frame
-                    (powerline-moe-theme))))
-    (powerline-moe-theme))
-  (if (string-equal (daemonp) "gnus")
-      (moe-theme-apply-color 'green))
-  (moe-dark))
-
 ;; pretty-mode is somewhat redundant on Emacs 24.4+
 (add-hook 'emacs-lisp-mode-hook 'prettify-symbols-mode)
 
