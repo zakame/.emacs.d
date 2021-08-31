@@ -1673,4 +1673,8 @@
 
 (provide 'init)
 
+;; Local Variables:
+;; byte-compile-warnings: (not free-vars noruntime unresolved)
+;; End:
+
 ;;; init.el ends here
