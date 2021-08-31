@@ -275,7 +275,6 @@
   :config
   (setq tramp-default-method "ssh"
         remote-file-name-inhibit-cache nil
-        tramp-completion-reread-directory-timeout nil
         vc-ignore-dir-regexp (format "\\(%s\\)|\\(%s\\)"
                                      vc-ignore-dir-regexp
                                      tramp-file-name-regexp))
