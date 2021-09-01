@@ -971,22 +971,6 @@
   :ensure t
   :mode "\\.php\\'")
 
-;; emmet-mode
-(use-package emmet-mode
-  :diminish emmet-mode
-  :ensure t
-  :init
-  (dolist (hook '(sgml-mode-hook css-mode-hook kolon-mode-hook))
-    (add-hook hook 'emmet-mode)))
-
-;; AutoComplete for emmet
-(use-package ac-emmet
-  :ensure t
-  :commands (ac-emmet-html-setup ac-emmet-css-setup)
-  :init
-  (add-hook 'sgml-mode-hook 'ac-emmet-html-setup)
-  (add-hook 'css-mode-hook 'ac-emmet-css-setup))
-
 ;; web-mode
 (use-package web-mode
   :ensure t
