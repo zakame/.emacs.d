@@ -616,12 +616,6 @@
   :diminish auto-revert-mode
   :mode (("\\.log\\'" . auto-revert-tail-mode)))
 
-;; Ace Jump mode
-(use-package ace-jump-mode
-  :ensure t
-  :bind (("C-c SPC" . ace-jump-mode)
-         ("C-c C-0" . ace-jump-mode)))
-
 ;; use tramp for connecting to Docker containers
 (use-package docker-tramp
   :after tramp
