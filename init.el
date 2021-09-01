@@ -734,7 +734,7 @@
 
 ;; Use cperl-mode for editing Perl
 (use-package cperl-mode
-  :mode "\\.\\([pP]\\([Llm]\\|erl\\|sgi\\)\\|al\\|t\\)\\'"
+  :mode "\\.\\([pP]\\([Llm]\\|erl\\|sgi\\|od\\)\\|al\\|t\\)\\'"
   :preface
   (defalias 'perl-mode 'cperl-mode)
   :config
@@ -762,11 +762,6 @@
   (dolist (face '(cperl-array-face cperl-hash-face))
     (set-face-attribute face nil
                         :background 'unspecified)))
-
-;; Use pod-mode from renomarlist
-(use-package pod-mode
-  :mode "\\.[pP]od6?\\'"
-  :quelpa (pod-mode :fetcher github :repo "renormalist/emacs-pod-mode"))
 
 ;; Add perltidy.el from the wiki
 (use-package perltidy
