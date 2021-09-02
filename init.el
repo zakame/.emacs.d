@@ -311,8 +311,9 @@
 (use-package powerline
   :ensure t
   :config
-  (unless (eq window-system 'ns)
-    (setq powerline-gui-use-vcs-glyph t))
+  (if (or (member "Hack" (font-family-list))
+          (member "Terminus" (font-family-list)))
+      (setq powerline-gui-use-vcs-glyph t))
   (powerline-default-theme))
 
 ;; pretty-mode is somewhat redundant on Emacs 24.4+
