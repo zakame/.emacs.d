@@ -898,6 +898,7 @@
 ;; Magit
 (use-package magit
   :ensure t
+  :defer 2
   :bind (("C-c g" . magit-status)
          ("M-g b" . magit-blame)
          ("M-g c" . magit-clone)
