@@ -311,12 +311,16 @@
 (use-package powerline
   :ensure t
   :config
+  (defun zakame/set-powerline-vcs-glyph (frame)
+    "Configure `powerline-gui-use-vcs-glyph' based on FRAME."
+    (unless powerline-gui-use-vcs-glyph
+      (if (or (member "Hack" (font-family-list frame))
+              (member "Terminus" (font-family-list frame)))
+          (setq powerline-gui-use-vcs-glyph t))))
   (add-hook 'after-make-frame-functions
-            (lambda (frame)
-              (unless powerline-gui-use-vcs-glyph
-                (if (or (member "Hack" (font-family-list frame))
-                        (member "Terminus" (font-family-list frame)))
-                    (setq powerline-gui-use-vcs-glyph t)))))
+            #'zakame/set-powerline-vcs-glyph)
+  (add-hook 'window-setup-hook
+            (lambda () (zakame/set-powerline-vcs-glyph (selected-frame))))
   (powerline-default-theme))
 
 ;; pretty-mode is somewhat redundant on Emacs 24.4+
