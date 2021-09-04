@@ -302,11 +302,12 @@
   :ensure t
   :config
   (load-theme 'gruvbox-dark-hard t)
-  ;; Darken the tag found by which-function
+  (defun zakame/gruvbox-theme-darken-which-function-tag ()
+    "Darken the foreground in face `which-func' to match Gruvbox Dark."
+    (set-face-attribute 'which-func nil
+                        :foreground "#2B3C44"))
   (advice-add 'which-function-mode
-              :after (lambda ()
-                       (set-face-attribute 'which-func nil
-                                           :foreground "#2B3C44"))))
+              :after #'zakame/gruvbox-theme-darken-which-function-tag))
 ;; Powerline
 (use-package powerline
   :ensure t
@@ -923,12 +924,13 @@
   :config
   (setq magit-delta-default-dark-theme "gruvbox-dark"
         magit-delta-hide-plus-minus-markers nil)
+  (defun zakame/magit-delta-disable-on-magit-log-trace-definition (orig-fun &rest args)
+    "Temporarily disable `magit-delta' on `magit-log-trace-definition'."
+    (magit-delta-mode -1)
+    (apply orig-fun args)
+    (magit-delta-mode +1))
   (advice-add 'magit-log-trace-definition
-              :around (lambda (orig-fun &rest args)
-                        "Temporarily disable `magit-delta' on `magit-log-trace-definition'."
-                        (magit-delta-mode -1)
-                        (apply orig-fun args)
-                        (magit-delta-mode +1)))
+              :around #'zakame/magit-delta-disable-on-magit-log-trace-definition)
   (magit-delta-mode))
 
 ;; magit-gitflow
