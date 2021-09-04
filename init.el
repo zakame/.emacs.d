@@ -919,14 +919,16 @@
   :ensure t
   :after magit
   :if (executable-find "delta")
-  :config (setq magit-delta-default-dark-theme "gruvbox-dark")
+  :diminish magit-delta-mode
+  :config
+  (setq magit-delta-default-dark-theme "gruvbox-dark"
+        magit-delta-hide-plus-minus-markers nil)
   (advice-add 'magit-log-trace-definition
               :around (lambda (orig-fun &rest args)
                         "Temporarily disable `magit-delta' on `magit-log-trace-definition'."
                         (magit-delta-mode -1)
                         (apply orig-fun args)
                         (magit-delta-mode +1)))
-  :diminish magit-delta-mode
   (magit-delta-mode))
 
 ;; magit-gitflow
