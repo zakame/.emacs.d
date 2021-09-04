@@ -928,7 +928,7 @@
   (setq magit-delta-default-dark-theme "gruvbox-dark"
         magit-delta-hide-plus-minus-markers nil)
   (defun zakame/magit-delta-disable-on-magit-log-trace-definition (orig-fun &rest args)
-    "Temporarily disable `magit-delta' on `magit-log-trace-definition'."
+    "Temporarily disable `magit-delta-mode' on `magit-log-trace-definition'."
     (magit-delta-mode -1)
     (apply orig-fun args)
     (magit-delta-mode +1))
