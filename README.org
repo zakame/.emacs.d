@@ -1,5 +1,8 @@
 #+TITLE: My Emacs Settings
 
+#+CAPTION: My Emacs under macOS, font is Envy Code R, gruvbox-dark theme
+[[./screenshot.png]]
+
 My [[./init.el][init.el]] inspired by [[http://emacsrocks.com][Emacs Rocks]] and [[https://github.com/magnars/.emacs.d][Magnars' .emacs.d]].
 
 * Setup
