@@ -927,6 +927,17 @@
   :config
   (setq magit-delta-default-dark-theme "gruvbox-dark"
         magit-delta-hide-plus-minus-markers nil)
+  (defun zakame/vc-diff-delta (&rest args)
+    "Enable `magit-delta-mode' on `vc-diff' buffers."
+    (save-window-excursion
+      (with-current-buffer "*vc-diff*"
+        (let ((buffer-read-only nil))
+          (apply #'call-process-region (point-min) (point-max)
+                 magit-delta-delta-executable t t nil (magit-delta--make-delta-args))
+          (xterm-color-colorize-buffer 'use-overlays)))))
+  (mapc (lambda (fun)
+          (advice-add fun :after #'zakame/vc-diff-delta))
+        '(diff-hl-diff-goto-hunk log-view-diff vc-root-diff))
   (defun zakame/magit-delta-disable-on-magit-log-trace-definition (orig-fun &rest args)
     "Temporarily disable `magit-delta-mode' on `magit-log-trace-definition'."
     (magit-delta-mode -1)
