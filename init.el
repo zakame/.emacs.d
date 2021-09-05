@@ -939,15 +939,15 @@
   (mapc (lambda (fun)
           (advice-add fun :after #'zakame/vc-diff-delta))
         '(diff-hl-diff-goto-hunk log-view-diff vc-root-diff))
-  (defun zakame/magit-delta-disable-on-magit-log-trace-definition (orig-fun &rest args)
+  (defun zakame/magit-delta-disable (orig-fun &rest args)
     "Temporarily disable `magit-delta-mode' on `magit-log-trace-definition'."
     (magit-delta-mode -1)
     (apply orig-fun args)
     (magit-delta-mode +1))
   (advice-add 'magit-log-trace-definition
-              :around #'zakame/magit-delta-disable-on-magit-log-trace-definition)
+              :around #'zakame/magit-delta-disable)
   (advice-add 'magit-log-buffer-file
-              :around #'zakame/magit-delta-disable-on-magit-log-trace-definition)
+              :around #'zakame/magit-delta-disable)
   (magit-delta-mode))
 
 ;; magit-gitflow
