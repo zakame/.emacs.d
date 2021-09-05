@@ -946,6 +946,8 @@
     (magit-delta-mode +1))
   (advice-add 'magit-log-trace-definition
               :around #'zakame/magit-delta-disable-on-magit-log-trace-definition)
+  (advice-add 'magit-log-buffer-file
+              :around #'zakame/magit-delta-disable-on-magit-log-trace-definition)
   (magit-delta-mode))
 
 ;; magit-gitflow
