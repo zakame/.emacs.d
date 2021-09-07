@@ -70,6 +70,7 @@
                                         ; environment
 (windmove-default-keybindings)          ; Enable windmove
 (winner-mode 1)                         ; Enable winner-mode
+(file-name-shadow-mode 1)               ; Enable File-Name Shadows
 (auto-image-file-mode 1)                ; Show images as images, not as
                                         ; semi-random bits
 (setq inhibit-startup-message t)        ; No splash screen (well...)
@@ -89,14 +90,6 @@
               :after (lambda (&optional frame initial-x)
                        "Toggle the menu bar off."
                        (zakame/toggle-menu-bar -1))))
-
-;; Enable File-Name Shadows (currently only available in Emacs 22
-(if (>= emacs-major-version 22)
-    (file-name-shadow-mode 1))
-
-;; Work around Emacs < 26.3 and GnuTLS issues
-(if (version< emacs-version "26.3")
-    (setq gnutls-algorithm-priority "NORMAL:-VERS-TLS1.3"))
 
 ;; package.el
 (require 'package)
@@ -203,12 +196,6 @@
                    (ansi-color-apply-on-region
                     compilation-filter-start (point)))))))
 
-;; I want more descriptive unique buffer names when on Emacs <= 24.3
-(use-package uniquify
-  :if (version<= emacs-version "24.3.1")
-  :config
-  (setq uniquify-buffer-name-style 'post-forward-angle-brackets))
-
 ;; Enable some commands I need.
 (put 'narrow-to-region 'disabled nil)     ; Restrict editing to narrowed
                                         ; region
@@ -256,11 +243,9 @@
 ;; Save point position between editing sessions
 (use-package saveplace
   :config
-  (unless (version< emacs-version "25")
-    (save-place-mode 1))
-  (setq-default save-place t
-                save-place-file (expand-file-name ".places"
-                                                  user-emacs-directory)))
+  (setq save-place-file (expand-file-name ".places"
+                                          user-emacs-directory))
+  (save-place-mode))
 
 (use-package tramp
   :defer t
@@ -889,12 +874,6 @@
   :config
   (add-to-list 'vc-handled-backends 'Fossil))
 
-;; VC-Git
-(use-package vc-git
-  :if (version<= emacs-version "24.3.1")
-  :config
-  (add-to-list 'vc-handled-backends 'Git))
-
 ;; Magit
 (use-package magit
   :ensure t
@@ -977,8 +956,7 @@
   (global-diff-hl-mode)
   (setq diff-hl-side 'left)
   (diff-hl-margin-mode)
-  (unless (version<= emacs-version "24.4")
-    (diff-hl-flydiff-mode))
+  (diff-hl-flydiff-mode)
   (eval-after-load "magit"
     '(add-hook 'magit-post-refresh-hook 'diff-hl-magit-post-refresh)))
 
