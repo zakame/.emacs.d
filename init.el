@@ -515,8 +515,14 @@
                (lambda (command)
                  (add-to-list 'eshell-visual-commands command))
                '("cpandoc" "htop""perldoc"))
-              (add-to-list 'eshell-output-filter-functions
-                           'zakame/eshell-nuke-ansi-escapes t)
+              (add-hook 'eshell-before-prompt-hook
+                        (lambda () (setq-local xterm-color-preserve-properties t)))
+              (remove-hook 'eshell-output-filter-functions
+                           #'eshell-handle-ansi-color)
+              (add-hook 'eshell-preoutput-filter-functions
+                        #'xterm-color-filter)
+              (add-hook 'eshell-output-filter-functions
+                        #'zakame/eshell-nuke-ansi-escapes t)
               (eshell-smart-initialize))))
 
 ;; Async
