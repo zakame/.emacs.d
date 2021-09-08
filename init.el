@@ -453,6 +453,10 @@
   :ensure t
   :after helm)
 
+;; xterm-color
+(use-package xterm-color
+  :ensure t)
+
 ;; Ansi-Term tweaks
 (use-package term
   :bind (("C-c t" . ansi-term))
