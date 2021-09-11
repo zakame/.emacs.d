@@ -534,6 +534,13 @@
   :config
   (dired-async-mode 1))
 
+;; dired-sidebar
+(use-package dired-sidebar
+  :ensure t
+  :bind ("C-c C-n" . dired-sidebar-toggle-sidebar)
+  :config
+  (setq dired-sidebar-theme 'ascii))
+
 ;; Disable automatic scrolling
 (setq-default scroll-margin 1
               scroll-conservatively 0
