@@ -574,7 +574,7 @@
 ;; Neater vertical separator in emacs -nw
 (let ((display-table (or standard-display-table (make-display-table))))
   (set-display-table-slot display-table
-                          'vertical-border (make-glyph-code ?┃))
+                          'vertical-border (make-glyph-code #x2503))
   (setq standard-display-table display-table))
 
 ;; pos-tip
