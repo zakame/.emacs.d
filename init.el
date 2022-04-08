@@ -658,7 +658,9 @@
   :diminish undo-tree-mode
   :ensure t
   :config
-  (global-undo-tree-mode 1))
+  (global-undo-tree-mode 1)
+  (setq undo-tree-history-directory-alist
+        `(("." . ,(expand-file-name "undo-tree-history" user-emacs-directory)))))
 
 ;; expand-region
 (use-package expand-region
