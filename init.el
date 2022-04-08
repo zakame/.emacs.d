@@ -684,8 +684,8 @@
 
 ;; tsv-mode
 (use-package tsv-mode
-  :mode "\\.tsv\\'"
-  :quelpa (tsv-mode :fetcher url :url "https://www.emacswiki.org/emacs/download/tsv-mode.el"))
+  :load-path "site-lisp/tsv-mode"
+  :mode "\\.tsv\\'")
 
 ;; csv-mode
 (use-package csv-mode
