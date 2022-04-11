@@ -904,7 +904,7 @@
          ("q" . zakame/magit-quit-session))
   :config
   (setq magit-section-visibility-indicator
-        (cons (if (char-displayable-p ?…) "…" "...")
+        (cons (if (char-displayable-p #x2026) (string #x2026) "...")
               t))
   (defadvice magit-status (around magit-fullscreen activate)
     (window-configuration-to-register :magit-fullscreen)
