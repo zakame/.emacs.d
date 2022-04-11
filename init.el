@@ -1,5 +1,5 @@
 ;;; init.el --- My Emacs customizations
-;; Copyright (C) 2005-2018  Zak B. Elep
+;; Copyright (C) 2005 Zak B. Elep
 
 ;;; Package description
 
