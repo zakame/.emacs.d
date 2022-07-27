@@ -450,6 +450,9 @@
 ;; helm-rg
 (use-package helm-rg
   :ensure t
+  :config
+  (setq helm-rg-default-extra-args "--hidden"
+        helm-rg-default-glob-string "!.git")
   :after helm)
 
 ;; xterm-color
