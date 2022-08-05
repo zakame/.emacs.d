@@ -284,6 +284,7 @@
 ;; Gruvbox
 (use-package gruvbox-theme
   :ensure t
+  :no-require
   :config
   (load-theme 'gruvbox-dark-hard t)
   (defun zakame/gruvbox-theme-darken-which-function-tag ()
@@ -292,6 +293,7 @@
                         :foreground "#2B3C44"))
   (advice-add 'which-function-mode
               :after #'zakame/gruvbox-theme-darken-which-function-tag))
+
 ;; Powerline
 (use-package powerline
   :ensure t
