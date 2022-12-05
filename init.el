@@ -1113,6 +1113,10 @@
   :ensure t
   :mode "\\.jade\\'")
 
+;; TypeScript
+(use-package typescript-mode
+  :ensure t)
+
 ;; let FlyCheck find checkers in Python virtualenvs
 ;; (as long as python-shell-virtualenv-root is set via .dir-locals.el)
 (add-hook 'python-mode-hook
