@@ -366,7 +366,6 @@
          ("C-x C-f" . helm-find-files)
          ("M-s o" . helm-occur))
   :config
-  (use-package helm-config)
   (setq enable-recursive-minibuffers t
         helm-completion-style 'emacs
         completion-styles `(,(if (version< emacs-version "27") 'helm-flex 'flex)
