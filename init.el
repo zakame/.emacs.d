@@ -460,9 +460,16 @@
 (use-package xterm-color
   :ensure t)
 
+;; vterm - see also ~/.emacs.d/emacs-vterm.zsh
+(use-package vterm
+  :bind (("C-c t" . vterm))
+  :ensure t
+  :config
+  (setq vterm-buffer-name-string "vterm %s")
+  (define-key vterm-mode-map (kbd "C-g") #'vterm--self-insert))
+
 ;; Ansi-Term tweaks
 (use-package term
-  :bind (("C-c t" . ansi-term))
   :config
   (defadvice term-sentinel (around ansi-term-kill-buffer (proc msg))
     (if (memq (process-status proc) '(signal exit))
