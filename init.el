@@ -281,6 +281,10 @@
 ;; set human-readable sizes in dired
 (setq dired-listing-switches "-alh")
 
+;; disable ls --dired on MacOS
+(when (eq system-type 'darwin)
+  (setq dired-use-ls-dired nil))
+
 ;; Gruvbox
 (use-package gruvbox-theme
   :ensure t
@@ -466,7 +470,7 @@
   :ensure t
   :config
   (setq vterm-buffer-name-string "vterm %s")
-  (define-key vterm-mode-map (kbd "C-g") #'vterm--self-insert))
+  (define-key vterm-mode-map (kbd "C-q") #'vterm-send-next-key))
 
 ;; Ansi-Term tweaks
 (use-package term
