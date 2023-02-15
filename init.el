@@ -470,7 +470,8 @@
   :ensure t
   :config
   (setq vterm-buffer-name-string "vterm %s")
-  (define-key vterm-mode-map (kbd "C-q") #'vterm-send-next-key))
+  (define-key vterm-mode-map (kbd "C-q") #'vterm-send-next-key)
+  (define-key vterm-mode-map (kbd "C-g") #'vterm--self-insert))
 
 ;; Ansi-Term tweaks
 (use-package term
