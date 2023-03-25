@@ -922,6 +922,7 @@
   (setq magit-section-visibility-indicator
         (cons (if (char-displayable-p #x2026) (string #x2026) "...")
               t))
+  (setq magit-display-buffer-function #'display-buffer)
   (defadvice magit-status (around magit-fullscreen activate)
     (window-configuration-to-register :magit-fullscreen)
     ad-do-it
