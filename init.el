@@ -1609,7 +1609,7 @@
   (mapc
    (lambda (mode)
      (add-to-list 'emojify-inhibit-major-modes mode))
-   '(cider-repl-mode eshell-mode term-mode))
+   '(cider-repl-mode eshell-mode term-mode terraform-mode))
   (add-hook 'after-init-hook #'global-emojify-mode))
 
 
