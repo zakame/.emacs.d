@@ -643,9 +643,10 @@
   :mode (("\\.log\\'" . auto-revert-tail-mode)))
 
 ;; use tramp for connecting to Docker containers
-(use-package docker-tramp
-  :after tramp
-  :ensure t)
+(when (version< emacs-version "29")
+  (use-package docker-tramp
+    :after tramp
+    :ensure t))
 
 ;; Turn on flyspell on all text buffers
 (when (executable-find "ispell")
