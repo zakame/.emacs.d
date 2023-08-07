@@ -980,6 +980,12 @@
   :after magit
   :ensure t)
 
+;; install for EmacSQL support on Magit
+(use-package sqlite3
+  :if (and (eq system-type 'darwin)
+           (executable-find "sqlite3"))
+  :ensure t)
+
 ;; git-timemachine
 (use-package git-timemachine
   :bind (("M-g t" . git-timemachine))
