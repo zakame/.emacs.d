@@ -1185,8 +1185,10 @@
   (add-hook 'css-mode-hook 'skewer-css-mode)
   (add-hook 'html-mode-hook 'skewer-html-mode))
 
-;; use whatever xdg-open uses as our default browser
-(setq browse-url-browser-function 'browse-url-xdg-open)
+;; use whatever xdg-open uses as our default browser on Linux
+(setq browse-url-browser-function (if (eq system-type 'gnu/linux)
+                                      'browse-url-xdg-open
+                                    'browse-url-default-browser))
 
 ;; yaml-mode
 (use-package yaml-mode
