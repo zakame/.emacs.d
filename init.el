@@ -1408,18 +1408,6 @@
         slime-contribs '(slime-fancy)))
 
 
-;;; Vagrant
-(use-package vagrant
-  :if (executable-find "vagrant")
-  :ensure t)
-
-;;; TRAMP method for Vagrant
-(use-package vagrant-tramp
-  :if (executable-find "vagrant")
-  :ensure t
-  :after vagrant)
-
-
 ;;; Nix
 
 ;; nix-mode
