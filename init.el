@@ -557,7 +557,7 @@
   :ensure t
   :bind ("C-c C-n" . dired-sidebar-toggle-sidebar)
   :config
-  (setq dired-sidebar-theme 'ascii))
+  (setq dired-sidebar-theme 'nerd))
 
 ;; Disable automatic scrolling
 (setq-default scroll-margin 1
