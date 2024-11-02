@@ -701,11 +701,6 @@
   (ad-activate 'pdf-tools-install)
   (pdf-tools-install t t))
 
-;; tsv-mode
-(use-package tsv-mode
-  :load-path "site-lisp/tsv-mode"
-  :mode "\\.tsv\\'")
-
 ;; csv-mode
 (use-package csv-mode
   :ensure t
