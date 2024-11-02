@@ -228,11 +228,14 @@
 ;; Use Markdown Mode
 (use-package markdown-mode
   :ensure t
-  :mode "\\.md\\'"
+  :mode (("README\\.md\\'" . gfm-mode)
+         ("\\.md\\'" . markdown-mode))
   :config
-  (setq markdown-command "Markdown.pl"))
+  (setq markdown-command "multimarkdown")
+  :bind (:map markdown-mode-map
+              ("C-c C-e" . markdown-do)))
 
-;; Markdown previewer (especially for GFH)
+;; Markdown previewer (especially for GFM)
 (use-package gh-md
   :ensure t
   :after markdown-mode
